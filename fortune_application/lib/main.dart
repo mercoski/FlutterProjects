@@ -42,93 +42,82 @@ class _FortuneAppState extends State<FortuneApp> {
     'TAVSİYE: Bugün tek başına biraz yürüyüş yap, çocukluğunda dinlediğin şarkıları aç ve o zamanlar oynadığın oyunları hayal et'
   ];
 
-  int yanitIndex = 0;
-
+  int yanitNo = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple[400],
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.purple[800],
-        title: Text('GÜNÜN FALI'),
+        title: Text('Fortune Application'),
+        backgroundColor: Colors.blue[800],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: 150,
-              margin: EdgeInsets.only(bottom: 20),
-              child: Image.asset('assets/fortune.png'),
-            ),
-            Divider(),
-            Card(
-              margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 40.0),
-              child: ListTile(
-                leading: Icon(
-                  Icons.favorite,
-                  color: Colors.red,
-                ),
-                title: Text(
-                  'Love',
-                ),
-                onTap: () {
-                  setState(() {
-                    yanitIndex = Random().nextInt(5) + 1;
-                  });
-                },
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: double.infinity,
+                height: 100,
+                child: Image.asset('assets/fortune.png'),
               ),
-            ),
-            Divider(),
-            Card(
-              margin: EdgeInsets.symmetric(vertical: 5, horizontal: 40),
-              child: ListTile(
-                leading: Icon(
-                  Icons.money,
-                  color: Colors.green,
+              Divider(),
+              Card(
+                child: ListTile(
+                  leading: Icon(
+                    Icons.favorite,
+                    color: Colors.red,
+                  ),
+                  title: Text(
+                    'Love',
+                    textAlign: TextAlign.left,
+                  ),
+                  onTap: () {
+                    setState(() {
+                      yanitNo = Random().nextInt(5) + 1;
+                    });
+                  },
                 ),
-                title: Text(
-                  'Money',
-                ),
-                onTap: () {
-                  setState(() {
-                    yanitIndex = Random().nextInt(5) + 6;
-                  });
-                },
               ),
-            ),
-            Divider(),
-            Card(
-              margin: EdgeInsets.symmetric(vertical: 5, horizontal: 40),
-              child: ListTile(
-                leading: Icon(
-                  Icons.question_answer,
-                  color: Colors.blue,
+              Divider(),
+              Card(
+                child: ListTile(
+                  leading: Icon(
+                    Icons.shopping_bag,
+                    color: Colors.green,
+                  ),
+                  title: Text('Money'),
+                  onTap: () {
+                    setState(() {
+                      yanitNo = Random().nextInt(5) + 6;
+                    });
+                  },
                 ),
-                title: Text(
-                  'Daily check',
+              ),
+              Divider(),
+              Card(
+                child: ListTile(
+                  leading: Icon(
+                    Icons.watch,
+                    color: Colors.blue,
+                  ),
+                  title: Text('Daily fortune'),
+                  onTap: () {
+                    setState(() {
+                      yanitNo = Random().nextInt(5) + 11;
+                    });
+                  },
                 ),
-                onTap: () {
-                  setState(() {
-                    yanitIndex = Random().nextInt(5) + 11;
-                  });
-                },
               ),
-            ),
-            Divider(),
-            Container(
-              color: Colors.purple[400],
-              margin: EdgeInsets.symmetric(vertical: 5, horizontal: 40),
-              width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-              height: 200,
-              child: Text(
-                yanitlar[yanitIndex],
+              Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Text(yanitlar[yanitNo], textAlign: TextAlign.center),
+                ),
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );
