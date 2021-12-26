@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -42,30 +42,10 @@ class _DrumKitState extends State<DrumKit> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: TextButton(
-                        onPressed: () {
-                          oynatici.play('oobah.wav');
-                        },
-                        style: TextButton.styleFrom(padding: EdgeInsets.all(8)),
-                        child: Container(
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          color: Color(0xffA7B9CF),
-                        ),
-                      ),
+                      child: HitButton('bip', Colors.blue),
                     ),
                     Expanded(
-                      child: TextButton(
-                        onPressed: () {
-                          oynatici.play('how.wav');
-                        },
-                        style: TextButton.styleFrom(padding: EdgeInsets.all(8)),
-                        child: Container(
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          color: Color(0xff301633),
-                        ),
-                      ),
+                      child: HitButton('bongo', Colors.blueAccent),
                     ),
                   ],
                 ),
@@ -74,30 +54,10 @@ class _DrumKitState extends State<DrumKit> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: TextButton(
-                        onPressed: () {
-                          oynatici.play('bongo.wav');
-                        },
-                        style: TextButton.styleFrom(padding: EdgeInsets.all(8)),
-                        child: Container(
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          color: Color(0xff663D6B),
-                        ),
-                      ),
+                      child: HitButton('clap1', Colors.yellow),
                     ),
                     Expanded(
-                      child: TextButton(
-                        onPressed: () {
-                          oynatici.play('bip.wav');
-                        },
-                        style: TextButton.styleFrom(padding: EdgeInsets.all(8)),
-                        child: Container(
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          color: Color(0xff427FC9),
-                        ),
-                      ),
+                      child: HitButton('clap2', Colors.yellowAccent),
                     ),
                   ],
                 ),
@@ -106,30 +66,10 @@ class _DrumKitState extends State<DrumKit> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: TextButton(
-                        onPressed: () {
-                          oynatici.play('crash.wav');
-                        },
-                        style: TextButton.styleFrom(padding: EdgeInsets.all(8)),
-                        child: Container(
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          color: Color(0xff3E2041),
-                        ),
-                      ),
+                      child: HitButton('clap3', Colors.purple),
                     ),
                     Expanded(
-                      child: TextButton(
-                        onPressed: () {
-                          oynatici.play('clap3.wav');
-                        },
-                        style: TextButton.styleFrom(padding: EdgeInsets.all(8)),
-                        child: Container(
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          color: Color(0xff4B2A4F),
-                        ),
-                      ),
+                      child: HitButton('crash', Colors.purpleAccent),
                     ),
                   ],
                 ),
@@ -138,30 +78,10 @@ class _DrumKitState extends State<DrumKit> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: TextButton(
-                        onPressed: () {
-                          oynatici.play('clap1.wav');
-                        },
-                        style: TextButton.styleFrom(padding: EdgeInsets.all(8)),
-                        child: Container(
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          color: Colors.yellow,
-                        ),
-                      ),
+                      child: HitButton('ridebel', Colors.red),
                     ),
                     Expanded(
-                      child: TextButton(
-                        onPressed: () {
-                          oynatici.play('clap2.wav');
-                        },
-                        style: TextButton.styleFrom(padding: EdgeInsets.all(8)),
-                        child: Container(
-                          width: double.maxFinite,
-                          height: double.maxFinite,
-                          color: Color(0xff23290D),
-                        ),
-                      ),
+                      child: HitButton('woo', Colors.redAccent),
                     ),
                   ],
                 ),
@@ -169,6 +89,20 @@ class _DrumKitState extends State<DrumKit> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  TextButton HitButton(String ses, Color renk) {
+    return TextButton(
+      onPressed: () {
+        oynatici.play('$ses.wav');
+      },
+      style: TextButton.styleFrom(padding: EdgeInsets.all(8)),
+      child: Container(
+        width: double.maxFinite,
+        height: double.maxFinite,
+        color: renk,
       ),
     );
   }
