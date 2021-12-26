@@ -96,7 +96,9 @@ class _YemekSayfasiState extends State<YemekSayfasi> {
               ),
             ),
           ),
-          Text(yemekListesi[yemekNo - 1]),
+          Text(
+            yemekListesi[yemekNo - 1],
+          ),
           Divider(),
           Expanded(
             child: Padding(
