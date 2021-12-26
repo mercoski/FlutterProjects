@@ -35,6 +35,7 @@ class YemekSayfasi extends StatefulWidget {
   _YemekSayfasiState createState() => _YemekSayfasiState();
 }
 
+//Yorum deneme
 class _YemekSayfasiState extends State<YemekSayfasi> {
   int corbaNo = 1;
   int yemekNo = 1;
