@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:dogru_yanlis_uygulamasi/test_data.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
@@ -31,6 +32,8 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
   List<Widget> answerList = [];
   int soruSayisi = 0;
 
+  TestVeri test1 = TestVeri();
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,7 +46,7 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                soruListesi[soruSayisi],
+                test1.getSoruMetni(soruSayisi),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20.0,
@@ -86,10 +89,18 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                       onPressed: () {
                         setState(
                           () {
-                            if (soruSayisi < soruListesi.length - 1) {
-                              answerList.add(
-                                kYanlisIconu,
-                              );
+                            if (soruSayisi <
+                                test1.getSoruListesiUzunlugu() - 1) {
+                              if (test1.getSoruCevabi(soruSayisi) == false) {
+                                answerList.add(
+                                  kDogruIconu,
+                                );
+                              } else if (test1.getSoruCevabi(soruSayisi)) {
+                                answerList.add(
+                                  kYanlisIconu,
+                                );
+                              }
+
                               soruSayisi++;
                             }
                           },
@@ -111,10 +122,18 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
                       onPressed: () {
                         setState(
                           () {
-                            if (soruSayisi < soruListesi.length - 1) {
-                              answerList.add(
-                                kYanlisIconu,
-                              );
+                            if (soruSayisi <
+                                test1.getSoruListesiUzunlugu() - 1) {
+                              if (test1.getSoruCevabi(soruSayisi) == false) {
+                                answerList.add(
+                                  kYanlisIconu,
+                                );
+                              } else if (test1.getSoruCevabi(soruSayisi)) {
+                                answerList.add(
+                                  kDogruIconu,
+                                );
+                              }
+
                               soruSayisi++;
                             }
                           },
