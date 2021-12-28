@@ -19,7 +19,7 @@ class _InputPageState extends State<InputPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kAppBarColor,
-        title: Text('Life Expectency'),
+        title: Text('Life Expectancy'),
         centerTitle: true,
       ),
       body: Center(
