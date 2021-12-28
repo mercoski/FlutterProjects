@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 import 'created_widgets.dart';
 
 class InputPage extends StatefulWidget {
-  const InputPage({Key? key}) : super(key: key);
-
   @override
   _InputPageState createState() => _InputPageState();
 }
