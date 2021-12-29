@@ -14,7 +14,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  String seciliCinsiyet = '';
+  String seciliCinsiyet = 'MALE';
   double daysOfSport = 0.0;
   double numberOfSmoke = 0.0;
   int defaultHeight = 170;

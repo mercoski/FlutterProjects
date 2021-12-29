@@ -1,8 +1,8 @@
-int weight_height_func(int height_weight, bool add_remove) {
-  if (add_remove) {
-    height_weight++;
+int weight_height_func(int heightWeight, bool addRemove) {
+  if (addRemove) {
+    heightWeight++;
   } else {
-    height_weight--;
+    heightWeight--;
   }
-  return height_weight;
+  return heightWeight;
 }
