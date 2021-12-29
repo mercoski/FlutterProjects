@@ -270,14 +270,18 @@ class _InputPageState extends State<InputPage> {
               child: MyContainer(
                 OnPress: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => CalculatePage(UserVariables(
-                              seciliCinsiyet: seciliCinsiyet,
-                              daysOfSport: daysOfSport,
-                              numberOfSmoke: numberOfSmoke,
-                              defaultHeight: defaultHeight,
-                              defaultWeight: defaultWeight))));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CalculatePage(
+                        UserVariables(
+                            seciliCinsiyet: seciliCinsiyet,
+                            daysOfSport: daysOfSport,
+                            numberOfSmoke: numberOfSmoke,
+                            defaultHeight: defaultHeight,
+                            defaultWeight: defaultWeight),
+                      ),
+                    ),
+                  );
                 },
                 child: Center(
                   child: Text(
