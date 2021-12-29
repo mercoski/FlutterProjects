@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:average_life_expectency/color_constants.dart';
-import 'package:average_life_expectency/variables.dart';
+import 'package:average_life_expectency/results_page.dart';
+import 'package:average_life_expectency/user_variables.dart';
 import 'package:flutter/material.dart';
 
 import 'created_widgets.dart';
+import 'height_weight_button_func.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -12,6 +14,12 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  String seciliCinsiyet = '';
+  double daysOfSport = 0.0;
+  double numberOfSmoke = 0.0;
+  int defaultHeight = 170;
+  int defaultWeight = 70;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +70,8 @@ class _InputPageState extends State<InputPage> {
                                   child: OutlinedButton(
                                     onPressed: () {
                                       setState(() {
-                                        defaultHeight++;
+                                        defaultHeight = weight_height_func(
+                                            defaultHeight, true);
                                       });
                                     },
                                     child: Icon(Icons.add),
@@ -75,7 +84,8 @@ class _InputPageState extends State<InputPage> {
                                   child: OutlinedButton(
                                     onPressed: () {
                                       setState(() {
-                                        defaultHeight--;
+                                        defaultHeight = weight_height_func(
+                                            defaultHeight, false);
                                       });
                                     },
                                     child: Icon(Icons.remove),
@@ -121,7 +131,8 @@ class _InputPageState extends State<InputPage> {
                                   child: OutlinedButton(
                                     onPressed: () {
                                       setState(() {
-                                        defaultWeight++;
+                                        defaultWeight = weight_height_func(
+                                            defaultWeight, true);
                                       });
                                     },
                                     child: Icon(Icons.add),
@@ -134,7 +145,8 @@ class _InputPageState extends State<InputPage> {
                                   child: OutlinedButton(
                                     onPressed: () {
                                       setState(() {
-                                        defaultWeight--;
+                                        defaultWeight = weight_height_func(
+                                            defaultWeight, false);
                                       });
                                     },
                                     child: Icon(Icons.remove),
@@ -252,6 +264,28 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ),
                 ],
+              ),
+            ),
+            Expanded(
+              child: MyContainer(
+                OnPress: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CalculatePage(UserVariables(
+                              seciliCinsiyet: seciliCinsiyet,
+                              daysOfSport: daysOfSport,
+                              numberOfSmoke: numberOfSmoke,
+                              defaultHeight: defaultHeight,
+                              defaultWeight: defaultWeight))));
+                },
+                child: Center(
+                  child: Text(
+                    'CALCULATE',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20),
+                  ),
+                ),
               ),
             ),
           ],
