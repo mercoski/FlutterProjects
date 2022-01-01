@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
   DefaultVariables defaultVariables =
       DefaultVariables('ankara', -999, [], 2343732, 'c', 0, 0);
 
+
   Future<void> getLocationData() async {
     var url = Uri.parse(
       'https://www.metaweather.com/api/location/search/?query=' +
