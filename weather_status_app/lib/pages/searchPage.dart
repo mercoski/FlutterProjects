@@ -66,22 +66,27 @@ class _SearchPageState extends State<SearchPage> {
                 'https://www.metaweather.com/api/location/search/?query=' +
                     textController.text);
             var response = await http.get(url);
-            jsonDecode(response.body).isEmpty
-                ? _showMyDialog()
-                : Navigator.pop(context, textController.text);
+            try {
+              if (response.body.isEmpty) {
+                _showMyDialog();
+              } else {
+                Navigator.pop(context, textController.text.trim());
+              }
+            } on Exception catch (e) {
+              print(response.body);
+            }
           },
           backgroundColor: Colors.red,
           child: Text('OK'),
-        ),
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
         ),
         backgroundColor: Colors.transparent,
         body: Center(
           child: Column(
             // ignore: prefer_const_literals_to_create_immutables
             children: [
+              SizedBox(
+                height: 100,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 50.0),
                 child: TextField(

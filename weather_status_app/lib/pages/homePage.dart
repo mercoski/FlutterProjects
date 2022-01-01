@@ -63,31 +63,35 @@ class _HomePageState extends State<HomePage> {
           'Location permissions are permanently denied, we cannot request permissions.');
     }
 
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.low);
-    defaultVariables.lattitude = position.latitude.toDouble();
-    defaultVariables.longtitude = position.longitude.toDouble();
-    var url = Uri.parse(
-      'https://www.metaweather.com/api/location/search/?lattlong=' +
-          defaultVariables.lattitude.toString() +
-          ', ' +
-          defaultVariables.longtitude.toString(),
-    );
-    var response = await http.get(url);
-    defaultVariables.woeid = jsonDecode(response.body)[1]['woeid'];
-    defaultVariables.defaultState = jsonDecode(response.body)[1]['title'];
+    try {
+      Position position = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.low);
+      defaultVariables.lattitude = position.latitude.toDouble();
+      defaultVariables.longtitude = position.longitude.toDouble();
+      var url = Uri.parse(
+        'https://www.metaweather.com/api/location/search/?lattlong=' +
+            defaultVariables.lattitude.toString() +
+            ', ' +
+            defaultVariables.longtitude.toString(),
+      );
+      var response = await http.get(url);
+      defaultVariables.woeid = jsonDecode(response.body)[1]['woeid'];
+      defaultVariables.defaultState = jsonDecode(response.body)[1]['title'];
 
-    url = Uri.parse(
-      'https://www.metaweather.com/api/location/' +
-          defaultVariables.woeid.toString(),
-    );
-    response = await http.get(url);
-    defaultVariables.defaultTemp =
-        jsonDecode(response.body)['consolidated_weather'][0]['the_temp']
-            .toInt();
-    defaultVariables.default_weather_abbr =
-        jsonDecode(response.body)['consolidated_weather'][0]
-            ['weather_state_abbr'];
+      url = Uri.parse(
+        'https://www.metaweather.com/api/location/' +
+            defaultVariables.woeid.toString(),
+      );
+      response = await http.get(url);
+      defaultVariables.defaultTemp =
+          jsonDecode(response.body)['consolidated_weather'][0]['the_temp']
+              .toInt();
+      defaultVariables.default_weather_abbr =
+          jsonDecode(response.body)['consolidated_weather'][0]
+              ['weather_state_abbr'];
+    } on Exception catch (e) {
+      print(e);
+    }
 
     setState(() {});
   }
@@ -115,9 +119,17 @@ class _HomePageState extends State<HomePage> {
               body: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
+                    Container(
+                      height: 80,
+                      width: 80,
+                      child: Image.network(
+                          'https://www.metaweather.com/static/img/weather/png/${defaultVariables.default_weather_abbr}.png'),
+                    ),
                     Text(
                       defaultVariables.defaultTemp.toString() + ' C°',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 50,
                           fontWeight: FontWeight.bold,
@@ -125,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                           shadows: [
                             Shadow(
                                 blurRadius: 30,
-                                color: Colors.black54,
+                                color: Colors.red,
                                 offset: Offset(-3, 5))
                           ]),
                     ),
@@ -138,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                           style: TextStyle(fontSize: 30, shadows: [
                             Shadow(
                                 blurRadius: 20,
-                                color: Colors.black54,
+                                color: Colors.red,
                                 offset: Offset(-3, 5))
                           ]),
                         ),
