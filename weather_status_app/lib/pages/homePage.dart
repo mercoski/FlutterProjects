@@ -148,7 +148,9 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          defaultVariables.defaultState.toUpperCase(),
+                          defaultVariables.defaultState
+                              .toLowerCase()
+                              .toUpperCase(),
                           // ignore: prefer_const_literals_to_create_immutables
                           style: TextStyle(fontSize: 30, shadows: [
                             Shadow(
