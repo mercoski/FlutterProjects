@@ -76,7 +76,10 @@ class _HomePageState extends State<HomePage> {
       );
       var response = await http.get(url);
       defaultVariables.woeid = jsonDecode(response.body)[1]['woeid'];
-      defaultVariables.defaultState = jsonDecode(response.body)[1]['title'];
+      defaultVariables.defaultState = jsonDecode(response.body)[1]['title']
+          .toString()
+          .toLowerCase()
+          .toUpperCase();
 
       url = Uri.parse(
         'https://www.metaweather.com/api/location/' +

@@ -66,14 +66,17 @@ class _SearchPageState extends State<SearchPage> {
                 'https://www.metaweather.com/api/location/search/?query=' +
                     textController.text);
             var response = await http.get(url);
+            var text = textController.text.trim();
             try {
-              if (response.body.isEmpty) {
+              if (response.body.isEmpty ||
+                  (jsonDecode(response.body).isEmpty && text.isEmpty)) {
                 _showMyDialog();
+                print(jsonDecode(response.body));
               } else {
-                Navigator.pop(context, textController.text.trim());
+                Navigator.pop(context, text);
               }
             } on Exception catch (e) {
-              print(response.body);
+              print(e);
             }
           },
           backgroundColor: Colors.red,
