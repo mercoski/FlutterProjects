@@ -1,10 +1,8 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors
 
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:weather_status_app/apis/tempdata.dart';
-import 'package:weather_status_app/pages/homePage.dart';
 import 'package:http/http.dart' as http;
 
 class SearchPage extends StatefulWidget {
@@ -64,14 +62,13 @@ class _SearchPageState extends State<SearchPage> {
           onPressed: () async {
             var url = Uri.parse(
                 'https://www.metaweather.com/api/location/search/?query=' +
-                    textController.text);
+                    textController.text.trim());
             var response = await http.get(url);
-            var text = textController.text.trim();
+            String text = textController.text.toString().trim();
             try {
               if (response.body.isEmpty ||
                   (jsonDecode(response.body).isEmpty || text.isEmpty)) {
                 _showMyDialog();
-                print(jsonDecode(response.body));
               } else {
                 Navigator.pop(context, text);
               }
