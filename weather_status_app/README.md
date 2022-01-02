@@ -30,5 +30,6 @@ Flutter project for checking weather status.
 
 ◊ Getting text input - (TextEditingController / TextField)
 
-![weathercheck](https://user-images.githubusercontent.com/24735699/147888373-e63aacd2-b7d9-4c60-af18-5e1f9f9bb6eb.png)
+![weathercheck](https://user-images.githubusercontent.com/24735699/147888410-ab281431-f7eb-496b-b8d0-99803f0861b2.png)
+
 
