@@ -1,4 +1,4 @@
-# weather_status_app
+# WeatherCheck
 
 Flutter project for checking weather status.
 
@@ -29,4 +29,6 @@ Flutter project for checking weather status.
 ◊ FloatingActionButton
 
 ◊ Getting text input - (TextEditingController / TextField)
+
+![weathercheck](https://user-images.githubusercontent.com/24735699/147888373-e63aacd2-b7d9-4c60-af18-5e1f9f9bb6eb.png)
 
