@@ -69,7 +69,7 @@ class _SearchPageState extends State<SearchPage> {
             var text = textController.text.trim();
             try {
               if (response.body.isEmpty ||
-                  (jsonDecode(response.body).isEmpty && text.isEmpty)) {
+                  (jsonDecode(response.body).isEmpty || text.isEmpty)) {
                 _showMyDialog();
                 print(jsonDecode(response.body));
               } else {
