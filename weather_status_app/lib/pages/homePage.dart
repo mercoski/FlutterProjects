@@ -208,6 +208,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           IconButton(
                             onPressed: () async {
+                              print('Hello world');
                               defaultVariables.defaultState =
                                   await Navigator.push(
                                 context,
