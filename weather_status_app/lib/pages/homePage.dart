@@ -1,10 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:convert';
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:weather_status_app/apis/tempdata.dart';
 import 'package:weather_status_app/pages/searchPage.dart';
 import 'package:http/http.dart' as http;
@@ -208,7 +206,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                           IconButton(
                             onPressed: () async {
-                              print('Hello world');
                               defaultVariables.defaultState =
                                   await Navigator.push(
                                 context,
