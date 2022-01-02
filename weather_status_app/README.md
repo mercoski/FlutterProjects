@@ -4,8 +4,8 @@ Flutter project for checking weather status.
 
 ## Context
 
-◊ initState()
-◊ Adaptive backgroud
+◊ initState() /n
+◊ Adaptive backgroud /n
 ◊ CircularProgressIndicator
 ◊ API
 ◊ OOP
