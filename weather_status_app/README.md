@@ -30,6 +30,8 @@ Flutter project for checking weather status.
 
 ◊ Getting text input - (TextEditingController / TextField)
 
+##Resized in-app Image from IPhone 13 Simulator
+
 ![weathercheck](https://user-images.githubusercontent.com/24735699/147888410-ab281431-f7eb-496b-b8d0-99803f0861b2.png)
 
 
