@@ -21,7 +21,7 @@ class _SearchPageState extends State<SearchPage> {
   TextEditingController textController = TextEditingController();
   var nearlocations;
   List<String> defaultCity = [];
-  List<int> defaultDistance = [];
+  List<double> defaultDistance = [];
 
   @override
   void dispose() {
@@ -74,7 +74,7 @@ class _SearchPageState extends State<SearchPage> {
             }
           },
           backgroundColor: Colors.red,
-          child: Text('OK'),
+          child: Text('Search'),
         ),
         backgroundColor: Colors.transparent,
         body: Center(
@@ -83,7 +83,7 @@ class _SearchPageState extends State<SearchPage> {
             children: [
               TopBottomMarginsWidget(),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Column(
                   children: [
                     SizedBox(
@@ -116,7 +116,7 @@ class _SearchPageState extends State<SearchPage> {
                                   : 'City : ${defaultCity[index]}',
                               distance: defaultDistance.isEmpty
                                   ? 'Distance :'
-                                  : 'Distance :${defaultDistance[index]}',
+                                  : 'Distance :${defaultDistance[index]} km',
                               itemCount: 5,
                             ),
                           );

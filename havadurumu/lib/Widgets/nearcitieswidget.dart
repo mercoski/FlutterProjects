@@ -37,7 +37,7 @@ class _NearCitiesState extends State<NearCities> {
               ),
               subtitle: Text(
                 widget.distance,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w200,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800,
                     // ignore: prefer_const_literals_to_create_immutables
                     shadows: [textShadow()]),
               ),

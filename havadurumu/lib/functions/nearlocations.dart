@@ -12,7 +12,7 @@ Future<List<List<Object>>> getNearLocationData(
   bool _internetAccess = false;
   String citysLatLong;
   List<String> closeCitiesNames = [];
-  List<int> closeCitiesDistances = [];
+  List<double> closeCitiesDistances = [];
 
   var connectivityResult = await (Connectivity().checkConnectivity());
   if (connectivityResult == ConnectivityResult.mobile ||
@@ -40,7 +40,7 @@ Future<List<List<Object>>> getNearLocationData(
   closeCitiesNames.clear();
   for (var i = 0; i < cityRange; i++) {
     closeCitiesNames.add(jsonDecode(response.body)[i]['title']);
-    closeCitiesDistances.add(jsonDecode(response.body)[i]['distance']);
+    closeCitiesDistances.add(jsonDecode(response.body)[i]['distance'] / 1000);
   }
   return [closeCitiesNames, closeCitiesDistances];
 }
