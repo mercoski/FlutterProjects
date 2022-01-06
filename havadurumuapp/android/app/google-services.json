@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "135438795981",
+    "project_id": "havadurumuapp-fcb97",
+    "storage_bucket": "havadurumuapp-fcb97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135438795981:android:22d91ee127036b74099584",
+        "android_client_info": {
+          "package_name": "com.example.havadurumuapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135438795981-d2baq69abivqnsbmpse5cebvetn6qc1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEHeFRjTjp5BKDIkZgTzkHJandF-Krc6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135438795981-d2baq69abivqnsbmpse5cebvetn6qc1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

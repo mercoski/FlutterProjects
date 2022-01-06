@@ -1,11 +1,14 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:havadurumuapp/designs/header_design.dart';
 import 'package:havadurumuapp/functions/current_location.dart';
+import 'package:havadurumuapp/notifications/firebase_cloud_message.dart';
 import 'package:havadurumuapp/pages/details_page.dart';
 import 'package:havadurumuapp/variable_class/defaultVariables.dart';
 import 'package:havadurumuapp/designs/background_decoration.dart';
 import 'package:havadurumuapp/widgets/near_cities_widget.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -24,10 +27,13 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   void initState() {
+    FirebaseAnalytics analytics = FirebaseAnalytics.instance;
+    final firebaseMessaging = FCM();
+    firebaseMessaging.setNotification();
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
       getCurrentLocation();
     });
-    setState(() {});
+
     super.initState();
   }
 

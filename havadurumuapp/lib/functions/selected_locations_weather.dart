@@ -3,14 +3,14 @@ import 'package:connectivity/connectivity.dart';
 import 'package:havadurumuapp/variable_class/defaultVariables.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
-
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'alertdialogevent.dart';
 
 Future<void> getLocationData(
     {required DefaultVariables defaultVariables, required context}) async {
   int dateRange = 5;
   bool _internetAccess = false;
-
+  FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   var connectivityResult = await (Connectivity().checkConnectivity());
   if (connectivityResult == ConnectivityResult.mobile ||
       connectivityResult == ConnectivityResult.wifi) {
@@ -60,4 +60,8 @@ Future<void> getLocationData(
         .add(jsonDecode(response.body)['consolidated_weather'][i]
             ['weather_state_abbr']);
   }
+  await FirebaseAnalytics.instance.logEvent(name: 'city_selected', parameters: {
+    'city_name':
+        Provider.of<DefaultVariables>(context, listen: false).defaultState,
+  });
 }
