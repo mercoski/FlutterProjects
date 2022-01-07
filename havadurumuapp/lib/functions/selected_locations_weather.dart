@@ -60,8 +60,10 @@ Future<void> getLocationData(
         .add(jsonDecode(response.body)['consolidated_weather'][i]
             ['weather_state_abbr']);
   }
+  print('y');
   await FirebaseAnalytics.instance.logEvent(name: 'city_selected', parameters: {
     'city_name':
         Provider.of<DefaultVariables>(context, listen: false).defaultState,
   });
+  print('x');
 }

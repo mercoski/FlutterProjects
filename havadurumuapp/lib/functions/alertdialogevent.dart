@@ -22,7 +22,8 @@ Future<void> showAlertDialog(BuildContext context,
           TextButton(
             child: const Text('Okay'),
             onPressed: () {
-              if (title_text == 'Internet Access Problem') {
+              if (title_text == 'Internet Access Problem' ||
+                  title_text == 'Location Access Problem') {
                 exit(0);
               } else {
                 Navigator.of(context).pop();

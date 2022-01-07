@@ -18,22 +18,31 @@ Future<void> determinePosition({
 
   serviceEnabled = await Geolocator.isLocationServiceEnabled();
   if (!serviceEnabled) {
-    return Future.error('Location services are disabled.');
+    await showAlertDialog(context,
+        title_text: 'Location Services are disabled',
+        body_text: 'Please enable your location services');
+    Geolocator.openLocationSettings();
   }
   permission = await Geolocator.checkPermission();
+
   if (permission == LocationPermission.denied) {
     permission = await Geolocator.requestPermission();
-    return Future.error('Location permissions are denied');
+    if (permission == LocationPermission.denied) {
+      showAlertDialog(context,
+          title_text: 'Location Access Problem',
+          body_text: 'You need to enable location services');
+    }
   }
   if (permission == LocationPermission.deniedForever) {
-    return Future.error(
-        'Location permissions are permanently denied, we cannot request permissions.');
+    showAlertDialog(context,
+        title_text: 'Location Access Problem',
+        body_text: 'You need to enable location services');
   }
   var connectivityResult = await (Connectivity().checkConnectivity());
   if (connectivityResult == ConnectivityResult.mobile ||
       connectivityResult == ConnectivityResult.wifi) {
     _internetAccess = true;
-  } else {
+  } else if (connectivityResult == ConnectivityResult.none) {
     await showAlertDialog(context,
         title_text: 'Internet Access Problem',
         body_text:
