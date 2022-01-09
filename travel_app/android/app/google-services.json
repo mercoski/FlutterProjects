@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "114867968549",
+    "project_id": "spoton-deefe",
+    "storage_bucket": "spoton-deefe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114867968549:android:f41fa7d2013a72a26e3dcc",
+        "android_client_info": {
+          "package_name": "com.example.travelapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114867968549-us4jj0rkk6u8l069mlk1agtkkbhqsm51.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPZzqhD6rVCkrw7L7fLDpudIlPm1jlY_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114867968549-us4jj0rkk6u8l069mlk1agtkkbhqsm51.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "114867968549-pvg9fph4sa13gopnipv0tjhk4s7l15fl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.travelapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
