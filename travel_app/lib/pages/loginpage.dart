@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
         centerTitle: true,
         title: const Text('Spot On Travel'),
         leading: Image.asset('assets/spotonlogo.png'),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.amber[800],
       ),
       resizeToAvoidBottomInset: false,
       body: Column(
