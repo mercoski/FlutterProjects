@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:travel_app/UserClass/bottomnav.dart';
 import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/pages/loginpage.dart';
 import 'package:travel_app/pages/userprofile.dart';
@@ -13,14 +14,13 @@ void main() async {
   page = await init();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
-    runApp(
-      ChangeNotifierProvider<UserClass>(
-        create: (BuildContext context) {
-          return UserClass();
-        },
-        child: TravelApp(),
-      ),
-    );
+    runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider<UserClass>(
+            create: (BuildContext context) => UserClass()),
+      ],
+      child: TravelApp(),
+    ));
   });
 }
 
