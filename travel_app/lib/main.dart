@@ -5,13 +5,13 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/bottomnav.dart';
 import 'package:travel_app/UserClass/userClass.dart';
+import 'package:travel_app/pages/landingpage.dart';
+import 'package:travel_app/pages/loginorsignupselectionpage.dart';
 import 'package:travel_app/pages/loginpage.dart';
 import 'package:travel_app/pages/userprofile.dart';
 
-String page = '';
-
 void main() async {
-  page = await init();
+  await init();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
     runApp(MultiProvider(
@@ -33,27 +33,26 @@ class TravelApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) =>
-            page == 'Logged-in' ? const LoginPage() : const UserProfile(),
+        '/': (context) => LandingPage(),
         // When navigating to the "/second" route, build the SecondScreen widget.
+        '/loginpage': (context) => const LoginPage(),
+        '/loginsignupselectionpage': (context) =>
+            const LoginSignupSelectionPage(),
         '/userprofile': (context) => const UserProfile(),
       },
     );
   }
 }
 
-Future<String> init() async {
+Future<void> init() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   FirebaseAuth auth = FirebaseAuth.instance;
   auth.idTokenChanges().listen((User? user) {
     if (user == null) {
-      page = 'Logged-in';
       print('User is NOT signed in!');
     } else {
-      page = '';
       print('User is signed in!');
     }
   });
-  return page;
 }

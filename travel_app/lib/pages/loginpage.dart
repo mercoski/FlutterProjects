@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_single_cascade_in_expression_statements
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/functions/loginfunction.dart';
@@ -18,102 +19,194 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        primary: true,
-        centerTitle: true,
-        title: const Text('Spot On Travel'),
-        leading: Image.asset('assets/spotonlogo.png'),
-        backgroundColor: Colors.amber[800],
-      ),
       resizeToAvoidBottomInset: false,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const Text(
-            'Login',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: 50, fontWeight: FontWeight.bold, color: Colors.black),
-          ),
-          InputField(
-            textEditingController:
-                Provider.of<UserClass>(context).textEditingController_user,
-            autocorrect: false,
-            enablesuggestions: true,
-            hintText: 'Username',
-            obscureText: false,
-            verticalmargin: 10.0,
-            iconImage: Icons.account_circle,
-            labelText: 'Username',
-            horizontalmargin: 20,
-          ),
-          const Divider(),
-          InputField(
-            textEditingController:
-                Provider.of<UserClass>(context).textEditingController_pass,
-            autocorrect: false,
-            enablesuggestions: false,
-            hintText: 'Password',
-            obscureText: true,
-            verticalmargin: 10.0,
-            iconImage: Icons.lock,
-            labelText: 'Password',
-            horizontalmargin: 20,
-          ),
-          TextButton(
-            style: TextButton.styleFrom(alignment: Alignment.centerRight),
-            onPressed: () {
-              print('//TO-DO forgot my password');
-            },
-            child: const Text(
-              'Forgot my password',
-              textAlign: TextAlign.right,
-              style: TextStyle(color: Colors.red),
-            ),
-          ),
-          FractionallySizedBox(
-            widthFactor: 0.6,
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.green[400],
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18))),
-                onPressed: () async {
-                  await loginFunction(
-                      context,
-                      Provider.of<UserClass>(context, listen: false)
-                          .textEditingController_user
-                          .text,
-                      Provider.of<UserClass>(context, listen: false)
-                          .textEditingController_pass
-                          .text);
-                },
-                child: Text('Login')),
-          ),
-          const Divider(),
-          const Text(
-            'Or Sign-up Using',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-          ),
-          const Divider(),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/signup.jpg'), fit: BoxFit.cover)),
+        child: Center(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SignInButton(Buttons.GoogleDark, onPressed: () {
-                print('Google sign-in');
-              }),
-              SignInButton(Buttons.AppleDark, onPressed: () {
-                print('Apple sign-in');
-              }),
-              SignInButton(Buttons.Facebook, onPressed: () {
-                print('Facebook sign-in');
-              }),
+              Expanded(
+                flex: 100,
+                child: Row(
+                  children: [
+                    Expanded(flex: 286, child: Container()),
+                    Expanded(
+                      flex: 89,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                            alignment: Alignment.centerRight,
+                            primary: Colors.green),
+                        onPressed: () {
+                          print('//TO-DO Sign-up');
+                        },
+                        child: const Text(
+                          'S’inscrire',
+                          style:
+                              TextStyle(color: Color(0xff413C3C), fontSize: 15),
+                        ),
+                      ),
+                    ),
+                    Expanded(flex: 10, child: Container()),
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 712,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: MediaQuery.of(context).size.width * 0.09),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        flex: 49,
+                        child: Text(
+                          'Se connecter',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.averiaSerifLibre(fontSize: 36),
+                        ),
+                      ),
+                      Expanded(flex: 13, child: Container()),
+                      Expanded(
+                        flex: 50,
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: double.infinity,
+                          child: InputField(
+                            textEditingController:
+                                Provider.of<UserClass>(context)
+                                    .textEditingController_user,
+                            autocorrect: false,
+                            enablesuggestions: true,
+                            hintText: 'Username',
+                            obscureText: false,
+                          ),
+                        ),
+                      ),
+                      Expanded(flex: 15, child: Container()),
+                      Expanded(
+                        flex: 50,
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: double.infinity,
+                          child: InputField(
+                            textEditingController:
+                                Provider.of<UserClass>(context)
+                                    .textEditingController_pass,
+                            autocorrect: false,
+                            enablesuggestions: false,
+                            hintText: 'Password',
+                            obscureText: true,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 42,
+                        child: TextButton(
+                          style:
+                              TextButton.styleFrom(alignment: Alignment.center),
+                          onPressed: () {
+                            print('//TO-DO Forgot Password');
+                          },
+                          child: const Text(
+                            'Mot de passe oublié ?',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Color(0xff413C3C), fontSize: 14),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                          flex: 50,
+                          child: SizedBox(
+                            width: double.infinity,
+                            height: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                await loginFunction(
+                                    context,
+                                    Provider.of<UserClass>(context,
+                                            listen: false)
+                                        .textEditingController_user
+                                        .text,
+                                    Provider.of<UserClass>(context,
+                                            listen: false)
+                                        .textEditingController_pass
+                                        .text);
+                              },
+                              child: Text(
+                                'Connexion',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.poppins(fontSize: 15),
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                primary: Color(0xff413C3C),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(34),
+                                ),
+                              ),
+                            ),
+                          )),
+                      Expanded(flex: 11, child: Container()),
+                      Expanded(
+                          flex: 50,
+                          child: SizedBox(
+                            width: double.infinity,
+                            height: double.infinity,
+                            child: ElevatedButton.icon(
+                              icon: const Icon(
+                                Icons.facebook,
+                              ),
+                              onPressed: () async {},
+                              style: ElevatedButton.styleFrom(
+                                primary: Color(0xff3B5998),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(34),
+                                ),
+                              ),
+                              label: Text(
+                                'Continuer avec Facebook',
+                                textAlign: TextAlign.left,
+                                style: GoogleFonts.poppins(fontSize: 15),
+                              ),
+                            ),
+                          )),
+                      Expanded(flex: 12, child: Container()),
+                      Expanded(
+                          flex: 50,
+                          child: SizedBox(
+                            width: double.infinity,
+                            height: double.infinity,
+                            child: ElevatedButton.icon(
+                              icon: const Icon(
+                                Icons.facebook,
+                              ),
+                              onPressed: () async {},
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(34),
+                                ),
+                              ),
+                              label: Text(
+                                'Continuer avec Google',
+                                textAlign: TextAlign.left,
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, color: Color(0xff413C3C)),
+                              ),
+                            ),
+                          )),
+                      Expanded(flex: 300, child: Container()),
+                    ],
+                  ),
+                ),
+              ),
             ],
-          )
-        ],
+          ),
+        ),
       ),
     );
   }
