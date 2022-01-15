@@ -2,22 +2,21 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/userClass.dart';
-
 import 'package:travel_app/functions/loginfunction.dart';
+import 'package:travel_app/functions/signinfunction.dart';
 import 'package:travel_app/widgets/InputField.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class SignupPage extends StatefulWidget {
+  const SignupPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignupPageState createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupPageState extends State<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/signin.jpg'), fit: BoxFit.cover)),
+                image: AssetImage('assets/Sign Up.jpg'), fit: BoxFit.cover)),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -56,10 +55,10 @@ class _LoginPageState extends State<LoginPage> {
                             primary: Colors.green),
                         onPressed: () {
                           Navigator.pop(context);
-                          Navigator.pushNamed(context, '/signuppage');
+                          Navigator.pushNamed(context, '/loginpage');
                         },
                         child: const Text(
-                          'S’inscrire',
+                          'Se connecter',
                           style:
                               TextStyle(color: Color(0xff413C3C), fontSize: 15),
                         ),
@@ -79,7 +78,7 @@ class _LoginPageState extends State<LoginPage> {
                       Expanded(
                         flex: 49,
                         child: Text(
-                          'Se connecter',
+                          'S’inscrire',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.averiaSerifLibre(
                               fontSize: 36, fontWeight: FontWeight.w900),
@@ -143,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                             height: double.infinity,
                             child: ElevatedButton(
                               onPressed: () async {
-                                await loginFunction(
+                                await signinFunction(
                                     context,
                                     Provider.of<UserClass>(context,
                                             listen: false)
@@ -155,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                                         .text);
                               },
                               child: Text(
-                                'Connexion',
+                                'Inscription',
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.poppins(fontSize: 15),
                               ),
@@ -177,9 +176,7 @@ class _LoginPageState extends State<LoginPage> {
                               icon: const Icon(
                                 Icons.facebook,
                               ),
-                              onPressed: () async {
-                                print('Facebook');
-                              },
+                              onPressed: () async {},
                               style: ElevatedButton.styleFrom(
                                 primary: Color(0xff3B5998),
                                 shape: RoundedRectangleBorder(
@@ -203,9 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                               icon: const Icon(
                                 Icons.facebook,
                               ),
-                              onPressed: () async {
-                                print('Google');
-                              },
+                              onPressed: () async {},
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.white,
                                 shape: RoundedRectangleBorder(

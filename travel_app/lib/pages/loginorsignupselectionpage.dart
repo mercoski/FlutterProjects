@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginSignupSelectionPage extends StatelessWidget {
@@ -10,7 +11,7 @@ class LoginSignupSelectionPage extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/forgetpass.jpg'), fit: BoxFit.cover)),
+                image: AssetImage('assets/Splace.jpg'), fit: BoxFit.cover)),
         child: Center(
           child: FractionallySizedBox(
             widthFactor: 0.82,
@@ -19,13 +20,18 @@ class LoginSignupSelectionPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(flex: 96, child: Container()),
-                Expanded(flex: 48, child: Container()),
+                Expanded(
+                    flex: 48,
+                    child: Container(
+                      child: Image.asset('assets/pin.png'),
+                    )),
                 Expanded(
                   flex: 48,
                   child: Text(
                     'Bienvenue',
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.averiaSerifLibre(fontSize: 36),
+                    style: GoogleFonts.averiaSerifLibre(
+                        fontSize: 36, fontWeight: FontWeight.w900),
                   ),
                 ),
                 Expanded(
@@ -64,7 +70,9 @@ class LoginSignupSelectionPage extends StatelessWidget {
                         child: Text(
                           'Se connecter',
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.poppins(fontSize: 15),
+                          style: GoogleFonts.poppins(
+                            fontSize: 15,
+                          ),
                         ),
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xff413C3C),
@@ -78,7 +86,7 @@ class LoginSignupSelectionPage extends StatelessWidget {
                 Expanded(
                   flex: 48,
                   child: Text(
-                    'Première fois sur Spot On Travel ?           Inscrivez-vous.',
+                    'Première fois sur Spot On Travel ? Inscrivez-vous.',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.poppins(fontSize: 14),
                     overflow: TextOverflow.clip,
@@ -90,7 +98,10 @@ class LoginSignupSelectionPage extends StatelessWidget {
                       width: double.infinity,
                       height: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                          Navigator.pushNamed(context, '/signuppage');
+                        },
                         child: Text(
                           'S’inscrire',
                           textAlign: TextAlign.center,
