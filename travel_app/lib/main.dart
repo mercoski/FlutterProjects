@@ -9,6 +9,7 @@ import 'package:travel_app/pages/forgotpasswordpage.dart';
 import 'package:travel_app/pages/landingpage.dart';
 import 'package:travel_app/pages/loginorsignupselectionpage.dart';
 import 'package:travel_app/pages/loginpage.dart';
+import 'package:travel_app/pages/restourantspage.dart';
 import 'package:travel_app/pages/signuppage.dart';
 import 'package:travel_app/pages/userprofile.dart';
 
@@ -43,6 +44,7 @@ class TravelApp extends StatelessWidget {
             const LoginSignupSelectionPage(),
         '/forgotpass': (context) => const ForgotPasswordPage(),
         '/userprofile': (context) => const UserProfile(),
+        '/restaurantspage': (context) => const RestaurantsPage(),
       },
     );
   }

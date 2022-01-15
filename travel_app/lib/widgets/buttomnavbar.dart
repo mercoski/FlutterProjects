@@ -1,40 +1,50 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/bottomnav.dart';
 
-class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({Key? key}) : super(key: key);
+class BottomNavBar extends StatelessWidget {
+  int index = 0;
+  BottomNavBar({Key? key, required this.index}) : super(key: key);
 
-  @override
-  _BottomNavBarState createState() => _BottomNavBarState();
-}
-
-class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.account_box),
-          label: 'Profile',
+          icon: Icon(Icons.home),
+          label: 'Accueil',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.bike_scooter),
-          label: 'Travel',
+          icon: Icon(Icons.logout),
+          label: 'Logout',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.dinner_dining),
           label: 'Restaurants',
         ),
       ],
-      currentIndex:
-          Provider.of<BottomNav>(context, listen: false).selectedIndex,
+      currentIndex: index,
       selectedItemColor: Colors.amber[800],
-      onTap: (value) {
-        Provider.of<BottomNav>(context, listen: false).setOnItemTapped(value);
+      onTap: (value) async {
         print('$value ');
-        //To-do page navigation will be added.
-        setState(() {});
+        if (value == 0) {
+          Navigator.pop(context);
+          Navigator.pushNamed(context, '/userprofile');
+          Provider.of<BottomNav>(context, listen: false).setOnItemTapped(value);
+        }
+
+        if (value == 1) {
+          await FirebaseAuth.instance.signOut();
+          Navigator.pop(context);
+          Navigator.pushNamed(context, '/');
+          Provider.of<BottomNav>(context, listen: false).setOnItemTapped(value);
+        }
+        if (value == 2) {
+          Navigator.pop(context);
+          Navigator.pushNamed(context, '/restaurantspage');
+          Provider.of<BottomNav>(context, listen: false).setOnItemTapped(value);
+        }
       },
     );
   }

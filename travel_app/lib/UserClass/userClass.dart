@@ -5,6 +5,7 @@ class UserClass with ChangeNotifier {
   String user_password = 'default_pass';
   TextEditingController textEditingController_user = TextEditingController();
   TextEditingController textEditingController_pass = TextEditingController();
+  TextEditingController textEditingController_search = TextEditingController();
   String page = '';
 
   void SetMail(String user_mail) async {
