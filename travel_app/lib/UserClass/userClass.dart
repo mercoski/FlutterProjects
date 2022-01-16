@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 
 class UserClass with ChangeNotifier {
-  String user_mail = 'default_mail';
-  String user_password = 'default_pass';
   TextEditingController textEditingController_user = TextEditingController();
   TextEditingController textEditingController_pass = TextEditingController();
   TextEditingController textEditingController_search = TextEditingController();
-  String page = '';
+  String? user_name = '';
+  String? user_mail = '';
+  List user_image = [];
 
-  void SetMail(String user_mail) async {
+  void SetName(String? user_name) async {
+    this.user_name = user_name;
+    notifyListeners();
+  }
+
+  void SetMail(String? user_mail) async {
     this.user_mail = user_mail;
     notifyListeners();
   }
 
-  void SetPassword(String user_password) {
-    this.user_password = user_password;
-    notifyListeners();
-  }
-
-  void SetPage(String page) {
-    this.page = page;
+  void SetImage(String? user_image) async {
+    this.user_image.add(user_image);
     notifyListeners();
   }
 }

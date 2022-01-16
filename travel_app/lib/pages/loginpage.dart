@@ -1,10 +1,12 @@
 // ignore_for_file: avoid_single_cascade_in_expression_statements
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/userClass.dart';
+import 'package:travel_app/functions/googlesignhelper.dart';
 
 import 'package:travel_app/functions/loginfunction.dart';
 import 'package:travel_app/widgets/InputField.dart';
@@ -152,7 +154,8 @@ class _LoginPageState extends State<LoginPage> {
                                     Provider.of<UserClass>(context,
                                             listen: false)
                                         .textEditingController_pass
-                                        .text);
+                                        .text,
+                                    'mail');
                               },
                               child: Text(
                                 'Connexion',
@@ -204,7 +207,21 @@ class _LoginPageState extends State<LoginPage> {
                                 Icons.facebook,
                               ),
                               onPressed: () async {
-                                print('Google');
+                                await loginFunction(
+                                    context,
+                                    Provider.of<UserClass>(context,
+                                            listen: false)
+                                        .textEditingController_user
+                                        .text,
+                                    Provider.of<UserClass>(context,
+                                            listen: false)
+                                        .textEditingController_pass
+                                        .text,
+                                    'google');
+                                print('**********************');
+                                print(Provider.of<UserClass>(context,
+                                        listen: false)
+                                    .user_name);
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.white,

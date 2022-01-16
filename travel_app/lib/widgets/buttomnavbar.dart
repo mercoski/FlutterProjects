@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/bottomnav.dart';
+import 'package:travel_app/UserClass/userClass.dart';
 
 class BottomNavBar extends StatelessWidget {
   int index = 0;
@@ -39,6 +40,9 @@ class BottomNavBar extends StatelessWidget {
           Navigator.pop(context);
           Navigator.pushNamed(context, '/');
           Provider.of<BottomNav>(context, listen: false).setOnItemTapped(value);
+          Provider.of<UserClass>(context, listen: false).user_image.clear();
+          Provider.of<UserClass>(context, listen: false).user_name = 'Camper';
+          Provider.of<UserClass>(context, listen: false).user_mail = '';
         }
         if (value == 2) {
           Navigator.pop(context);

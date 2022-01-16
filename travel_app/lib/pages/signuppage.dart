@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/userClass.dart';
+import 'package:travel_app/functions/googlesignhelper.dart';
 import 'package:travel_app/functions/loginfunction.dart';
 import 'package:travel_app/functions/signinfunction.dart';
 import 'package:travel_app/widgets/InputField.dart';
@@ -200,7 +202,19 @@ class _SignupPageState extends State<SignupPage> {
                               icon: const Icon(
                                 Icons.facebook,
                               ),
-                              onPressed: () async {},
+                              onPressed: () async {
+                                await loginFunction(
+                                    context,
+                                    Provider.of<UserClass>(context,
+                                            listen: false)
+                                        .textEditingController_user
+                                        .text,
+                                    Provider.of<UserClass>(context,
+                                            listen: false)
+                                        .textEditingController_pass
+                                        .text,
+                                    'google');
+                              },
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.white,
                                 shape: RoundedRectangleBorder(

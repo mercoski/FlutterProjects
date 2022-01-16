@@ -29,7 +29,7 @@ class UserProfile extends StatelessWidget {
                   flex: 50,
                   child: ListTile(
                     title: Text(
-                      'Bienvenue Chloé Ferrari',
+                      'Bienvenue ${Provider.of<UserClass>(context).user_name?.split(" ")[0].toUpperCase()}',
                       textAlign: TextAlign.left,
                       style: GoogleFonts.averiaSerifLibre(
                           fontSize: 20, fontWeight: FontWeight.w900),
@@ -40,9 +40,16 @@ class UserProfile extends StatelessWidget {
                       textAlign: TextAlign.left,
                       style: GoogleFonts.poppins(fontSize: 13),
                     ),
-                    trailing: const CircleAvatar(
+                    trailing: CircleAvatar(
                       radius: 30, // Image radius
-                      backgroundImage: AssetImage('assets/profileimage.png'),
+                      backgroundImage: NetworkImage(
+                          Provider.of<UserClass>(context).user_image.isEmpty
+                              ? ''
+                              : Provider.of<UserClass>(context)
+                                  .user_image
+                                  .first),
+                      onBackgroundImageError: (exception, stackTrace) {},
+                      backgroundColor: Colors.white,
                     ),
                   ),
                 ),

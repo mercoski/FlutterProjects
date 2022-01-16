@@ -59,6 +59,7 @@ Future<void> init() async {
       print('User is NOT signed in!');
     } else {
       print('User is signed in!');
+      print(user.displayName);
     }
   });
 }
