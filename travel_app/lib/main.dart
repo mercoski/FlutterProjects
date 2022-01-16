@@ -52,6 +52,7 @@ class TravelApp extends StatelessWidget {
 
 Future<void> init() async {
   WidgetsFlutterBinding.ensureInitialized();
+  User x;
   await Firebase.initializeApp();
   FirebaseAuth auth = FirebaseAuth.instance;
   auth.idTokenChanges().listen((User? user) {
@@ -59,7 +60,7 @@ Future<void> init() async {
       print('User is NOT signed in!');
     } else {
       print('User is signed in!');
-      print(user.displayName);
+      x = user;
     }
   });
 }

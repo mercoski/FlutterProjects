@@ -21,24 +21,31 @@ class InputField extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(style: BorderStyle.none),
-            borderRadius: BorderRadius.all(Radius.circular(50))),
-        child: TextField(
-          controller: textEditingController,
-          style: const TextStyle(color: Colors.black),
-          cursorColor: Colors.black,
-          obscureText: obscureText,
-          enableSuggestions: enablesuggestions,
-          autocorrect: autocorrect,
-          decoration: InputDecoration(
-              hintText: hintText,
-              hintStyle: const TextStyle(color: Colors.black),
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  borderSide: BorderSide.none)),
+      child: Center(
+        child: Container(
+          decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(style: BorderStyle.none),
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+          child: Center(
+            child: TextField(
+              controller: textEditingController,
+              style: const TextStyle(
+                color: Colors.black,
+              ),
+              cursorColor: Colors.black,
+              obscureText: obscureText,
+              enableSuggestions: enablesuggestions,
+              autocorrect: autocorrect,
+              textAlign: TextAlign.start,
+              decoration: InputDecoration(
+                  hintText: hintText,
+                  hintStyle: const TextStyle(color: Colors.black),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50),
+                      borderSide: BorderSide.none)),
+            ),
+          ),
         ),
       ),
     );

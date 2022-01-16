@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -13,21 +14,23 @@ Future<void> loginFunction(
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: mail, password: password);
 
-      Navigator.pop(context);
+      //Navigator.pop(context);
       Navigator.pushNamed(context, '/userprofile');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('No user found for that email.');
         showAlertDialog(context,
             title_text: 'Wrong Email or Password',
             body_text:
                 'The mail or password you entered is wrong please check and enter again ');
       } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
         showAlertDialog(context,
             title_text: 'Wrong Email or Password',
             body_text:
                 'The mail or password you entered is wrong please check and enter again ');
+      } else {
+        showAlertDialog(context,
+            title_text: 'Enter valid Email',
+            body_text: 'The mail you entered is not valid');
       }
     }
   } else if (method == 'google') {
@@ -41,27 +44,37 @@ Future<void> loginFunction(
 
       FirebaseAuth auth = FirebaseAuth.instance;
       await auth.signInWithCredential(credential);
-      auth.idTokenChanges().listen((User? user) {
+      auth.idTokenChanges().listen((User? user) async {
         if (user != null) {
           Provider.of<UserClass>(context, listen: false).SetMail(user.email);
           Provider.of<UserClass>(context, listen: false)
               .SetImage(user.photoURL);
           Provider.of<UserClass>(context, listen: false)
               .SetName(user.displayName);
+
+          Map<String, dynamic> userinfo = {
+            'user_image': user.photoURL,
+            'user_mail': user.email,
+            'user_name': user.displayName,
+          };
+
+          FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+          await firebaseFirestore
+              .collection('users')
+              .doc(user.email)
+              .set(userinfo);
         }
       });
 
-      Navigator.pop(context);
+      //Navigator.pop(context);
       Navigator.pushNamed(context, '/userprofile');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        print('No user found for that email.');
         showAlertDialog(context,
             title_text: 'Wrong Email or Password',
             body_text:
                 'The mail or password you entered is wrong please check and enter again ');
       } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
         showAlertDialog(context,
             title_text: 'Wrong Email or Password',
             body_text:

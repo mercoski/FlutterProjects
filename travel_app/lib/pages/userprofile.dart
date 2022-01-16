@@ -1,14 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/bottomnav.dart';
 import 'package:travel_app/UserClass/userClass.dart';
+import 'package:travel_app/functions/loginfunction.dart';
+import 'package:travel_app/main.dart';
 import 'package:travel_app/widgets/InputField.dart';
 import 'package:travel_app/widgets/buttomnavbar.dart';
 
-class UserProfile extends StatelessWidget {
+class UserProfile extends StatefulWidget {
   const UserProfile({Key? key}) : super(key: key);
 
+  @override
+  State<UserProfile> createState() => _UserProfileState();
+}
+
+class _UserProfileState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
     int EventIndex = 0;

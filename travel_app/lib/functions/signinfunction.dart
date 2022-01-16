@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +11,15 @@ Future<void> signinFunction(
   try {
     UserCredential userCredential = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: mail, password: password);
+
+    final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    Map<String, dynamic> userinfo = {
+      'user_image': null,
+      'user_mail': mail,
+      'user_name': null,
+    };
+    await firebaseFirestore.collection('users').doc(mail).set(userinfo);
+
     Navigator.push(
       context,
       MaterialPageRoute(
