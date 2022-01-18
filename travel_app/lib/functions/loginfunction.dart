@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/functions/alertdialog.dart';
 import 'package:travel_app/functions/googlesignhelper.dart';
+import 'package:travel_app/pages/userprofile.dart';
 
 Future<void> loginFunction(
     BuildContext context, String mail, String password, String method) async {
@@ -13,9 +14,11 @@ Future<void> loginFunction(
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: mail, password: password);
-
+      UserClass user = UserClass(user_mail: mail);
       //Navigator.pop(context);
-      Navigator.pushNamed(context, '/userprofile');
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => UserProfile(user: user)));
+      //Navigator.pushNamed(context, '/userprofile', arguments: [user]);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         showAlertDialog(context,
@@ -35,6 +38,7 @@ Future<void> loginFunction(
     }
   } else if (method == 'google') {
     try {
+      UserClass user_google;
       final GoogleSignInAccount? googleSignInAccount =
           await GoogleSigninHelper().signIn();
       final GoogleSignInAuthentication? googleAuth =
@@ -46,12 +50,11 @@ Future<void> loginFunction(
       await auth.signInWithCredential(credential);
       auth.idTokenChanges().listen((User? user) async {
         if (user != null) {
-          Provider.of<UserClass>(context, listen: false).SetMail(user.email);
-          Provider.of<UserClass>(context, listen: false)
-              .SetImage(user.photoURL);
-          Provider.of<UserClass>(context, listen: false)
-              .SetName(user.displayName);
-
+          UserClass user_x = UserClass(
+              user_mail: user.email,
+              user_image: user.photoURL,
+              user_name: user.displayName);
+          user_google = user_x;
           Map<String, dynamic> userinfo = {
             'user_image': user.photoURL,
             'user_mail': user.email,
@@ -63,11 +66,15 @@ Future<void> loginFunction(
               .collection('users')
               .doc(user.email)
               .set(userinfo);
+
+          //Navigator.pop(context);
+          //Navigator.pushNamed(context, '/userprofile', arguments: user_x);
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => UserProfile(user: user_x)));
         }
       });
-
-      //Navigator.pop(context);
-      Navigator.pushNamed(context, '/userprofile');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         showAlertDialog(context,

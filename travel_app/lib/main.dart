@@ -43,8 +43,6 @@ class TravelApp extends StatelessWidget {
         '/loginsignupselectionpage': (context) =>
             const LoginSignupSelectionPage(),
         '/forgotpass': (context) => const ForgotPasswordPage(),
-        '/userprofile': (context) => const UserProfile(),
-        '/restaurantspage': (context) => const RestaurantsPage(),
       },
     );
   }

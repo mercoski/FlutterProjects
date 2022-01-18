@@ -11,7 +11,7 @@ Future<void> signinFunction(
   try {
     UserCredential userCredential = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: mail, password: password);
-
+    UserClass user = UserClass(user_mail: mail);
     final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
     Map<String, dynamic> userinfo = {
       'user_image': null,
@@ -23,7 +23,9 @@ Future<void> signinFunction(
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => UserProfile(),
+        builder: (context) => UserProfile(
+          user: user,
+        ),
       ),
     );
   } on FirebaseAuthException catch (e) {

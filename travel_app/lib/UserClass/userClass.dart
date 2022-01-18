@@ -7,7 +7,9 @@ class UserClass with ChangeNotifier {
   TextEditingController textEditingController_search = TextEditingController();
   String? user_name = '';
   String? user_mail = '';
-  List user_image = [];
+  String? user_image = '';
+
+  UserClass({this.user_image, this.user_mail, this.user_name});
 
   void SetName(String? user_name) async {
     this.user_name = user_name;
@@ -20,7 +22,7 @@ class UserClass with ChangeNotifier {
   }
 
   void SetImage(String? user_image) async {
-    this.user_image.add(user_image);
+    this.user_image = user_image;
     notifyListeners();
   }
 }

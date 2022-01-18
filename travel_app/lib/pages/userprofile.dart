@@ -10,17 +10,12 @@ import 'package:travel_app/main.dart';
 import 'package:travel_app/widgets/InputField.dart';
 import 'package:travel_app/widgets/buttomnavbar.dart';
 
-class UserProfile extends StatefulWidget {
-  const UserProfile({Key? key}) : super(key: key);
-
-  @override
-  State<UserProfile> createState() => _UserProfileState();
-}
-
-class _UserProfileState extends State<UserProfile> {
+class UserProfile extends StatelessWidget {
+  UserProfile({Key? key, required this.user}) : super(key: key);
+  int EventIndex = 0;
+  final UserClass? user;
   @override
   Widget build(BuildContext context) {
-    int EventIndex = 0;
     return ChangeNotifierProvider(
       create: (context) => BottomNav(),
       child: Scaffold(
@@ -38,7 +33,7 @@ class _UserProfileState extends State<UserProfile> {
                   flex: 50,
                   child: ListTile(
                     title: Text(
-                      'Bienvenue ${Provider.of<UserClass>(context).user_name?.split(" ")[0].toUpperCase()}',
+                      'Bienvenue ${user?.user_name?.split(" ")[0].toUpperCase()}',
                       textAlign: TextAlign.left,
                       style: GoogleFonts.averiaSerifLibre(
                           fontSize: 20, fontWeight: FontWeight.w900),
@@ -51,12 +46,7 @@ class _UserProfileState extends State<UserProfile> {
                     ),
                     trailing: CircleAvatar(
                       radius: 30, // Image radius
-                      backgroundImage: NetworkImage(
-                          Provider.of<UserClass>(context).user_image.isEmpty
-                              ? ''
-                              : Provider.of<UserClass>(context)
-                                  .user_image
-                                  .first),
+                      backgroundImage: NetworkImage('${user?.user_image}'),
                       onBackgroundImageError: (exception, stackTrace) {},
                       backgroundColor: Colors.white,
                     ),
@@ -210,6 +200,7 @@ class _UserProfileState extends State<UserProfile> {
         ),
         bottomNavigationBar: BottomNavBar(
           index: 0,
+          user: user,
         ),
       ),
     );

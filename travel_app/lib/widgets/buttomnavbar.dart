@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/bottomnav.dart';
 import 'package:travel_app/UserClass/userClass.dart';
+import 'package:travel_app/pages/restourantspage.dart';
+import 'package:travel_app/pages/userprofile.dart';
 
 class BottomNavBar extends StatelessWidget {
   int index = 0;
-  BottomNavBar({Key? key, required this.index}) : super(key: key);
+  UserClass? user;
+  BottomNavBar({Key? key, required this.index, required this.user})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +35,8 @@ class BottomNavBar extends StatelessWidget {
         print('$value ');
         if (value == 0) {
           Navigator.pop(context);
-          Navigator.pushNamed(context, '/userprofile');
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => UserProfile(user: user)));
           Provider.of<BottomNav>(context, listen: false).setOnItemTapped(value);
         }
 
@@ -40,13 +45,16 @@ class BottomNavBar extends StatelessWidget {
           Navigator.pop(context);
           Navigator.pushNamed(context, '/');
           Provider.of<BottomNav>(context, listen: false).setOnItemTapped(value);
-          Provider.of<UserClass>(context, listen: false).user_image.clear();
+          Provider.of<UserClass>(context, listen: false).user_image = '';
           Provider.of<UserClass>(context, listen: false).user_name = 'Camper';
           Provider.of<UserClass>(context, listen: false).user_mail = '';
         }
         if (value == 2) {
           Navigator.pop(context);
-          Navigator.pushNamed(context, '/restaurantspage');
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => RestaurantsPage(user: user)));
           Provider.of<BottomNav>(context, listen: false).setOnItemTapped(value);
         }
       },
