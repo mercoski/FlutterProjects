@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/bottomnav.dart';
 import 'package:travel_app/UserClass/userClass.dart';
-import 'package:travel_app/pages/restourantspage.dart';
+import 'package:travel_app/pages/profil/profilpage.dart';
 import 'package:travel_app/pages/userprofile.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -15,7 +15,7 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      items: const [
+      items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Accueil',
@@ -25,8 +25,13 @@ class BottomNavBar extends StatelessWidget {
           label: 'Logout',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.dinner_dining),
-          label: 'Restaurants',
+          icon: CircleAvatar(
+            radius: 30, // Image radius
+            backgroundImage: NetworkImage('${user?.user_image}'),
+
+            backgroundColor: Colors.white,
+          ),
+          label: 'Profil',
         ),
       ],
       currentIndex: index,
@@ -51,10 +56,8 @@ class BottomNavBar extends StatelessWidget {
         }
         if (value == 2) {
           Navigator.pop(context);
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => RestaurantsPage(user: user)));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => ProfilPage(user: user)));
           Provider.of<BottomNav>(context, listen: false).setOnItemTapped(value);
         }
       },

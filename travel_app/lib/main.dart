@@ -9,7 +9,7 @@ import 'package:travel_app/pages/forgotpasswordpage.dart';
 import 'package:travel_app/pages/landingpage.dart';
 import 'package:travel_app/pages/loginorsignupselectionpage.dart';
 import 'package:travel_app/pages/loginpage.dart';
-import 'package:travel_app/pages/restourantspage.dart';
+import 'package:travel_app/pages/profil/profilpage.dart';
 import 'package:travel_app/pages/signuppage.dart';
 import 'package:travel_app/pages/userprofile.dart';
 
