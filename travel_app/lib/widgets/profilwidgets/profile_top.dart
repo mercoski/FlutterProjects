@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/pages/profil/parameterspage.dart';
 import 'package:travel_app/pages/profil/profilpage.dart';
+import 'package:travel_app/utils/adaptivetext.dart';
 import 'package:travel_app/widgets/profilwidgets/profilbuttons.dart';
 
 class profile_top extends StatefulWidget {
@@ -40,7 +41,8 @@ class _profile_topState extends State<profile_top> {
                         'Enregistrer',
                         textAlign: TextAlign.left,
                         style: GoogleFonts.poppins(
-                            fontSize: 14,
+                            fontSize: AdaptiveTextSize()
+                                .getadaptiveTextSize(context, 14),
                             fontWeight: FontWeight.w400,
                             color: Color(0xff006696)),
                       )),
@@ -75,7 +77,9 @@ class _profile_topState extends State<profile_top> {
                   'Bienvenue',
                   textAlign: TextAlign.left,
                   style: GoogleFonts.poppins(
-                      fontSize: 18, fontWeight: FontWeight.w400),
+                      fontSize:
+                          AdaptiveTextSize().getadaptiveTextSize(context, 18),
+                      fontWeight: FontWeight.w400),
                 ),
               ),
             ),
@@ -86,7 +90,9 @@ class _profile_topState extends State<profile_top> {
                     '${widget.user?.user_name?.toUpperCase()}',
                     textAlign: TextAlign.left,
                     style: GoogleFonts.poppins(
-                        fontSize: 30, fontWeight: FontWeight.bold),
+                        fontSize:
+                            AdaptiveTextSize().getadaptiveTextSize(context, 30),
+                        fontWeight: FontWeight.bold),
                   ),
                 )),
             Expanded(flex: 23, child: Container()),
@@ -97,8 +103,8 @@ class _profile_topState extends State<profile_top> {
                   Expanded(
                     flex: 20,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         GestureDetector(
                           onTap: () {

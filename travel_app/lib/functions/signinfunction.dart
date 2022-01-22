@@ -19,7 +19,7 @@ Future<void> signinFunction(
       'user_name': null,
     };
     await firebaseFirestore.collection('users').doc(mail).set(userinfo);
-
+    Navigator.pop(context);
     Navigator.push(
       context,
       MaterialPageRoute(

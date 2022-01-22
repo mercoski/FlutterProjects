@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/bottomnav.dart';
 import 'package:travel_app/UserClass/userClass.dart';
+import 'package:travel_app/utils/adaptivetext.dart';
 
 class profile_parameters_bottom extends StatefulWidget {
   const profile_parameters_bottom({
@@ -61,7 +62,8 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                               'Inviter un ami',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFF413C3C),
                               ),
@@ -104,7 +106,8 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                               'Donner mon avis sur l’application',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFF413C3C),
                               ),
@@ -147,7 +150,8 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                               'Aide',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFF413C3C),
                               ),
@@ -190,7 +194,8 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                               'Nous contacter',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFF413C3C),
                               ),
@@ -233,7 +238,8 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                               'Inviter un ami',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFF413C3C),
                               ),
@@ -292,7 +298,8 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                               'Mentions légales',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFF413C3C),
                               ),
@@ -335,7 +342,8 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                               'Conditions générales d’utilisation',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFF413C3C),
                               ),
@@ -378,7 +386,8 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                               'Politique de confidentialité',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFF413C3C),
                               ),
@@ -443,7 +452,8 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                                 'Déconnexion',
                                 textAlign: TextAlign.left,
                                 style: GoogleFonts.poppins(
-                                  fontSize: 11,
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 11),
                                   fontWeight: FontWeight.w600,
                                   color: Color(0xFF413C3C),
                                 ),

@@ -15,7 +15,7 @@ Future<void> loginFunction(
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: mail, password: password);
       UserClass user = UserClass(user_mail: mail);
-      //Navigator.pop(context);
+      Navigator.pop(context);
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => UserProfile(user: user)));
       //Navigator.pushNamed(context, '/userprofile', arguments: [user]);
@@ -67,7 +67,7 @@ Future<void> loginFunction(
               .doc(user.email)
               .set(userinfo);
 
-          //Navigator.pop(context);
+          Navigator.pop(context);
           //Navigator.pushNamed(context, '/userprofile', arguments: user_x);
           Navigator.push(
               context,

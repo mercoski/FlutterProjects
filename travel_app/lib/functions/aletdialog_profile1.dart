@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/UserClass/userClass.dart';
+import 'package:travel_app/utils/adaptivetext.dart';
 
 Future<void> ProfileAlert(BuildContext context,
     {required String title_text,
@@ -41,7 +42,8 @@ Future<void> ProfileAlert(BuildContext context,
                               '$title_text',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFFB7B7B7),
                               ),
@@ -58,7 +60,8 @@ Future<void> ProfileAlert(BuildContext context,
                                         '$body_text',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.poppins(
-                                          fontSize: 11,
+                                          fontSize: AdaptiveTextSize()
+                                              .getadaptiveTextSize(context, 11),
                                           fontWeight: FontWeight.w400,
                                           color: Color(0xFF413C3C),
                                         ),
@@ -93,7 +96,8 @@ Future<void> ProfileAlert(BuildContext context,
                               'Retour',
                               textAlign: TextAlign.center,
                               style: GoogleFonts.poppins(
-                                  fontSize: 14,
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 14),
                                   fontWeight: FontWeight.w400,
                                   color: Color(0xffF16633)),
                             ),
@@ -111,7 +115,8 @@ Future<void> ProfileAlert(BuildContext context,
                               'Enregistrer',
                               textAlign: TextAlign.center,
                               style: GoogleFonts.poppins(
-                                  fontSize: 14,
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 14),
                                   fontWeight: FontWeight.w400,
                                   color: Color(0xff006696)),
                             ),

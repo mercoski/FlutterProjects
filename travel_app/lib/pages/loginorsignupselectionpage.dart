@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel_app/utils/adaptivetext.dart';
 
 class LoginSignupSelectionPage extends StatelessWidget {
   const LoginSignupSelectionPage({Key? key}) : super(key: key);
@@ -31,7 +32,9 @@ class LoginSignupSelectionPage extends StatelessWidget {
                     'Bienvenue',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.averiaSerifLibre(
-                        fontSize: 36, fontWeight: FontWeight.w900),
+                        fontSize:
+                            AdaptiveTextSize().getadaptiveTextSize(context, 36),
+                        fontWeight: FontWeight.w900),
                   ),
                 ),
                 Expanded(
@@ -40,7 +43,10 @@ class LoginSignupSelectionPage extends StatelessWidget {
                     'Plus que quelques étapes avant de (re)découvrir la France',
                     overflow: TextOverflow.clip,
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(fontSize: 14),
+                    style: GoogleFonts.poppins(
+                      fontSize:
+                          AdaptiveTextSize().getadaptiveTextSize(context, 14),
+                    ),
                   ),
                 ),
                 Expanded(
@@ -54,7 +60,10 @@ class LoginSignupSelectionPage extends StatelessWidget {
                   child: Text(
                     'Vous avez déjà un compte ?',
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(fontSize: 14),
+                    style: GoogleFonts.poppins(
+                      fontSize:
+                          AdaptiveTextSize().getadaptiveTextSize(context, 14),
+                    ),
                   ),
                 ),
                 Expanded(
@@ -71,7 +80,8 @@ class LoginSignupSelectionPage extends StatelessWidget {
                           'Se connecter',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.poppins(
-                            fontSize: 15,
+                            fontSize: AdaptiveTextSize()
+                                .getadaptiveTextSize(context, 15),
                           ),
                         ),
                         style: ElevatedButton.styleFrom(
@@ -88,7 +98,10 @@ class LoginSignupSelectionPage extends StatelessWidget {
                   child: Text(
                     'Première fois sur Spot On Travel ? Inscrivez-vous.',
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(fontSize: 14),
+                    style: GoogleFonts.poppins(
+                      fontSize:
+                          AdaptiveTextSize().getadaptiveTextSize(context, 14),
+                    ),
                     overflow: TextOverflow.clip,
                   ),
                 ),
@@ -105,7 +118,10 @@ class LoginSignupSelectionPage extends StatelessWidget {
                         child: Text(
                           'S’inscrire',
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.poppins(fontSize: 15),
+                          style: GoogleFonts.poppins(
+                            fontSize: AdaptiveTextSize()
+                                .getadaptiveTextSize(context, 15),
+                          ),
                         ),
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xff413C3C),

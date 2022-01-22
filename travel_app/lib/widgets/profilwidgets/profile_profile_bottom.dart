@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/functions/aletdialog_profile1.dart';
+import 'package:travel_app/utils/adaptivetext.dart';
 
 class profile_profile_bottom extends StatefulWidget {
   const profile_profile_bottom({
@@ -52,7 +53,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                               'PRÉNOM',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFFB7B7B7),
                               ),
@@ -73,7 +75,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                         '${widget.user?.user_name?.split(" ")[0].toUpperCase()}',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.poppins(
-                                          fontSize: 11,
+                                          fontSize: AdaptiveTextSize()
+                                              .getadaptiveTextSize(context, 11),
                                           fontWeight: FontWeight.w600,
                                           color: Color(0xFF413C3C),
                                         ),
@@ -109,7 +112,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                               'NOM',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFFB7B7B7),
                               ),
@@ -130,7 +134,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                         '${widget.user?.user_name?.split(" ")[1].toUpperCase()}',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.poppins(
-                                          fontSize: 11,
+                                          fontSize: AdaptiveTextSize()
+                                              .getadaptiveTextSize(context, 11),
                                           fontWeight: FontWeight.w600,
                                           color: Color(0xFF413C3C),
                                         ),
@@ -166,7 +171,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                               'DATE DE NAISSANCE',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFFB7B7B7),
                               ),
@@ -186,7 +192,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                         'jj / mm / année',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.poppins(
-                                          fontSize: 11,
+                                          fontSize: AdaptiveTextSize()
+                                              .getadaptiveTextSize(context, 11),
                                           fontWeight: FontWeight.w600,
                                           color: Color(0xFF413C3C),
                                         ),
@@ -222,7 +229,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                               'E-MAIL',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFFB7B7B7),
                               ),
@@ -243,7 +251,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                         '${widget.user?.user_mail}',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.poppins(
-                                          fontSize: 11,
+                                          fontSize: AdaptiveTextSize()
+                                              .getadaptiveTextSize(context, 11),
                                           fontWeight: FontWeight.w600,
                                           color: Color(0xFF413C3C),
                                         ),
@@ -279,7 +288,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                               'MOT DE PASSE',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFFB7B7B7),
                               ),
@@ -296,7 +306,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                         '********',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.poppins(
-                                          fontSize: 11,
+                                          fontSize: AdaptiveTextSize()
+                                              .getadaptiveTextSize(context, 11),
                                           fontWeight: FontWeight.w600,
                                           color: Color(0xFF413C3C),
                                         ),
@@ -348,7 +359,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                               'VÉHICULE',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFFB7B7B7),
                               ),
@@ -365,7 +377,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                         'Van',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.poppins(
-                                          fontSize: 11,
+                                          fontSize: AdaptiveTextSize()
+                                              .getadaptiveTextSize(context, 11),
                                           fontWeight: FontWeight.w600,
                                           color: Color(0xFF413C3C),
                                         ),
@@ -401,7 +414,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                               'WC',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFFB7B7B7),
                               ),
@@ -456,7 +470,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                               'DOUCHE',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFFB7B7B7),
                               ),
@@ -511,7 +526,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                               'ANIMAUX DE COMPAGNIE',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFFB7B7B7),
                               ),
@@ -566,7 +582,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                               'VOYAGE',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                fontSize: 11,
+                                fontSize: AdaptiveTextSize()
+                                    .getadaptiveTextSize(context, 11),
                                 fontWeight: FontWeight.w600,
                                 color: Color(0xFFB7B7B7),
                               ),
@@ -583,7 +600,8 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                         'En couple',
                                         textAlign: TextAlign.left,
                                         style: GoogleFonts.poppins(
-                                          fontSize: 11,
+                                          fontSize: AdaptiveTextSize()
+                                              .getadaptiveTextSize(context, 11),
                                           fontWeight: FontWeight.w600,
                                           color: Color(0xFF413C3C),
                                         ),

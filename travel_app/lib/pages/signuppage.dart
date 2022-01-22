@@ -8,6 +8,7 @@ import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/functions/googlesignhelper.dart';
 import 'package:travel_app/functions/loginfunction.dart';
 import 'package:travel_app/functions/signinfunction.dart';
+import 'package:travel_app/utils/adaptivetext.dart';
 import 'package:travel_app/widgets/InputField.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
@@ -59,10 +60,13 @@ class _SignupPageState extends State<SignupPage> {
                           Navigator.pop(context);
                           Navigator.pushNamed(context, '/loginpage');
                         },
-                        child: const Text(
+                        child: Text(
                           'Se connecter',
-                          style:
-                              TextStyle(color: Color(0xff413C3C), fontSize: 15),
+                          style: TextStyle(
+                            color: Color(0xff413C3C),
+                            fontSize: AdaptiveTextSize()
+                                .getadaptiveTextSize(context, 15),
+                          ),
                         ),
                       ),
                     ),
@@ -83,7 +87,9 @@ class _SignupPageState extends State<SignupPage> {
                           'S’inscrire',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.averiaSerifLibre(
-                              fontSize: 36, fontWeight: FontWeight.w900),
+                              fontSize: AdaptiveTextSize()
+                                  .getadaptiveTextSize(context, 36),
+                              fontWeight: FontWeight.w900),
                         ),
                       ),
                       Expanded(flex: 13, child: Container()),
@@ -129,11 +135,14 @@ class _SignupPageState extends State<SignupPage> {
                             Navigator.pop(context);
                             Navigator.pushNamed(context, '/forgotpass');
                           },
-                          child: const Text(
+                          child: Text(
                             'Mot de passe oublié ?',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: Color(0xff413C3C), fontSize: 14),
+                              color: Color(0xff413C3C),
+                              fontSize: AdaptiveTextSize()
+                                  .getadaptiveTextSize(context, 14),
+                            ),
                           ),
                         ),
                       ),
@@ -158,7 +167,10 @@ class _SignupPageState extends State<SignupPage> {
                               child: Text(
                                 'Inscription',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.poppins(fontSize: 15),
+                                style: GoogleFonts.poppins(
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 15),
+                                ),
                               ),
                               style: ElevatedButton.styleFrom(
                                 primary: Color(0xff413C3C),
@@ -189,7 +201,10 @@ class _SignupPageState extends State<SignupPage> {
                               label: Text(
                                 'Continuer avec Facebook',
                                 textAlign: TextAlign.left,
-                                style: GoogleFonts.poppins(fontSize: 15),
+                                style: GoogleFonts.poppins(
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 15),
+                                ),
                               ),
                             ),
                           )),
@@ -222,7 +237,9 @@ class _SignupPageState extends State<SignupPage> {
                               'Continuer avec Google',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                  fontSize: 15, color: Color(0xff413C3C)),
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 15),
+                                  color: Color(0xff413C3C)),
                             ),
                           ),
                         ),

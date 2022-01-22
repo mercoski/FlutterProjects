@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/functions/resetpassword.dart';
+import 'package:travel_app/utils/adaptivetext.dart';
 import 'package:travel_app/widgets/InputField.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
@@ -56,7 +57,8 @@ class ForgotPasswordPage extends StatelessWidget {
                           'Mot de passe oublié ?',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.averiaSerifLibre(
-                              fontSize: 30,
+                              fontSize: AdaptiveTextSize()
+                                  .getadaptiveTextSize(context, 30),
                               color: Colors.white,
                               fontWeight: FontWeight.w900),
                         ),
@@ -68,7 +70,8 @@ class ForgotPasswordPage extends StatelessWidget {
                           'Vous allez recevoir un code par mail.',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.poppins(
-                            fontSize: 14,
+                            fontSize: AdaptiveTextSize()
+                                .getadaptiveTextSize(context, 14),
                             color: Colors.white,
                           ),
                         ),
@@ -107,7 +110,10 @@ class ForgotPasswordPage extends StatelessWidget {
                               child: Text(
                                 'Envoyer',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.poppins(fontSize: 15),
+                                style: GoogleFonts.poppins(
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 15),
+                                ),
                               ),
                               style: ElevatedButton.styleFrom(
                                 primary: Color(0xff413C3C),

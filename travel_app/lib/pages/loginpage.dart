@@ -9,6 +9,7 @@ import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/functions/googlesignhelper.dart';
 
 import 'package:travel_app/functions/loginfunction.dart';
+import 'package:travel_app/utils/adaptivetext.dart';
 import 'package:travel_app/widgets/InputField.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
@@ -28,12 +29,12 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(flex: 50, child: Container()),
+              const Spacer(flex: 50),
               Expanded(
                 flex: 50,
                 child: Row(
                   children: [
-                    Expanded(flex: 20, child: Container()),
+                    const Spacer(flex: 20),
                     Expanded(
                         flex: 15,
                         child: IconButton(
@@ -44,7 +45,7 @@ class LoginPage extends StatelessWidget {
                                 context, '/loginsignupselectionpage');
                           },
                         )),
-                    Expanded(flex: 255, child: Container()),
+                    const Spacer(flex: 255),
                     Expanded(
                       flex: 150,
                       child: TextButton(
@@ -58,13 +59,14 @@ class LoginPage extends StatelessWidget {
                         child: Text(
                           'S’inscrire',
                           style: GoogleFonts.poppins(
-                              fontSize: 15,
+                              fontSize: AdaptiveTextSize()
+                                  .getadaptiveTextSize(context, 15),
                               fontWeight: FontWeight.w500,
                               color: Color(0xff413C3C)),
                         ),
                       ),
                     ),
-                    Expanded(flex: 21, child: Container()),
+                    const Spacer(flex: 21),
                   ],
                 ),
               ),
@@ -81,10 +83,12 @@ class LoginPage extends StatelessWidget {
                           'Se connecter',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.averiaSerifLibre(
-                              fontSize: 36, fontWeight: FontWeight.w900),
+                              fontSize: AdaptiveTextSize()
+                                  .getadaptiveTextSize(context, 36),
+                              fontWeight: FontWeight.w900),
                         ),
                       ),
-                      Expanded(flex: 13, child: Container()),
+                      const Spacer(flex: 13),
                       Expanded(
                         flex: 50,
                         child: SizedBox(
@@ -101,7 +105,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Expanded(flex: 15, child: Container()),
+                      const Spacer(flex: 15),
                       Expanded(
                         flex: 50,
                         child: SizedBox(
@@ -127,11 +131,14 @@ class LoginPage extends StatelessWidget {
                             Navigator.pop(context);
                             Navigator.pushNamed(context, '/forgotpass');
                           },
-                          child: const Text(
+                          child: Text(
                             'Mot de passe oublié ?',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: Color(0xff413C3C), fontSize: 14),
+                              color: Color(0xff413C3C),
+                              fontSize: AdaptiveTextSize()
+                                  .getadaptiveTextSize(context, 14),
+                            ),
                           ),
                         ),
                       ),
@@ -157,7 +164,10 @@ class LoginPage extends StatelessWidget {
                               child: Text(
                                 'Connexion',
                                 textAlign: TextAlign.center,
-                                style: GoogleFonts.poppins(fontSize: 15),
+                                style: GoogleFonts.poppins(
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 15),
+                                ),
                               ),
                               style: ElevatedButton.styleFrom(
                                 primary: Color(0xff413C3C),
@@ -167,7 +177,7 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                           )),
-                      Expanded(flex: 11, child: Container()),
+                      const Spacer(flex: 11),
                       Expanded(
                           flex: 50,
                           child: SizedBox(
@@ -188,11 +198,14 @@ class LoginPage extends StatelessWidget {
                               label: Text(
                                 'Continuer avec Facebook',
                                 textAlign: TextAlign.left,
-                                style: GoogleFonts.poppins(fontSize: 15),
+                                style: GoogleFonts.poppins(
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 15),
+                                ),
                               ),
                             ),
                           )),
-                      Expanded(flex: 12, child: Container()),
+                      const Spacer(flex: 12),
                       Expanded(
                         flex: 50,
                         child: SizedBox(
@@ -221,12 +234,14 @@ class LoginPage extends StatelessWidget {
                               'Continuer avec Google',
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
-                                  fontSize: 15, color: Color(0xff413C3C)),
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 15),
+                                  color: Color(0xff413C3C)),
                             ),
                           ),
                         ),
                       ),
-                      Expanded(flex: 300, child: Container()),
+                      const Spacer(flex: 300),
                     ],
                   ),
                 ),

@@ -7,6 +7,7 @@ import 'package:travel_app/UserClass/bottomnav.dart';
 import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/functions/loginfunction.dart';
 import 'package:travel_app/main.dart';
+import 'package:travel_app/utils/adaptivetext.dart';
 import 'package:travel_app/widgets/InputField.dart';
 import 'package:travel_app/widgets/buttomnavbar.dart';
 
@@ -28,24 +29,32 @@ class UserProfile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Expanded(flex: 54, child: Container()),
-                Expanded(
+                Spacer(
+                  flex: 54,
+                ),
+                Flexible(
                   flex: 50,
                   child: ListTile(
                     title: Text(
                       'Bienvenue ${user?.user_name?.split(" ")[0].toUpperCase()}',
                       textAlign: TextAlign.left,
                       style: GoogleFonts.averiaSerifLibre(
-                          fontSize: 20, fontWeight: FontWeight.w900),
+                          fontSize: AdaptiveTextSize()
+                              .getadaptiveTextSize(context, 20),
+                          fontWeight: FontWeight.w900),
                     ),
                     subtitle: Text(
                       'Ta prochaine aventure commence ici',
                       overflow: TextOverflow.clip,
                       textAlign: TextAlign.left,
-                      style: GoogleFonts.poppins(fontSize: 13),
+                      style: GoogleFonts.poppins(
+                        fontSize:
+                            AdaptiveTextSize().getadaptiveTextSize(context, 13),
+                      ),
                     ),
                     trailing: CircleAvatar(
-                      radius: 30, // Image radius
+                      radius: AdaptiveTextSize()
+                          .getadaptiveTextSize(context, 36), // Image radius
                       backgroundImage: NetworkImage('${user?.user_image}'),
                       onBackgroundImageError: (exception, stackTrace) {},
                       backgroundColor: Colors.white,
@@ -100,19 +109,27 @@ class UserProfile extends StatelessWidget {
                       'Alsace',
                       textAlign: TextAlign.left,
                       style: GoogleFonts.averiaSerifLibre(
-                          fontSize: 22, fontWeight: FontWeight.w900),
+                          fontSize: AdaptiveTextSize()
+                              .getadaptiveTextSize(context, 22),
+                          fontWeight: FontWeight.w900),
                     ),
                     subtitle: Text(
                       'Du massif des vosges à Orschwihr',
                       overflow: TextOverflow.clip,
                       textAlign: TextAlign.left,
-                      style: GoogleFonts.poppins(fontSize: 14),
+                      style: GoogleFonts.poppins(
+                        fontSize:
+                            AdaptiveTextSize().getadaptiveTextSize(context, 14),
+                      ),
                     ),
                     trailing: Text(
                       '4 Spots',
                       overflow: TextOverflow.clip,
                       textAlign: TextAlign.start,
-                      style: GoogleFonts.poppins(fontSize: 14),
+                      style: GoogleFonts.poppins(
+                        fontSize:
+                            AdaptiveTextSize().getadaptiveTextSize(context, 14),
+                      ),
                     ),
                   ),
                 ),
@@ -124,13 +141,18 @@ class UserProfile extends StatelessWidget {
                       'Activities around you',
                       textAlign: TextAlign.left,
                       style: GoogleFonts.averiaSerifLibre(
-                          fontSize: 22, fontWeight: FontWeight.w900),
+                          fontSize: AdaptiveTextSize()
+                              .getadaptiveTextSize(context, 22),
+                          fontWeight: FontWeight.w900),
                     ),
                     subtitle: Text(
                       'Morbihan, de la terre a la mer',
                       overflow: TextOverflow.clip,
                       textAlign: TextAlign.left,
-                      style: GoogleFonts.poppins(fontSize: 14),
+                      style: GoogleFonts.poppins(
+                        fontSize:
+                            AdaptiveTextSize().getadaptiveTextSize(context, 14),
+                      ),
                     ),
                   ),
                 ),
@@ -147,7 +169,9 @@ class UserProfile extends StatelessWidget {
                           overflow: TextOverflow.clip,
                           textAlign: TextAlign.left,
                           style: GoogleFonts.poppins(
-                              fontSize: 14, color: const Color(0xff8D8B8B)),
+                              fontSize: AdaptiveTextSize()
+                                  .getadaptiveTextSize(context, 14),
+                              color: const Color(0xff8D8B8B)),
                         ),
                       ),
                       Container(
