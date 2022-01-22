@@ -61,7 +61,9 @@ class _profile_topState extends State<profile_top> {
                 backgroundColor: Colors.white,
                 child: ClipOval(
                   clipBehavior: Clip.antiAlias,
-                  child: Image.network('${widget.user?.user_image}'),
+                  child: widget.user?.user_image == null
+                      ? SizedBox()
+                      : Image.network('${widget.user?.user_image}'),
                 ),
               ),
             ),

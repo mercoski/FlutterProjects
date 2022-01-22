@@ -175,15 +175,16 @@ class _SignupPageState extends State<SignupPage> {
                             width: double.infinity,
                             height: double.infinity,
                             child: ElevatedButton.icon(
-                              icon: const Icon(
-                                Icons.facebook,
-                              ),
-                              onPressed: () async {},
+                              icon: Image.asset('assets/facebook.png'),
+                              onPressed: () async {
+                                print('Facebook');
+                              },
                               style: ElevatedButton.styleFrom(
                                 primary: Color(0xff3B5998),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(34),
                                 ),
+                                alignment: Alignment.centerLeft,
                               ),
                               label: Text(
                                 'Continuer avec Facebook',
@@ -194,41 +195,38 @@ class _SignupPageState extends State<SignupPage> {
                           )),
                       Expanded(flex: 12, child: Container()),
                       Expanded(
-                          flex: 50,
-                          child: SizedBox(
-                            width: double.infinity,
-                            height: double.infinity,
-                            child: ElevatedButton.icon(
-                              icon: const Icon(
-                                Icons.facebook,
-                              ),
-                              onPressed: () async {
-                                await loginFunction(
-                                    context,
-                                    Provider.of<UserClass>(context,
-                                            listen: false)
-                                        .textEditingController_user
-                                        .text,
-                                    Provider.of<UserClass>(context,
-                                            listen: false)
-                                        .textEditingController_pass
-                                        .text,
-                                    'google');
-                              },
-                              style: ElevatedButton.styleFrom(
+                        flex: 50,
+                        child: SizedBox(
+                          width: double.infinity,
+                          height: double.infinity,
+                          child: ElevatedButton.icon(
+                            icon: Image.asset('assets/google.png'),
+                            onPressed: () async {
+                              await loginFunction(
+                                  context,
+                                  Provider.of<UserClass>(context, listen: false)
+                                      .textEditingController_user
+                                      .text,
+                                  Provider.of<UserClass>(context, listen: false)
+                                      .textEditingController_pass
+                                      .text,
+                                  'google');
+                            },
+                            style: ElevatedButton.styleFrom(
                                 primary: Colors.white,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(34),
                                 ),
-                              ),
-                              label: Text(
-                                'Continuer avec Google',
-                                textAlign: TextAlign.left,
-                                style: GoogleFonts.poppins(
-                                    fontSize: 15, color: Color(0xff413C3C)),
-                              ),
+                                alignment: Alignment.centerLeft),
+                            label: Text(
+                              'Continuer avec Google',
+                              textAlign: TextAlign.left,
+                              style: GoogleFonts.poppins(
+                                  fontSize: 15, color: Color(0xff413C3C)),
                             ),
-                          )),
+                          ),
+                        ),
+                      ),
                       Expanded(flex: 300, child: Container()),
                     ],
                   ),

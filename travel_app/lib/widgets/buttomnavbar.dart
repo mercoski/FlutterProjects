@@ -17,19 +17,22 @@ class BottomNavBar extends StatelessWidget {
     return BottomNavigationBar(
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: SizedBox(height: 40, child: Icon(Icons.home)),
           label: 'Accueil',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.logout),
+          icon: SizedBox(height: 40, child: Icon(Icons.logout)),
           label: 'Logout',
         ),
         BottomNavigationBarItem(
-          icon: CircleAvatar(
-            radius: 30, // Image radius
-            backgroundImage: NetworkImage('${user?.user_image}'),
+          icon: SizedBox(
+            height: 40,
+            child: CircleAvatar(
+              radius: 30, // Image radius
+              backgroundImage: NetworkImage('${user?.user_image}'),
 
-            backgroundColor: Colors.white,
+              backgroundColor: Colors.white,
+            ),
           ),
           label: 'Profil',
         ),

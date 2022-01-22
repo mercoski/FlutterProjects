@@ -472,11 +472,11 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                       transformHitTests: false,
                                       child: CupertinoSwitch(
                                         activeColor: Color(0xff519442),
-                                        value: status_wc,
+                                        value: status_douche,
                                         onChanged: (value) {
                                           setState(() {
-                                            status_wc = value;
-                                            print(status_wc);
+                                            status_douche = value;
+                                            print(status_douche);
                                           });
                                         },
                                       ),
@@ -527,11 +527,11 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                       transformHitTests: false,
                                       child: CupertinoSwitch(
                                         activeColor: Color(0xff519442),
-                                        value: status_wc,
+                                        value: status_adc,
                                         onChanged: (value) {
                                           setState(() {
-                                            status_wc = value;
-                                            print(status_wc);
+                                            status_adc = value;
+                                            print(status_adc);
                                           });
                                         },
                                       ),
