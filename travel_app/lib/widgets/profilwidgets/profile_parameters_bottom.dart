@@ -5,6 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/bottomnav.dart';
 import 'package:travel_app/UserClass/userClass.dart';
+import 'package:travel_app/pages/profil/conditionsgeneralespage.dart';
+import 'package:travel_app/pages/profil/mentionslegalespage.dart';
+import 'package:travel_app/pages/profil/politiquepage.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
 
 class profile_parameters_bottom extends StatefulWidget {
@@ -294,14 +297,26 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'Mentions légales',
-                              textAlign: TextAlign.left,
-                              style: GoogleFonts.poppins(
-                                fontSize: AdaptiveTextSize()
-                                    .getadaptiveTextSize(context, 11),
-                                fontWeight: FontWeight.w600,
-                                color: Color(0xFF413C3C),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            MentionLegalesPage(
+                                              user: widget.user,
+                                            )));
+                              },
+                              child: Text(
+                                'Mentions légales',
+                                textAlign: TextAlign.left,
+                                style: GoogleFonts.poppins(
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 11),
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF413C3C),
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -338,14 +353,26 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'Conditions générales d’utilisation',
-                              textAlign: TextAlign.left,
-                              style: GoogleFonts.poppins(
-                                fontSize: AdaptiveTextSize()
-                                    .getadaptiveTextSize(context, 11),
-                                fontWeight: FontWeight.w600,
-                                color: Color(0xFF413C3C),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            ConditionsGeneralesPage(
+                                              user: widget.user,
+                                            )));
+                              },
+                              child: Text(
+                                'Conditions générales d’utilisation',
+                                textAlign: TextAlign.left,
+                                style: GoogleFonts.poppins(
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 11),
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF413C3C),
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -382,14 +409,25 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'Politique de confidentialité',
-                              textAlign: TextAlign.left,
-                              style: GoogleFonts.poppins(
-                                fontSize: AdaptiveTextSize()
-                                    .getadaptiveTextSize(context, 11),
-                                fontWeight: FontWeight.w600,
-                                color: Color(0xFF413C3C),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => PolitiquesPage(
+                                              user: widget.user,
+                                            )));
+                              },
+                              child: Text(
+                                'Politique de confidentialité',
+                                textAlign: TextAlign.left,
+                                style: GoogleFonts.poppins(
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 11),
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF413C3C),
+                                ),
                               ),
                             ),
                             SizedBox(
