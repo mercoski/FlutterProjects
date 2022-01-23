@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/functions/aletdialog_profile1.dart';
+import 'package:travel_app/functions/vehiculealert.dart';
+import 'package:travel_app/functions/voyagedialog.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
 
 class profile_profile_bottom extends StatefulWidget {
@@ -371,7 +373,13 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                   Container(
                                     child: GestureDetector(
                                       onTap: () {
-                                        print("Basıldı");
+                                        VehiculeAlert(
+                                          context,
+                                          title_text: 'E-MAIL',
+                                          body_text:
+                                              '${widget.user?.user_mail}',
+                                          user: widget.user,
+                                        );
                                       },
                                       child: Text(
                                         'Van',
@@ -594,7 +602,14 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                   Container(
                                     child: GestureDetector(
                                       onTap: () {
-                                        print("Basıldı");
+                                        VoyageAlert(
+                                          context,
+                                          title_text: 'E-MAIL',
+                                          body_text:
+                                              '${widget.user?.user_mail}',
+                                          user: widget.user,
+                                        );
+                                        //setState(() {});
                                       },
                                       child: Text(
                                         'En couple',

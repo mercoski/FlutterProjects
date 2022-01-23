@@ -50,7 +50,7 @@ class BottomNavBar extends StatelessWidget {
 
         if (value == 1) {
           await FirebaseAuth.instance.signOut();
-          Navigator.pop(context);
+
           Navigator.pushNamed(context, '/');
           Provider.of<BottomNav>(context, listen: false).setOnItemTapped(value);
           Provider.of<UserClass>(context, listen: false).user_image = '';
@@ -58,7 +58,6 @@ class BottomNavBar extends StatelessWidget {
           Provider.of<UserClass>(context, listen: false).user_mail = '';
         }
         if (value == 2) {
-          Navigator.pop(context);
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => ProfilPage(user: user)));
           Provider.of<BottomNav>(context, listen: false).setOnItemTapped(value);
