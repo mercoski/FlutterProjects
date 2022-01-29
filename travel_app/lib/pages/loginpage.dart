@@ -179,34 +179,6 @@ class LoginPage extends StatelessWidget {
                           )),
                       const Spacer(flex: 11),
                       Expanded(
-                          flex: 50,
-                          child: SizedBox(
-                            width: double.infinity,
-                            height: double.infinity,
-                            child: ElevatedButton.icon(
-                              icon: Image.asset('assets/facebook.png'),
-                              onPressed: () async {
-                                print('Facebook');
-                              },
-                              style: ElevatedButton.styleFrom(
-                                primary: Color(0xff3B5998),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(34),
-                                ),
-                                alignment: Alignment.centerLeft,
-                              ),
-                              label: Text(
-                                'Continuer avec Facebook',
-                                textAlign: TextAlign.left,
-                                style: GoogleFonts.poppins(
-                                  fontSize: AdaptiveTextSize()
-                                      .getadaptiveTextSize(context, 15),
-                                ),
-                              ),
-                            ),
-                          )),
-                      const Spacer(flex: 12),
-                      Expanded(
                         flex: 50,
                         child: SizedBox(
                           width: double.infinity,
@@ -241,7 +213,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const Spacer(flex: 300),
+                      const Spacer(flex: 380),
                     ],
                   ),
                 ),

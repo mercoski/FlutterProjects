@@ -7,9 +7,13 @@ import 'package:travel_app/UserClass/bottomnav.dart';
 import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/functions/loginfunction.dart';
 import 'package:travel_app/main.dart';
+import 'package:travel_app/utils/adaptivescreensize.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
 import 'package:travel_app/widgets/InputField.dart';
 import 'package:travel_app/widgets/buttomnavbar.dart';
+import 'package:travel_app/widgets/categorycards.dart';
+import 'package:travel_app/widgets/eventcards.dart';
+import 'package:travel_app/widgets/homepage_topwidget.dart';
 
 class UserProfile extends StatelessWidget {
   UserProfile({Key? key, required this.user}) : super(key: key);
@@ -22,203 +26,125 @@ class UserProfile extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
-        body: Center(
-          child: FractionallySizedBox(
-            widthFactor: 0.9,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Spacer(
-                  flex: 54,
-                ),
-                Flexible(
-                  flex: 50,
-                  child: ListTile(
-                    title: Text(
-                      'Bienvenue ${user?.user_name?.split(" ")[0].toUpperCase()}',
-                      textAlign: TextAlign.left,
-                      style: GoogleFonts.averiaSerifLibre(
-                          fontSize: AdaptiveTextSize()
-                              .getadaptiveTextSize(context, 20),
-                          fontWeight: FontWeight.w900),
+        appBar: AppBar(
+          centerTitle: false,
+          titleSpacing: 20,
+          title: Text(
+            'Que recherchez-vous ${user?.user_name?.split(" ")[0].toUpperCase()} ?',
+            style: GoogleFonts.poppins(
+                fontSize: AdaptiveTextSize().getadaptiveTextSize(context, 16),
+                fontWeight: FontWeight.w600,
+                color: Color(0xff413C3C)),
+            textAlign: TextAlign.left,
+          ),
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.notifications,
+                  color: Color(0xff413C3C),
+                )),
+          ],
+          automaticallyImplyLeading: false,
+          backgroundColor: Color(0xffFCFAF5),
+        ),
+        body: SingleChildScrollView(
+          child: Center(
+            child: FractionallySizedBox(
+              widthFactor: 0.9,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeHeight(context, 20),
+                  ),
+                  Container(
+                    height: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeHeight(context, 110),
+                    child: HomePageTopWidget(
+                      selected: 'Itinéraires',
                     ),
-                    subtitle: Text(
-                      'Ta prochaine aventure commence ici',
-                      overflow: TextOverflow.clip,
-                      textAlign: TextAlign.left,
+                  ),
+                  Container(
+                    height: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeHeight(context, 25),
+                  ),
+                  Container(
+                    height: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeHeight(context, 56),
+                    child: Text(
+                      'Des idées d’itinéraires pour votre prochain voyage',
                       style: GoogleFonts.poppins(
-                        fontSize:
-                            AdaptiveTextSize().getadaptiveTextSize(context, 13),
-                      ),
-                    ),
-                    trailing: CircleAvatar(
-                      radius: AdaptiveTextSize()
-                          .getadaptiveTextSize(context, 36), // Image radius
-                      backgroundImage: NetworkImage('${user?.user_image}'),
-                      onBackgroundImageError: (exception, stackTrace) {},
-                      backgroundColor: Colors.white,
-                    ),
-                  ),
-                ),
-                Expanded(flex: 14, child: Container()),
-                Expanded(
-                  flex: 55,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 290,
-                        child: InputField(
-                          autocorrect: false,
-                          enablesuggestions: false,
-                          obscureText: false,
-                          hintText: 'Search ...',
-                          textEditingController: Provider.of<UserClass>(context)
-                              .textEditingController_search,
-                        ),
-                      ),
-                      Expanded(
-                          flex: 40,
-                          child: IconButton(
-                            splashColor: Colors.transparent,
-                            icon: const Icon(Icons.search),
-                            onPressed: () {
-                              print('Search button');
-                            },
-                          ))
-                    ],
-                  ),
-                ),
-                Expanded(flex: 14, child: Container()),
-                Expanded(
-                  flex: 155,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      image: const DecorationImage(
-                          image: AssetImage('assets/signin.jpg'),
-                          fit: BoxFit.cover),
-                    ),
-                  ),
-                ),
-                Expanded(flex: 5, child: Container()),
-                Expanded(
-                  flex: 49,
-                  child: ListTile(
-                    title: Text(
-                      'Alsace',
-                      textAlign: TextAlign.left,
-                      style: GoogleFonts.averiaSerifLibre(
                           fontSize: AdaptiveTextSize()
                               .getadaptiveTextSize(context, 22),
-                          fontWeight: FontWeight.w900),
-                    ),
-                    subtitle: Text(
-                      'Du massif des vosges à Orschwihr',
-                      overflow: TextOverflow.clip,
-                      textAlign: TextAlign.left,
-                      style: GoogleFonts.poppins(
-                        fontSize:
-                            AdaptiveTextSize().getadaptiveTextSize(context, 14),
-                      ),
-                    ),
-                    trailing: Text(
-                      '4 Spots',
-                      overflow: TextOverflow.clip,
-                      textAlign: TextAlign.start,
-                      style: GoogleFonts.poppins(
-                        fontSize:
-                            AdaptiveTextSize().getadaptiveTextSize(context, 14),
-                      ),
+                          color: Color(0xff413C3C),
+                          fontWeight: FontWeight.w600),
                     ),
                   ),
-                ),
-                Expanded(flex: 31, child: Container()),
-                Expanded(
-                  flex: 30,
-                  child: ListTile(
-                    title: Text(
-                      'Activities around you',
-                      textAlign: TextAlign.left,
-                      style: GoogleFonts.averiaSerifLibre(
+                  Container(
+                    height: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeHeight(context, 10),
+                  ),
+                  Container(
+                      height: AdaptiveScreenSize()
+                          .getadaptiveScreenSizeHeight(context, 250),
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          EventCards(),
+                          Container(
+                            width: AdaptiveScreenSize()
+                                .getadaptiveScreenSizeWidth(context, 20),
+                          ),
+                          EventCards(),
+                          Container(
+                            width: AdaptiveScreenSize()
+                                .getadaptiveScreenSizeWidth(context, 20),
+                          ),
+                        ],
+                      )),
+                  Container(
+                    height: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeHeight(context, 25),
+                  ),
+                  Container(
+                    height: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeHeight(context, 56),
+                    child: Text(
+                      'Découvrez nos activités thématiques',
+                      style: GoogleFonts.poppins(
                           fontSize: AdaptiveTextSize()
                               .getadaptiveTextSize(context, 22),
-                          fontWeight: FontWeight.w900),
-                    ),
-                    subtitle: Text(
-                      'Morbihan, de la terre a la mer',
-                      overflow: TextOverflow.clip,
-                      textAlign: TextAlign.left,
-                      style: GoogleFonts.poppins(
-                        fontSize:
-                            AdaptiveTextSize().getadaptiveTextSize(context, 14),
-                      ),
+                          color: Color(0xff413C3C),
+                          fontWeight: FontWeight.w600),
                     ),
                   ),
-                ),
-                Expanded(flex: 150, child: Container()),
-                Expanded(
-                  flex: 17,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'LAST TRIPS CREATED',
-                          overflow: TextOverflow.clip,
-                          textAlign: TextAlign.left,
-                          style: GoogleFonts.poppins(
-                              fontSize: AdaptiveTextSize()
-                                  .getadaptiveTextSize(context, 14),
-                              color: const Color(0xff8D8B8B)),
-                        ),
-                      ),
-                      Container(
-                        alignment: Alignment.topRight,
-                        child: IconButton(
-                          icon: const Icon(
-                            Icons.arrow_back_ios,
-                            size: 15,
-                            color: Color(0xff8D8B8B),
+                  Container(
+                    height: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeHeight(context, 10),
+                  ),
+                  Container(
+                      height: AdaptiveScreenSize()
+                          .getadaptiveScreenSizeHeight(context, 250),
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          CategoryCards(),
+                          Container(
+                            width: AdaptiveScreenSize()
+                                .getadaptiveScreenSizeWidth(context, 20),
                           ),
-                          onPressed: () {
-                            EventIndex--;
-                            print('Event index : $EventIndex');
-                          },
-                        ),
-                      ),
-                      Container(
-                        alignment: Alignment.topRight,
-                        child: IconButton(
-                          icon: const Icon(
-                            Icons.arrow_forward_ios,
-                            size: 15,
-                            color: Color(0xff8D8B8B),
+                          CategoryCards(),
+                          Container(
+                            width: AdaptiveScreenSize()
+                                .getadaptiveScreenSizeWidth(context, 20),
                           ),
-                          onPressed: () {
-                            EventIndex++;
-                            print('Event index : $EventIndex');
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Expanded(flex: 10, child: Container()),
-                Expanded(
-                  flex: 70,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      image: const DecorationImage(
-                          image: AssetImage('assets/signin.jpg'),
-                          fit: BoxFit.cover),
-                    ),
-                  ),
-                ),
-                Expanded(flex: 15, child: Container()),
-              ],
+                        ],
+                      )),
+                ],
+              ),
             ),
           ),
         ),
