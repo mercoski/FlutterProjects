@@ -73,7 +73,7 @@ class UserProfile extends StatelessWidget {
                   ),
                   Container(
                     height: AdaptiveScreenSize()
-                        .getadaptiveScreenSizeHeight(context, 56),
+                        .getadaptiveScreenSizeHeight(context, 60),
                     child: Text(
                       'Des idées d’itinéraires pour votre prochain voyage',
                       style: GoogleFonts.poppins(
@@ -111,7 +111,7 @@ class UserProfile extends StatelessWidget {
                   ),
                   Container(
                     height: AdaptiveScreenSize()
-                        .getadaptiveScreenSizeHeight(context, 56),
+                        .getadaptiveScreenSizeHeight(context, 60),
                     child: Text(
                       'Découvrez nos activités thématiques',
                       style: GoogleFonts.poppins(
