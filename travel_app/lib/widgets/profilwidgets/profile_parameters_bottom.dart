@@ -24,6 +24,7 @@ class profile_parameters_bottom extends StatefulWidget {
 }
 
 class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
+  bool notification_status = false;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -31,6 +32,85 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Expanded(
+            flex: 39,
+            child: Card(
+              color: Color(0xFFFCFAF5),
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(
+                    children: [
+                      const Spacer(
+                        flex: 14,
+                      ),
+                      const Expanded(
+                          flex: 15,
+                          child: Icon(
+                            Icons.notifications,
+                            size: 15,
+                          )),
+                      const Spacer(
+                        flex: 14,
+                      ),
+                      Expanded(
+                        flex: 292,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () async {
+                                await FirebaseAuth.instance.signOut();
+                                Navigator.pop(context);
+                                Navigator.pushNamed(context, '/');
+                              },
+                              child: Text(
+                                'Activer les notifications',
+                                textAlign: TextAlign.left,
+                                style: GoogleFonts.poppins(
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 11),
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF413C3C),
+                                ),
+                              ),
+                            ),
+                            const Spacer(),
+                            Container(
+                              height: 11,
+                              width: 25,
+                              child: Transform.scale(
+                                scale: 0.5,
+                                transformHitTests: false,
+                                child: CupertinoSwitch(
+                                  activeColor: Color(0xff519442),
+                                  value: notification_status,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      notification_status = value;
+                                      print(notification_status);
+                                    });
+                                  },
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Spacer(
+                        flex: 11,
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const Spacer(flex: 15),
           Expanded(
             flex: 147,
             child: Card(
@@ -516,7 +596,7 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
               ),
             ),
           ),
-          const Spacer(flex: 62),
+          const Spacer(flex: 47),
         ],
       ),
     );

@@ -1,8 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/pages/profil/parameterspage.dart';
 import 'package:travel_app/pages/profil/profilpage.dart';
+import 'package:travel_app/utils/adaptivescreensize.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
 import 'package:travel_app/widgets/profilwidgets/profilbuttons.dart';
 
@@ -18,6 +23,8 @@ class profile_top extends StatefulWidget {
 }
 
 class _profile_topState extends State<profile_top> {
+  File? imageFile;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -58,14 +65,26 @@ class _profile_topState extends State<profile_top> {
             Expanded(flex: 29, child: Container()),
             Expanded(
               flex: 115,
-              child: CircleAvatar(
-                radius: 30, // Image radius
-                backgroundColor: Colors.white,
-                child: ClipOval(
-                  clipBehavior: Clip.antiAlias,
-                  child: widget.user?.user_image == null
-                      ? SizedBox()
-                      : Image.network('${widget.user?.user_image}'),
+              child: GestureDetector(
+                onTap: () {
+                  getImage(source: ImageSource.gallery);
+                },
+                child: CircleAvatar(
+                  radius: 30, // Image radius
+                  backgroundColor: Colors.white,
+                  child: ClipOval(
+                    clipBehavior: Clip.antiAlias,
+                    child: imageFile != null
+                        ? Image.file(
+                            imageFile!,
+                            width: AdaptiveScreenSize()
+                                .getadaptiveScreenSizeWidth(context, 115),
+                            height: AdaptiveScreenSize()
+                                .getadaptiveScreenSizeHeight(context, 115),
+                            fit: BoxFit.cover,
+                          )
+                        : Image.network('${widget.user?.user_image}'),
+                  ),
                 ),
               ),
             ),
@@ -177,5 +196,14 @@ class _profile_topState extends State<profile_top> {
         ),
       ),
     );
+  }
+
+  void getImage({required ImageSource source}) async {
+    final file = await ImagePicker().getImage(source: source);
+    if (file?.path != null) {
+      setState(() {
+        imageFile = File(file!.path);
+      });
+    }
   }
 }
