@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/bottomnav.dart';
 import 'package:travel_app/UserClass/userClass.dart';
+import 'package:travel_app/pages/map.dart';
 import 'package:travel_app/pages/profil/profilpage.dart';
 import 'package:travel_app/pages/userprofile.dart';
 
@@ -21,8 +22,8 @@ class BottomNavBar extends StatelessWidget {
           label: 'Accueil',
         ),
         BottomNavigationBarItem(
-          icon: SizedBox(height: 40, child: Icon(Icons.logout)),
-          label: 'Logout',
+          icon: SizedBox(height: 40, child: Icon(Icons.map)),
+          label: 'Map',
         ),
         BottomNavigationBarItem(
           icon: SizedBox(
@@ -49,13 +50,10 @@ class BottomNavBar extends StatelessWidget {
         }
 
         if (value == 1) {
-          await FirebaseAuth.instance.signOut();
-
-          Navigator.pushNamed(context, '/');
+          Navigator.pop(context);
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => MapScreen(user: user)));
           Provider.of<BottomNav>(context, listen: false).setOnItemTapped(value);
-          Provider.of<UserClass>(context, listen: false).user_image = '';
-          Provider.of<UserClass>(context, listen: false).user_name = 'Camper';
-          Provider.of<UserClass>(context, listen: false).user_mail = '';
         }
         if (value == 2) {
           Navigator.push(context,

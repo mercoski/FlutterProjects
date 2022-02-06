@@ -5,7 +5,9 @@
         android:label="travel_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBXJ9lJSSrMGO8PJuav3eiS6tsKobEIz70"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
