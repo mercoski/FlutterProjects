@@ -12,11 +12,12 @@ class HomePageButtons extends StatelessWidget {
     return Text(
       buttontext,
       textAlign: TextAlign.left,
-      style: GoogleFonts.poppins(
-          fontSize: AdaptiveTextSize().getadaptiveTextSize(context, 16),
-          fontWeight: FontWeight.w600,
-          color: isselected ? Color(0xFF006696) : Color(0xFFB7B7B7),
-          decoration: isselected ? TextDecoration.underline : null),
+      style: TextStyle(
+        fontFamily: 'Recoleta',
+        fontSize: AdaptiveTextSize().getadaptiveTextSize(context, 16),
+        fontWeight: FontWeight.w600,
+        color: isselected ? Color(0xFF006696) : Color(0xFFB7B7B7),
+      ),
     );
   }
 }

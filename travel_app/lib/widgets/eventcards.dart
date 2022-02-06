@@ -53,11 +53,13 @@ class EventCards extends StatelessWidget {
                         children: [
                           Text(
                             'Escapade dans le Puy-de-Dôme',
-                            style: GoogleFonts.poppins(
-                                fontSize: AdaptiveTextSize()
-                                    .getadaptiveTextSize(context, 18),
-                                color: Color(0xff413C3C),
-                                fontWeight: FontWeight.w600),
+                            style: TextStyle(
+                              fontFamily: 'Recoleta',
+                              fontSize: AdaptiveTextSize()
+                                  .getadaptiveTextSize(context, 18),
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff413C3C),
+                            ),
                           ),
                           Text(
                             'Auvergne',

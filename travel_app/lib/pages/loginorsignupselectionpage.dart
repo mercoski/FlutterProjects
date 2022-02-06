@@ -31,10 +31,11 @@ class LoginSignupSelectionPage extends StatelessWidget {
                   child: Text(
                     'Bienvenue',
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.averiaSerifLibre(
+                    style: TextStyle(
+                        fontFamily: 'Recoleta',
                         fontSize:
                             AdaptiveTextSize().getadaptiveTextSize(context, 36),
-                        fontWeight: FontWeight.w900),
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
                 Expanded(

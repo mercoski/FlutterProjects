@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/bottomnav.dart';
 import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/pages/profil/parameterspage.dart';
+import 'package:travel_app/utils/adaptivescreensize.dart';
 import 'package:travel_app/widgets/buttomnavbar.dart';
 import 'package:travel_app/widgets/profilwidgets/profilbuttons.dart';
 import 'package:travel_app/widgets/profilwidgets/profile_profile_bottom.dart';
@@ -15,7 +16,6 @@ class ProfilPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String selected = 'Parameters';
     return ChangeNotifierProvider(
       create: (context) => BottomNav(),
       child: Scaffold(
@@ -26,8 +26,9 @@ class ProfilPage extends StatelessWidget {
           user: user,
         ),
         body: Center(
-          child: FractionallySizedBox(
-            widthFactor: 0.88,
+          child: Container(
+            width:
+                AdaptiveScreenSize().getadaptiveScreenSizeWidth(context, 335),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -37,7 +38,6 @@ class ProfilPage extends StatelessWidget {
                   selected: 'Profil',
                 ),
                 profile_profile_bottom(user: user),
-                const Spacer(flex: 24),
               ],
             ),
           ),

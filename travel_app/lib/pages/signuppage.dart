@@ -86,10 +86,11 @@ class _SignupPageState extends State<SignupPage> {
                         child: Text(
                           'S’inscrire',
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.averiaSerifLibre(
+                          style: TextStyle(
+                              fontFamily: 'Recoleta',
                               fontSize: AdaptiveTextSize()
                                   .getadaptiveTextSize(context, 36),
-                              fontWeight: FontWeight.w900),
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                       Expanded(flex: 13, child: Container()),

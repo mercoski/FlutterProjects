@@ -5,6 +5,7 @@ import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/functions/aletdialog_profile1.dart';
 import 'package:travel_app/functions/vehiculealert.dart';
 import 'package:travel_app/functions/voyagedialog.dart';
+import 'package:travel_app/utils/adaptivescreensize.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
 
 class profile_profile_bottom extends StatefulWidget {
@@ -25,13 +26,14 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
   bool status_adc = false;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 360,
+    return Container(
+      height: AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 360),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            flex: 170,
+          Container(
+            height:
+                AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 170),
             child: Card(
               color: Color(0xFFFCFAF5),
               elevation: 0,
@@ -43,11 +45,13 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                 children: [
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 22,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 22),
                       ),
-                      Expanded(
-                        flex: 302,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 302),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -89,24 +93,28 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                     Icons.arrow_forward_ios_rounded,
                                     size: 11,
                                   ),
+                                  Container(
+                                    width: AdaptiveScreenSize()
+                                        .getadaptiveScreenSizeWidth(
+                                            context, 11),
+                                  )
                                 ],
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 22,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 22),
                       ),
-                      Expanded(
-                        flex: 302,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 302),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -148,24 +156,28 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                     Icons.arrow_forward_ios_rounded,
                                     size: 11,
                                   ),
+                                  Container(
+                                    width: AdaptiveScreenSize()
+                                        .getadaptiveScreenSizeWidth(
+                                            context, 11),
+                                  )
                                 ],
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 22,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 22),
                       ),
-                      Expanded(
-                        flex: 302,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 302),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -206,24 +218,28 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                     Icons.arrow_forward_ios_rounded,
                                     size: 11,
                                   ),
+                                  Container(
+                                    width: AdaptiveScreenSize()
+                                        .getadaptiveScreenSizeWidth(
+                                            context, 11),
+                                  )
                                 ],
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 22,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 22),
                       ),
-                      Expanded(
-                        flex: 302,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 302),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -265,24 +281,28 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                     Icons.arrow_forward_ios_rounded,
                                     size: 11,
                                   ),
+                                  Container(
+                                    width: AdaptiveScreenSize()
+                                        .getadaptiveScreenSizeWidth(
+                                            context, 11),
+                                  )
                                 ],
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 22,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 22),
                       ),
-                      Expanded(
-                        flex: 302,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 302),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -320,24 +340,29 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                     Icons.arrow_forward_ios_rounded,
                                     size: 11,
                                   ),
+                                  Container(
+                                    width: AdaptiveScreenSize()
+                                        .getadaptiveScreenSizeWidth(
+                                            context, 11),
+                                  )
                                 ],
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                 ],
               ),
             ),
           ),
-          const Spacer(flex: 20),
-          Expanded(
-            flex: 170,
+          Container(
+              height: AdaptiveScreenSize()
+                  .getadaptiveScreenSizeHeight(context, 20)),
+          Container(
+            height:
+                AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 170),
             child: Card(
               color: Color(0xFFFCFAF5),
               elevation: 0,
@@ -349,11 +374,13 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                 children: [
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 22,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 22),
                       ),
-                      Expanded(
-                        flex: 302,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 302),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -397,24 +424,28 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                     Icons.arrow_forward_ios_rounded,
                                     size: 11,
                                   ),
+                                  Container(
+                                    width: AdaptiveScreenSize()
+                                        .getadaptiveScreenSizeWidth(
+                                            context, 11),
+                                  )
                                 ],
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 22,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 22),
                       ),
-                      Expanded(
-                        flex: 302,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 302),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -428,49 +459,48 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                 color: Color(0xFFB7B7B7),
                               ),
                             ),
-                            SizedBox(
-                              child: Row(
-                                children: [
-                                  Container(
-                                    height: 11,
-                                    width: 25,
-                                    child: Transform.scale(
-                                      scale: 0.5,
-                                      transformHitTests: false,
-                                      child: CupertinoSwitch(
-                                        activeColor: Color(0xff519442),
-                                        value: status_wc,
-                                        onChanged: (value) {
-                                          setState(() {
-                                            status_wc = value;
-                                            print(status_wc);
-                                          });
-                                        },
-                                      ),
+                            Row(
+                              children: [
+                                Container(
+                                  height: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeHeight(context, 11),
+                                  width: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeWidth(context, 25),
+                                  child: Transform.scale(
+                                    scale: 0.5,
+                                    transformHitTests: false,
+                                    child: CupertinoSwitch(
+                                      activeColor: Color(0xff519442),
+                                      value: status_wc,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          status_wc = value;
+                                          print(status_wc);
+                                        });
+                                      },
                                     ),
                                   ),
-                                  const Icon(
-                                    Icons.arrow_forward_ios_rounded,
-                                    size: 11,
-                                  ),
-                                ],
-                              ),
+                                ),
+                                Container(
+                                  width: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeWidth(context, 11),
+                                )
+                              ],
                             ),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 22,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 22),
                       ),
-                      Expanded(
-                        flex: 302,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 302),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -484,49 +514,48 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                 color: Color(0xFFB7B7B7),
                               ),
                             ),
-                            SizedBox(
-                              child: Row(
-                                children: [
-                                  Container(
-                                    height: 11,
-                                    width: 25,
-                                    child: Transform.scale(
-                                      scale: 0.5,
-                                      transformHitTests: false,
-                                      child: CupertinoSwitch(
-                                        activeColor: Color(0xff519442),
-                                        value: status_douche,
-                                        onChanged: (value) {
-                                          setState(() {
-                                            status_douche = value;
-                                            print(status_douche);
-                                          });
-                                        },
-                                      ),
+                            Row(
+                              children: [
+                                Container(
+                                  height: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeHeight(context, 11),
+                                  width: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeWidth(context, 25),
+                                  child: Transform.scale(
+                                    scale: 0.5,
+                                    transformHitTests: false,
+                                    child: CupertinoSwitch(
+                                      activeColor: Color(0xff519442),
+                                      value: status_douche,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          status_douche = value;
+                                          print(status_douche);
+                                        });
+                                      },
                                     ),
                                   ),
-                                  const Icon(
-                                    Icons.arrow_forward_ios_rounded,
-                                    size: 11,
-                                  ),
-                                ],
-                              ),
+                                ),
+                                Container(
+                                  width: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeWidth(context, 11),
+                                )
+                              ],
                             ),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 22,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 22),
                       ),
-                      Expanded(
-                        flex: 302,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 302),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -540,49 +569,48 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                 color: Color(0xFFB7B7B7),
                               ),
                             ),
-                            SizedBox(
-                              child: Row(
-                                children: [
-                                  Container(
-                                    height: 11,
-                                    width: 25,
-                                    child: Transform.scale(
-                                      scale: 0.5,
-                                      transformHitTests: false,
-                                      child: CupertinoSwitch(
-                                        activeColor: Color(0xff519442),
-                                        value: status_adc,
-                                        onChanged: (value) {
-                                          setState(() {
-                                            status_adc = value;
-                                            print(status_adc);
-                                          });
-                                        },
-                                      ),
+                            Row(
+                              children: [
+                                Container(
+                                  height: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeHeight(context, 11),
+                                  width: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeWidth(context, 25),
+                                  child: Transform.scale(
+                                    scale: 0.5,
+                                    transformHitTests: false,
+                                    child: CupertinoSwitch(
+                                      activeColor: Color(0xff519442),
+                                      value: status_adc,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          status_adc = value;
+                                          print(status_adc);
+                                        });
+                                      },
                                     ),
                                   ),
-                                  const Icon(
-                                    Icons.arrow_forward_ios_rounded,
-                                    size: 11,
-                                  ),
-                                ],
-                              ),
+                                ),
+                                Container(
+                                  width: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeWidth(context, 11),
+                                )
+                              ],
                             ),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 22,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 22),
                       ),
-                      Expanded(
-                        flex: 302,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 302),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -627,15 +655,17 @@ class _profile_profile_bottomState extends State<profile_profile_bottom> {
                                     Icons.arrow_forward_ios_rounded,
                                     size: 11,
                                   ),
+                                  Container(
+                                    width: AdaptiveScreenSize()
+                                        .getadaptiveScreenSizeWidth(
+                                            context, 11),
+                                  )
                                 ],
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                 ],

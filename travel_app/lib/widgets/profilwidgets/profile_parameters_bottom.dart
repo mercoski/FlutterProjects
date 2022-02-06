@@ -8,6 +8,7 @@ import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/pages/profil/conditionsgeneralespage.dart';
 import 'package:travel_app/pages/profil/mentionslegalespage.dart';
 import 'package:travel_app/pages/profil/politiquepage.dart';
+import 'package:travel_app/utils/adaptivescreensize.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
 
 class profile_parameters_bottom extends StatefulWidget {
@@ -27,13 +28,14 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
   bool notification_status = false;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 360,
+    return Container(
+      height: AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 360),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            flex: 39,
+          Container(
+            height:
+                AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 38),
             child: Card(
               color: Color(0xFFFCFAF5),
               elevation: 0,
@@ -45,28 +47,30 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                 children: [
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 14,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 14),
                       ),
-                      const Expanded(
-                          flex: 15,
-                          child: Icon(
+                      Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 15),
+                          child: const Icon(
                             Icons.notifications,
                             size: 15,
                           )),
-                      const Spacer(
-                        flex: 14,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 14),
                       ),
-                      Expanded(
-                        flex: 292,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 284),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             GestureDetector(
                               onTap: () async {
-                                await FirebaseAuth.instance.signOut();
-                                Navigator.pop(context);
-                                Navigator.pushNamed(context, '/');
+                                print('Notification');
                               },
                               child: Text(
                                 'Activer les notifications',
@@ -98,21 +102,26 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                                 ),
                               ),
                             ),
+                            Container(
+                              width: AdaptiveScreenSize()
+                                  .getadaptiveScreenSizeWidth(context, 10),
+                            ),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                 ],
               ),
             ),
           ),
-          const Spacer(flex: 15),
-          Expanded(
-            flex: 147,
+          Container(
+            height:
+                AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 12),
+          ),
+          Container(
+            height:
+                AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 140),
             child: Card(
               color: Color(0xFFFCFAF5),
               elevation: 0,
@@ -124,20 +133,24 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                 children: [
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 14,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 14),
                       ),
-                      const Expanded(
-                          flex: 15,
-                          child: Icon(
+                      Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 15),
+                          child: const Icon(
                             Icons.favorite,
                             size: 15,
                           )),
-                      const Spacer(
-                        flex: 14,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 14),
                       ),
-                      Expanded(
-                        flex: 292,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 284),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -151,19 +164,10 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                                 color: Color(0xFF413C3C),
                               ),
                             ),
-                            SizedBox(
-                              child: Row(
-                                children: [
-                                  Container(),
-                                ],
-                              ),
-                            ),
+                            Container(),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                   Row(
@@ -298,57 +302,17 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                       )
                     ],
                   ),
-                  Row(
-                    children: [
-                      const Spacer(
-                        flex: 14,
-                      ),
-                      const Expanded(
-                          flex: 15,
-                          child: Icon(
-                            Icons.favorite,
-                            size: 15,
-                          )),
-                      const Spacer(
-                        flex: 14,
-                      ),
-                      Expanded(
-                        flex: 292,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Inviter un ami',
-                              textAlign: TextAlign.left,
-                              style: GoogleFonts.poppins(
-                                fontSize: AdaptiveTextSize()
-                                    .getadaptiveTextSize(context, 11),
-                                fontWeight: FontWeight.w600,
-                                color: Color(0xFF413C3C),
-                              ),
-                            ),
-                            SizedBox(
-                              child: Row(
-                                children: [
-                                  Container(),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const Spacer(
-                        flex: 11,
-                      )
-                    ],
-                  ),
                 ],
               ),
             ),
           ),
-          const Spacer(flex: 15),
-          Expanded(
-            flex: 106,
+          Container(
+            height:
+                AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 12),
+          ),
+          Container(
+            height:
+                AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 106),
             child: Card(
               color: Color(0xFFFCFAF5),
               elevation: 0,
@@ -360,20 +324,24 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                 children: [
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 14,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 14),
                       ),
-                      const Expanded(
-                          flex: 15,
+                      Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 15),
                           child: Icon(
                             Icons.document_scanner_rounded,
                             size: 15,
                           )),
-                      const Spacer(
-                        flex: 14,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 14),
                       ),
-                      Expanded(
-                        flex: 292,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 284),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -399,37 +367,32 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              child: Row(
-                                children: [
-                                  Container(),
-                                ],
-                              ),
-                            ),
+                            Container(),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 14,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 14),
                       ),
-                      const Expanded(
-                          flex: 15,
+                      Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 15),
                           child: Icon(
                             Icons.badge,
                             size: 15,
                           )),
-                      const Spacer(
-                        flex: 14,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 14),
                       ),
-                      Expanded(
-                        flex: 292,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 284),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -455,37 +418,32 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              child: Row(
-                                children: [
-                                  Container(),
-                                ],
-                              ),
-                            ),
+                            Container(),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 14,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 14),
                       ),
-                      const Expanded(
-                          flex: 15,
+                      Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 15),
                           child: Icon(
                             Icons.account_box_rounded,
                             size: 15,
                           )),
-                      const Spacer(
-                        flex: 14,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 14),
                       ),
-                      Expanded(
-                        flex: 292,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 284),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -510,28 +468,23 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              child: Row(
-                                children: [
-                                  Container(),
-                                ],
-                              ),
-                            ),
+                            Container(),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                 ],
               ),
             ),
           ),
-          const Spacer(flex: 15),
-          Expanded(
-            flex: 39,
+          Container(
+            height:
+                AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 12),
+          ),
+          Container(
+            height:
+                AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 39),
             child: Card(
               color: Color(0xFFFCFAF5),
               elevation: 0,
@@ -543,20 +496,24 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                 children: [
                   Row(
                     children: [
-                      const Spacer(
-                        flex: 14,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 14),
                       ),
-                      const Expanded(
-                          flex: 15,
+                      Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 15),
                           child: Icon(
                             Icons.logout,
                             size: 15,
                           )),
-                      const Spacer(
-                        flex: 14,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 14),
                       ),
-                      Expanded(
-                        flex: 292,
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 284),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -577,26 +534,16 @@ class _profile_parameters_bottomState extends State<profile_parameters_bottom> {
                                 ),
                               ),
                             ),
-                            SizedBox(
-                              child: Row(
-                                children: [
-                                  Container(),
-                                ],
-                              ),
-                            ),
+                            Container(),
                           ],
                         ),
                       ),
-                      const Spacer(
-                        flex: 11,
-                      )
                     ],
                   ),
                 ],
               ),
             ),
           ),
-          const Spacer(flex: 47),
         ],
       ),
     );

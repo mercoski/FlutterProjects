@@ -28,10 +28,12 @@ class UserProfile extends StatelessWidget {
         backgroundColor: Colors.white,
         appBar: AppBar(
           centerTitle: false,
-          titleSpacing: 20,
+          titleSpacing:
+              AdaptiveScreenSize().getadaptiveScreenSizeWidth(context, 20),
           title: Text(
             'Que recherchez-vous ${user?.user_name?.split(" ")[0].toUpperCase()} ?',
-            style: GoogleFonts.poppins(
+            style: TextStyle(
+                fontFamily: 'Recoleta',
                 fontSize: AdaptiveTextSize().getadaptiveTextSize(context, 16),
                 fontWeight: FontWeight.w600,
                 color: Color(0xff413C3C)),
@@ -50,101 +52,133 @@ class UserProfile extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Center(
-            child: FractionallySizedBox(
-              widthFactor: 0.9,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: AdaptiveScreenSize()
-                        .getadaptiveScreenSizeHeight(context, 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: AdaptiveScreenSize()
+                      .getadaptiveScreenSizeHeight(context, 20),
+                ),
+                SizedBox(
+                  height: AdaptiveScreenSize()
+                      .getadaptiveScreenSizeHeight(context, 110),
+                  width: AdaptiveScreenSize()
+                      .getadaptiveScreenSizeWidth(context, 333),
+                  child: HomePageTopWidget(
+                    selected: 'Itinéraires',
                   ),
-                  Container(
-                    height: AdaptiveScreenSize()
-                        .getadaptiveScreenSizeHeight(context, 110),
-                    child: HomePageTopWidget(
-                      selected: 'Itinéraires',
+                ),
+                Container(
+                  height: AdaptiveScreenSize()
+                      .getadaptiveScreenSizeHeight(context, 25),
+                ),
+                Container(
+                  height: AdaptiveScreenSize()
+                      .getadaptiveScreenSizeHeight(context, 60),
+                  width: AdaptiveScreenSize()
+                      .getadaptiveScreenSizeWidth(context, 333),
+                  child: Text(
+                    'Des idées d’itinéraires pour votre prochain voyage',
+                    style: TextStyle(
+                      fontFamily: 'Recoleta',
+                      fontSize:
+                          AdaptiveTextSize().getadaptiveTextSize(context, 22),
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xff413C3C),
                     ),
                   ),
-                  Container(
+                ),
+                Container(
+                  height: AdaptiveScreenSize()
+                      .getadaptiveScreenSizeHeight(context, 10),
+                ),
+                Container(
                     height: AdaptiveScreenSize()
-                        .getadaptiveScreenSizeHeight(context, 25),
-                  ),
-                  Container(
-                    height: AdaptiveScreenSize()
-                        .getadaptiveScreenSizeHeight(context, 60),
-                    child: Text(
-                      'Des idées d’itinéraires pour votre prochain voyage',
-                      style: GoogleFonts.poppins(
-                          fontSize: AdaptiveTextSize()
-                              .getadaptiveTextSize(context, 22),
-                          color: Color(0xff413C3C),
-                          fontWeight: FontWeight.w600),
+                        .getadaptiveScreenSizeHeight(context, 250),
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 20),
+                        ),
+                        EventCards(),
+                        Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 20),
+                        ),
+                        EventCards(),
+                        Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 20),
+                        ),
+                      ],
+                    )),
+                Container(
+                  height: AdaptiveScreenSize()
+                      .getadaptiveScreenSizeHeight(context, 25),
+                ),
+                Container(
+                  height: AdaptiveScreenSize()
+                      .getadaptiveScreenSizeHeight(context, 60),
+                  width: AdaptiveScreenSize()
+                      .getadaptiveScreenSizeWidth(context, 333),
+                  child: Text(
+                    'Découvrez nos activités thématiques',
+                    style: TextStyle(
+                      fontFamily: 'Recoleta',
+                      fontSize:
+                          AdaptiveTextSize().getadaptiveTextSize(context, 22),
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xff413C3C),
                     ),
                   ),
-                  Container(
+                ),
+                Container(
+                  height: AdaptiveScreenSize()
+                      .getadaptiveScreenSizeHeight(context, 10),
+                ),
+                Container(
                     height: AdaptiveScreenSize()
-                        .getadaptiveScreenSizeHeight(context, 10),
-                  ),
-                  Container(
-                      height: AdaptiveScreenSize()
-                          .getadaptiveScreenSizeHeight(context, 250),
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          EventCards(),
-                          Container(
-                            width: AdaptiveScreenSize()
-                                .getadaptiveScreenSizeWidth(context, 20),
-                          ),
-                          EventCards(),
-                          Container(
-                            width: AdaptiveScreenSize()
-                                .getadaptiveScreenSizeWidth(context, 20),
-                          ),
-                        ],
-                      )),
-                  Container(
-                    height: AdaptiveScreenSize()
-                        .getadaptiveScreenSizeHeight(context, 25),
-                  ),
-                  Container(
-                    height: AdaptiveScreenSize()
-                        .getadaptiveScreenSizeHeight(context, 60),
-                    child: Text(
-                      'Découvrez nos activités thématiques',
-                      style: GoogleFonts.poppins(
-                          fontSize: AdaptiveTextSize()
-                              .getadaptiveTextSize(context, 22),
-                          color: Color(0xff413C3C),
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                  Container(
-                    height: AdaptiveScreenSize()
-                        .getadaptiveScreenSizeHeight(context, 10),
-                  ),
-                  Container(
-                      height: AdaptiveScreenSize()
-                          .getadaptiveScreenSizeHeight(context, 250),
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          CategoryCards(),
-                          Container(
-                            width: AdaptiveScreenSize()
-                                .getadaptiveScreenSizeWidth(context, 20),
-                          ),
-                          CategoryCards(),
-                          Container(
-                            width: AdaptiveScreenSize()
-                                .getadaptiveScreenSizeWidth(context, 20),
-                          ),
-                        ],
-                      )),
-                ],
-              ),
+                        .getadaptiveScreenSizeHeight(context, 250),
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 20),
+                        ),
+                        CategoryCards(
+                          categoryimage: 'movecategory.png',
+                        ),
+                        Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 20),
+                        ),
+                        CategoryCards(
+                          categoryimage: 'eatcategory.png',
+                        ),
+                        Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 20),
+                        ),
+                        CategoryCards(
+                          categoryimage: 'discovercategory.png',
+                        ),
+                        Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 20),
+                        ),
+                        CategoryCards(
+                          categoryimage: 'experiencecategory.png',
+                        ),
+                        Container(
+                          width: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 20),
+                        ),
+                      ],
+                    )),
+              ],
             ),
           ),
         ),

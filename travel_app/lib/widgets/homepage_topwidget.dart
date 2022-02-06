@@ -25,13 +25,15 @@ class _HomePageTopWidgetState extends State<HomePageTopWidget> {
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Expanded(
-                flex: 4,
+            Container(
+                width: AdaptiveScreenSize()
+                    .getadaptiveScreenSizeWidth(context, 333),
+                height: AdaptiveScreenSize()
+                    .getadaptiveScreenSizeHeight(context, 43),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     GestureDetector(
                         onTap: () {
@@ -67,16 +69,64 @@ class _HomePageTopWidgetState extends State<HomePageTopWidget> {
                         )),
                   ],
                 )),
-            const Expanded(flex: 1, child: Divider()),
+            SizedBox(
+              width:
+                  AdaptiveScreenSize().getadaptiveScreenSizeWidth(context, 300),
+              height:
+                  AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 2),
+              child: Row(
+                children: [
+                  Container(
+                    width: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeWidth(context, 100),
+                    height: widget.selected == 'Itinéraires'
+                        ? AdaptiveScreenSize()
+                            .getadaptiveScreenSizeHeight(context, 2)
+                        : AdaptiveScreenSize()
+                            .getadaptiveScreenSizeHeight(context, 1),
+                    color: widget.selected == 'Itinéraires'
+                        ? Color(0xff296592)
+                        : Color(0xff7D7D7D),
+                  ),
+                  Container(
+                    width: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeWidth(context, 100),
+                    height: widget.selected == 'Spots'
+                        ? AdaptiveScreenSize()
+                            .getadaptiveScreenSizeHeight(context, 2)
+                        : AdaptiveScreenSize()
+                            .getadaptiveScreenSizeHeight(context, 1),
+                    color: widget.selected == 'Spots'
+                        ? Color(0xff296592)
+                        : Color(0xff7D7D7D),
+                  ),
+                  Container(
+                    width: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeWidth(context, 100),
+                    height: widget.selected == 'Services'
+                        ? AdaptiveScreenSize()
+                            .getadaptiveScreenSizeHeight(context, 2)
+                        : AdaptiveScreenSize()
+                            .getadaptiveScreenSizeHeight(context, 1),
+                    color: widget.selected == 'Services'
+                        ? Color(0xff296592)
+                        : Color(0xff7D7D7D),
+                  ),
+                ],
+              ),
+            ),
             widget.selected == 'Itinéraires'
-                ? Expanded(
-                    flex: 6,
+                ? Container(
+                    width: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeWidth(context, 333),
+                    height: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeHeight(context, 56),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
                             height: AdaptiveScreenSize()
-                                .getadaptiveScreenSizeHeight(context, 20),
+                                .getadaptiveScreenSizeHeight(context, 28),
                             width: AdaptiveScreenSize()
                                 .getadaptiveScreenSizeWidth(context, 300),
                             decoration: BoxDecoration(
@@ -85,35 +135,45 @@ class _HomePageTopWidgetState extends State<HomePageTopWidget> {
                               border: Border.all(color: Color(0xff7D7D7D)),
                             ),
                             child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                const Spacer(
-                                  flex: 15,
+                                Container(
+                                  width: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeWidth(context, 15),
+                                  height: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeHeight(context, 19),
                                 ),
-                                Expanded(
-                                  flex: 100,
+                                Container(
+                                  width: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeWidth(context, 100),
+                                  height: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeHeight(context, 19),
                                   child: Text(
                                     'Où allez-vous ?',
-                                    style: GoogleFonts.poppins(
-                                        fontSize: AdaptiveTextSize()
-                                            .getadaptiveTextSize(context, 14),
-                                        color: Color(0xff413C3C),
-                                        fontWeight: FontWeight.w600),
+                                    style: TextStyle(
+                                      fontFamily: 'Recoleta',
+                                      fontSize: AdaptiveTextSize()
+                                          .getadaptiveTextSize(context, 14),
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xff413C3C),
+                                    ),
                                   ),
                                 ),
-                                Expanded(
-                                  flex: 140,
-                                  child: Container(),
+                                Container(
+                                  width: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeWidth(context, 155),
                                 ),
-                                const Expanded(
-                                  flex: 10,
+                                Container(
+                                  width: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeWidth(context, 10),
                                   child: Icon(
                                     Icons.arrow_forward_ios,
                                     size: 15,
                                   ),
                                 ),
-                                Expanded(
-                                  flex: 15,
-                                  child: Container(),
+                                Container(
+                                  width: AdaptiveScreenSize()
+                                      .getadaptiveScreenSizeWidth(context, 5),
                                 )
                               ],
                             )),
@@ -121,126 +181,169 @@ class _HomePageTopWidgetState extends State<HomePageTopWidget> {
                     ),
                   )
                 : widget.selected == 'Spots'
-                    ? Expanded(
-                        flex: 6,
+                    ? Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 333),
+                        height: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeHeight(context, 56),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
                                 height: AdaptiveScreenSize()
-                                    .getadaptiveScreenSizeHeight(context, 20),
+                                    .getadaptiveScreenSizeHeight(context, 30),
                                 width: AdaptiveScreenSize()
                                     .getadaptiveScreenSizeWidth(context, 300),
                                 child: Row(
                                   children: [
-                                    const Spacer(
-                                      flex: 15,
-                                    ),
-                                    Expanded(
-                                      flex: 143,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: const BorderRadius.all(
-                                              Radius.circular(20)),
-                                          border: Border.all(
-                                              color: Color(0xff7D7D7D)),
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                        Radius.circular(18)),
-                                                border: Border.all(
-                                                    color: Color(0xff7D7D7D)),
-                                              ),
-                                              child: const Icon(
-                                                Icons.location_searching,
-                                                size: 18,
-                                              ),
+                                    Container(
+                                      width: AdaptiveScreenSize()
+                                          .getadaptiveScreenSizeWidth(
+                                              context, 143),
+                                      decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(20)),
+                                        border: Border.all(
+                                            color: Color(0xff7D7D7D)),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            alignment: Alignment.center,
+                                            width: AdaptiveScreenSize()
+                                                .getadaptiveScreenSizeWidth(
+                                                    context, 28),
+                                            height: AdaptiveScreenSize()
+                                                .getadaptiveScreenSizeHeight(
+                                                    context, 30),
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                      Radius.circular(20)),
+                                              border: Border.all(
+                                                  color: Color(0xff7D7D7D)),
                                             ),
-                                            Text(
-                                              'Autour de moi',
-                                              style: GoogleFonts.poppins(
-                                                  fontSize: AdaptiveTextSize()
-                                                      .getadaptiveTextSize(
-                                                          context, 14),
-                                                  color: Color(0xff413C3C),
-                                                  fontWeight: FontWeight.w600),
+                                            child: Container(
+                                              width: AdaptiveScreenSize()
+                                                  .getadaptiveScreenSizeWidth(
+                                                      context, 13),
+                                              height: AdaptiveScreenSize()
+                                                  .getadaptiveScreenSizeHeight(
+                                                      context, 13),
+                                              child: Image.asset(
+                                                  'assets/locationdart.png'),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                          Container(
+                                            width: AdaptiveScreenSize()
+                                                .getadaptiveScreenSizeWidth(
+                                                    context, 10),
+                                          ),
+                                          Text(
+                                            'Autour de moi',
+                                            style: TextStyle(
+                                              fontFamily: 'Recoleta',
+                                              fontSize: AdaptiveTextSize()
+                                                  .getadaptiveTextSize(
+                                                      context, 14),
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xff413C3C),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                    const Spacer(
-                                      flex: 17,
+                                    Container(
+                                      width: AdaptiveScreenSize()
+                                          .getadaptiveScreenSizeWidth(
+                                              context, 7),
                                     ),
-                                    Expanded(
-                                      flex: 143,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: const BorderRadius.all(
-                                              Radius.circular(20)),
-                                          border: Border.all(
-                                              color: Color(0xff7D7D7D)),
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    const BorderRadius.all(
-                                                        Radius.circular(18)),
-                                                border: Border.all(
-                                                    color: Color(0xff7D7D7D)),
-                                              ),
-                                              child: const Icon(
-                                                Icons.location_pin,
-                                                size: 18,
+                                    Container(
+                                      width: AdaptiveScreenSize()
+                                          .getadaptiveScreenSizeWidth(
+                                              context, 150),
+                                      decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(20)),
+                                        border: Border.all(
+                                            color: Color(0xff7D7D7D)),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            alignment: Alignment.center,
+                                            width: AdaptiveScreenSize()
+                                                .getadaptiveScreenSizeWidth(
+                                                    context, 28),
+                                            height: AdaptiveScreenSize()
+                                                .getadaptiveScreenSizeHeight(
+                                                    context, 30),
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                      Radius.circular(20)),
+                                              border: Border.all(
+                                                  color: Color(0xff7D7D7D)),
+                                            ),
+                                            child: Container(
+                                              width: AdaptiveScreenSize()
+                                                  .getadaptiveScreenSizeWidth(
+                                                      context, 8),
+                                              height: AdaptiveScreenSize()
+                                                  .getadaptiveScreenSizeHeight(
+                                                      context, 13),
+                                              child: Image.asset(
+                                                'assets/locationpin.png',
+                                                fit: BoxFit.scaleDown,
                                               ),
                                             ),
-                                            Text(
-                                              'Autour d’un lieu',
-                                              style: GoogleFonts.poppins(
-                                                  fontSize: AdaptiveTextSize()
-                                                      .getadaptiveTextSize(
-                                                          context, 14),
-                                                  color: Color(0xff413C3C),
-                                                  fontWeight: FontWeight.w600),
+                                          ),
+                                          Container(
+                                            width: AdaptiveScreenSize()
+                                                .getadaptiveScreenSizeWidth(
+                                                    context, 10),
+                                          ),
+                                          Text(
+                                            'Autour d’un lieu',
+                                            style: TextStyle(
+                                              fontFamily: 'Recoleta',
+                                              fontSize: AdaptiveTextSize()
+                                                  .getadaptiveTextSize(
+                                                      context, 14),
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xff413C3C),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                    const Spacer(
-                                      flex: 15,
-                                    )
                                   ],
                                 )),
                           ],
                         ),
                       )
                     : widget.selected == 'Services'
-                        ? Expanded(
-                            flex: 6,
+                        ? Container(
+                            width: AdaptiveScreenSize()
+                                .getadaptiveScreenSizeWidth(context, 333),
+                            height: AdaptiveScreenSize()
+                                .getadaptiveScreenSizeHeight(context, 56),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Container(
                                     height: AdaptiveScreenSize()
                                         .getadaptiveScreenSizeHeight(
-                                            context, 20),
+                                            context, 30),
                                     width: AdaptiveScreenSize()
                                         .getadaptiveScreenSizeWidth(
-                                            context, 300),
+                                            context, 306),
                                     child: Row(
                                       children: [
-                                        const Spacer(
-                                          flex: 15,
-                                        ),
-                                        Expanded(
-                                          flex: 69,
+                                        Container(
+                                          width: AdaptiveScreenSize()
+                                              .getadaptiveScreenSizeWidth(
+                                                  context, 69),
                                           child: GestureDetector(
                                             onTap: () {
                                               if (widget.selected_service
@@ -269,28 +372,32 @@ class _HomePageTopWidgetState extends State<HomePageTopWidget> {
                                               child: Center(
                                                 child: Text(
                                                   'Douche',
-                                                  style: GoogleFonts.poppins(
-                                                      fontSize: AdaptiveTextSize()
-                                                          .getadaptiveTextSize(
-                                                              context, 14),
-                                                      color: widget
-                                                              .selected_service
-                                                              .contains(
-                                                                  'Douche')
-                                                          ? Colors.white
-                                                          : Color(0xff413C3C),
-                                                      fontWeight:
-                                                          FontWeight.w600),
+                                                  style: TextStyle(
+                                                    fontFamily: 'Recoleta',
+                                                    fontSize: AdaptiveTextSize()
+                                                        .getadaptiveTextSize(
+                                                            context, 14),
+                                                    fontWeight: FontWeight.w600,
+                                                    color: widget
+                                                            .selected_service
+                                                            .contains('Douche')
+                                                        ? Colors.white
+                                                        : Color(0xff413C3C),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                        const Spacer(
-                                          flex: 7,
+                                        Container(
+                                          width: AdaptiveScreenSize()
+                                              .getadaptiveScreenSizeWidth(
+                                                  context, 7),
                                         ),
-                                        Expanded(
-                                          flex: 75,
+                                        Container(
+                                          width: AdaptiveScreenSize()
+                                              .getadaptiveScreenSizeWidth(
+                                                  context, 75),
                                           child: GestureDetector(
                                             onTap: () {
                                               if (widget.selected_service
@@ -319,28 +426,33 @@ class _HomePageTopWidgetState extends State<HomePageTopWidget> {
                                               child: Center(
                                                 child: Text(
                                                   'Toilettes',
-                                                  style: GoogleFonts.poppins(
-                                                      fontSize: AdaptiveTextSize()
-                                                          .getadaptiveTextSize(
-                                                              context, 14),
-                                                      color: widget
-                                                              .selected_service
-                                                              .contains(
-                                                                  'Toilettes')
-                                                          ? Colors.white
-                                                          : Color(0xff413C3C),
-                                                      fontWeight:
-                                                          FontWeight.w600),
+                                                  style: TextStyle(
+                                                    fontFamily: 'Recoleta',
+                                                    fontSize: AdaptiveTextSize()
+                                                        .getadaptiveTextSize(
+                                                            context, 14),
+                                                    fontWeight: FontWeight.w600,
+                                                    color: widget
+                                                            .selected_service
+                                                            .contains(
+                                                                'Toilettes')
+                                                        ? Colors.white
+                                                        : Color(0xff413C3C),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                        const Spacer(
-                                          flex: 7,
+                                        Container(
+                                          width: AdaptiveScreenSize()
+                                              .getadaptiveScreenSizeWidth(
+                                                  context, 7),
                                         ),
-                                        Expanded(
-                                          flex: 67,
+                                        Container(
+                                          width: AdaptiveScreenSize()
+                                              .getadaptiveScreenSizeWidth(
+                                                  context, 67),
                                           child: GestureDetector(
                                             onTap: () {
                                               if (widget.selected_service
@@ -369,28 +481,32 @@ class _HomePageTopWidgetState extends State<HomePageTopWidget> {
                                               child: Center(
                                                 child: Text(
                                                   'Laverie',
-                                                  style: GoogleFonts.poppins(
-                                                      fontSize: AdaptiveTextSize()
-                                                          .getadaptiveTextSize(
-                                                              context, 14),
-                                                      color: widget
-                                                              .selected_service
-                                                              .contains(
-                                                                  'Laverie')
-                                                          ? Colors.white
-                                                          : Color(0xff413C3C),
-                                                      fontWeight:
-                                                          FontWeight.w600),
+                                                  style: TextStyle(
+                                                    fontFamily: 'Recoleta',
+                                                    fontSize: AdaptiveTextSize()
+                                                        .getadaptiveTextSize(
+                                                            context, 14),
+                                                    fontWeight: FontWeight.w600,
+                                                    color: widget
+                                                            .selected_service
+                                                            .contains('Laverie')
+                                                        ? Colors.white
+                                                        : Color(0xff413C3C),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                        const Spacer(
-                                          flex: 7,
+                                        Container(
+                                          width: AdaptiveScreenSize()
+                                              .getadaptiveScreenSizeWidth(
+                                                  context, 7),
                                         ),
-                                        Expanded(
-                                          flex: 74,
+                                        Container(
+                                          width: AdaptiveScreenSize()
+                                              .getadaptiveScreenSizeWidth(
+                                                  context, 74),
                                           child: GestureDetector(
                                             onTap: () {
                                               if (widget.selected_service
@@ -419,33 +535,31 @@ class _HomePageTopWidgetState extends State<HomePageTopWidget> {
                                               child: Center(
                                                 child: Text(
                                                   'Services',
-                                                  style: GoogleFonts.poppins(
-                                                      fontSize: AdaptiveTextSize()
-                                                          .getadaptiveTextSize(
-                                                              context, 14),
-                                                      color: widget
-                                                              .selected_service
-                                                              .contains(
-                                                                  'Services')
-                                                          ? Colors.white
-                                                          : Color(0xff413C3C),
-                                                      fontWeight:
-                                                          FontWeight.w600),
+                                                  style: TextStyle(
+                                                    fontFamily: 'Recoleta',
+                                                    fontSize: AdaptiveTextSize()
+                                                        .getadaptiveTextSize(
+                                                            context, 14),
+                                                    fontWeight: FontWeight.w600,
+                                                    color: widget
+                                                            .selected_service
+                                                            .contains(
+                                                                'Services')
+                                                        ? Colors.white
+                                                        : Color(0xff413C3C),
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
                                         ),
-                                        const Spacer(
-                                          flex: 15,
-                                        )
                                       ],
                                     )),
                               ],
                             ),
                           )
                         : const Spacer(
-                            flex: 6,
+                            flex: 12,
                           )
           ],
         ),

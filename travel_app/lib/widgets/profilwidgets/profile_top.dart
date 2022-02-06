@@ -27,23 +27,31 @@ class _profile_topState extends State<profile_top> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 350,
+    return Container(
+      height: AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 350),
       child: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(flex: 30, child: Container()),
-            Expanded(
-              flex: 20,
+            Container(
+              height:
+                  AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 30),
+            ),
+            Container(
+              height:
+                  AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 20),
               child: Row(
                 children: [
-                  Expanded(
-                    flex: 257,
-                    child: Container(),
-                  ),
-                  Expanded(
-                      flex: 78,
+                  Container(
+                      width: AdaptiveScreenSize().getadaptiveScreenSizeWidth(
+                    context,
+                    257,
+                  )),
+                  Container(
+                      width: AdaptiveScreenSize().getadaptiveScreenSizeWidth(
+                        context,
+                        78,
+                      ),
                       child: Text(
                         'Enregistrer',
                         textAlign: TextAlign.left,
@@ -56,15 +64,24 @@ class _profile_topState extends State<profile_top> {
                 ],
               ),
             ),
-            Expanded(flex: 4, child: Container()),
-            Expanded(
-                flex: 1,
-                child: Container(
-                  color: Color(0xFFB7B7B7),
-                )),
-            Expanded(flex: 29, child: Container()),
-            Expanded(
-              flex: 115,
+            Container(
+              height:
+                  AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 4),
+            ),
+            Container(
+              height:
+                  AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 1),
+              color: Color(0xFFB7B7B7),
+            ),
+            Container(
+              height:
+                  AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 29),
+            ),
+            Container(
+              height: AdaptiveScreenSize()
+                  .getadaptiveScreenSizeHeight(context, 115),
+              width:
+                  AdaptiveScreenSize().getadaptiveScreenSizeWidth(context, 115),
               child: GestureDetector(
                 onTap: () {
                   getImage(source: ImageSource.gallery);
@@ -88,9 +105,13 @@ class _profile_topState extends State<profile_top> {
                 ),
               ),
             ),
-            Expanded(flex: 14, child: Container()),
-            Expanded(
-              flex: 25,
+            Container(
+              height:
+                  AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 14),
+            ),
+            Container(
+              height:
+                  AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 25),
               child: Center(
                 child: Text(
                   'Bienvenue',
@@ -98,29 +119,36 @@ class _profile_topState extends State<profile_top> {
                   style: GoogleFonts.poppins(
                       fontSize:
                           AdaptiveTextSize().getadaptiveTextSize(context, 18),
-                      fontWeight: FontWeight.w400),
+                      fontWeight: FontWeight.w500),
                 ),
               ),
             ),
-            Expanded(
-                flex: 41,
+            Container(
+                height: AdaptiveScreenSize()
+                    .getadaptiveScreenSizeHeight(context, 41),
                 child: Center(
                   child: Text(
                     '${widget.user?.user_name?.toUpperCase()}',
                     textAlign: TextAlign.left,
-                    style: GoogleFonts.poppins(
+                    style: TextStyle(
+                        fontFamily: 'Recoleta',
                         fontSize:
                             AdaptiveTextSize().getadaptiveTextSize(context, 30),
                         fontWeight: FontWeight.bold),
                   ),
                 )),
-            Expanded(flex: 23, child: Container()),
-            Expanded(
-              flex: 30,
+            Container(
+              height:
+                  AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 23),
+            ),
+            Container(
+              height:
+                  AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 30),
               child: Column(
                 children: [
-                  Expanded(
-                    flex: 20,
+                  Container(
+                    height: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeHeight(context, 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -185,9 +213,9 @@ class _profile_topState extends State<profile_top> {
                       ],
                     ),
                   ),
-                  Expanded(
-                    flex: 10,
-                    child: Container(),
+                  Container(
+                    height: AdaptiveScreenSize()
+                        .getadaptiveScreenSizeHeight(context, 10),
                   ),
                 ],
               ),
