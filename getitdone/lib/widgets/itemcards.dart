@@ -27,7 +27,8 @@ class ItemCards extends StatelessWidget {
             maxLines: 3,
             style: isdone
                 ? TextStyle(
-                    color: Colors.black, decoration: TextDecoration.lineThrough)
+                    color: Colors.yellow,
+                    decoration: TextDecoration.lineThrough)
                 : TextStyle(color: Colors.black),
           ),
           trailing: Checkbox(

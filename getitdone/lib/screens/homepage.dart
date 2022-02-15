@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getitdone/models/items_data.dart';
+import 'package:getitdone/screens/settings_page.dart';
 import 'package:getitdone/widgets/item_adder.dart';
 import 'package:getitdone/widgets/itemcards.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +14,19 @@ class Home extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text('Get It Done'),
+        titleSpacing: 10,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SettingsPage()));
+              },
+            ),
+          )
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: ItemAdder(),
@@ -38,7 +52,7 @@ class Home extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(
                     Radius.circular(50),
