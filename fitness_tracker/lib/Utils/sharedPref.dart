@@ -36,12 +36,33 @@ class sharedPrefs with ChangeNotifier {
 
   Future<void> loadThemeDataFromPref() async {
     await createSharedPrefObject();
-    saveWeightsToSharedPref('monday_activities', ['Rest Day']);
-    saveWeightsToSharedPref('tuesday_activities', ['Rest Day']);
-    saveWeightsToSharedPref('wednesday_activities', ['Rest Day']);
-    saveWeightsToSharedPref('thursday_activities', ['Rest Day']);
-    saveWeightsToSharedPref('friday_activities', ['Rest Day']);
-    saveWeightsToSharedPref('saturday_activities', ['Rest Day']);
-    saveWeightsToSharedPref('sunday_activities', ['Rest Day']);
+
+    getSavedListLenght('monday_activities') == null
+        ? saveWeightsToSharedPref('monday_activities', ['Rest Day'])
+        : getSavedWeightsFromSharedPref('monday_activities');
+
+    getSavedListLenght('tuesday_activities') == null
+        ? saveWeightsToSharedPref('tuesday_activities', ['Rest Day'])
+        : getSavedWeightsFromSharedPref('tuesday_activities');
+
+    getSavedListLenght('wednesday_activities') == null
+        ? saveWeightsToSharedPref('wednesday_activities', ['Rest Day'])
+        : getSavedWeightsFromSharedPref('wednesday_activities');
+
+    getSavedListLenght('thursday_activities') == null
+        ? saveWeightsToSharedPref('thursday_activities', ['Rest Day'])
+        : getSavedWeightsFromSharedPref('thursday_activities');
+
+    getSavedListLenght('friday_activities') == null
+        ? saveWeightsToSharedPref('friday_activities', ['Rest Day'])
+        : getSavedWeightsFromSharedPref('friday_activities');
+
+    getSavedListLenght('saturday_activities') == null
+        ? saveWeightsToSharedPref('saturday_activities', ['Rest Day'])
+        : getSavedWeightsFromSharedPref('saturday_activities');
+
+    getSavedListLenght('sunday_activities') == null
+        ? saveWeightsToSharedPref('sunday_activities', ['Rest Day'])
+        : getSavedWeightsFromSharedPref('sunday_activities');
   }
 }
