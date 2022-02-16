@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20)),
                   child: Center(
                       child: Text(
-                    'Create Plan',
+                    'Create New Plan',
                     style: TextStyle(
                       fontFamily: 'Recoleta',
                       fontSize: const AdaptiveTextSize()

@@ -13,6 +13,9 @@ class ProgramPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(Provider.of<sharedPrefs>(context, listen: false)
+        .getSavedWeightsFromSharedPref('thursday_activities'));
+
     //Temizlemek için çalıştır
     //Provider.of<sharedPrefs>(context, listen: false).clearlist();
     String month_1 = ('0' + DateTime.now().month.toString());
@@ -22,39 +25,35 @@ class ProgramPage extends StatelessWidget {
     String day = day_1.substring(day_1.length - 2);
     //-------------------------------------------------------//
     int weekday = DateTime.now().weekday;
+    print(weekday);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Fitness Tracker'),
       ),
-      body: (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities')[0] == 'Rest Day' ||
-                  Provider.of<sharedPrefs>(context, listen: false)
-                      .getSavedWeightsFromSharedPref('monday_activities')
-                      .isEmpty) ||
-              (weekday == 2 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('tuesday_activities')[0] == 'Rest Day' ||
-                  Provider.of<sharedPrefs>(context, listen: false)
-                      .getSavedWeightsFromSharedPref('tuesday_activities')
-                      .isEmpty) ||
-              (weekday == 3 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('wednesday_activities')[0] == 'Rest Day' ||
-                  Provider.of<sharedPrefs>(context, listen: false)
-                      .getSavedWeightsFromSharedPref('wednesday_activities')
-                      .isEmpty) ||
-              (weekday == 4 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('thursday_activities')[0] == 'Rest Day' ||
-                  Provider.of<sharedPrefs>(context, listen: false)
-                      .getSavedWeightsFromSharedPref('thursday_activities')
-                      .isEmpty) ||
-              (weekday == 5 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('friday_activities')[0] == 'Rest Day' ||
-                  Provider.of<sharedPrefs>(context, listen: false)
-                      .getSavedWeightsFromSharedPref('friday_activities')
-                      .isEmpty) ||
-              (weekday == 6 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('saturday_activities')[0] == 'Rest Day' ||
-                  Provider.of<sharedPrefs>(context, listen: false)
-                      .getSavedWeightsFromSharedPref('saturday_activities')
-                      .isEmpty) ||
-              (weekday == 7 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('sunday_activities')[0] == 'Rest Day' ||
-                  Provider.of<sharedPrefs>(context, listen: false)
-                      .getSavedWeightsFromSharedPref('sunday_activities')
-                      .isEmpty)
+      body: (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').isEmpty || weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities')[0] == 'Rest Day') ||
+              (weekday == 2 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('tuesday_activities').isEmpty ||
+                  weekday == 2 &&
+                      Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('tuesday_activities')[0] ==
+                          'Rest Day') ||
+              (weekday == 3 &&
+                      Provider.of<sharedPrefs>(context, listen: false)
+                          .getSavedWeightsFromSharedPref('wednesday_activities')
+                          .isEmpty ||
+                  weekday == 3 &&
+                      Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('wednesday_activities')[0] ==
+                          'Rest Day') ||
+              (weekday == 4 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('thursday_activities').isEmpty ||
+                  weekday == 4 &&
+                      Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('thursday_activities')[0] ==
+                          'Rest Day') ||
+              (weekday == 5 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('friday_activities').isEmpty ||
+                  weekday == 5 &&
+                      Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('friday_activities')[0] ==
+                          'Rest Day') ||
+              (weekday == 6 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('saturday_activities').isEmpty ||
+                  weekday == 6 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('saturday_activities')[0] == 'Rest Day') ||
+              (weekday == 7 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('sunday_activities').isEmpty || weekday == 7 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('sunday_activities')[0] == 'Rest Day')
           ? Center(
               child: Container(
                 child: Column(

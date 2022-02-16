@@ -1,4 +1,5 @@
 import 'package:fitness_tracker/Models/move_data.dart';
+import 'package:fitness_tracker/Models/selected_muscle.dart';
 import 'package:fitness_tracker/Screens/pop_up_dialog.dart';
 
 import 'package:fitness_tracker/Utils/AdaptiveScreenSize.dart';
@@ -63,10 +64,14 @@ class _DayActionsWidgetState extends State<DayActionsWidget> {
                               direction: DismissDirection.endToStart,
                               key: Key(widget.activity_list[index]),
                               onDismissed: (direction) {
-                                widget.activity_list.length == 1
-                                    ? widget.activity_list.clear()
-                                    : widget.activity_list.removeAt(index);
-                                setState(() {});
+                                setState(() {
+                                  if (widget.activity_list.length == 1) {
+                                    widget.activity_list.clear();
+                                    widget.activity_list.add('Rest Day');
+                                  } else {
+                                    widget.activity_list.removeAt(index);
+                                  }
+                                });
                                 print(index);
                               },
                               background: Container(

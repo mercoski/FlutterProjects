@@ -15,7 +15,6 @@ Future<void> showAlertDialog(BuildContext context,
     required String day}) async {
   return showDialog<void>(
     barrierColor: Colors.white30,
-    barrierLabel: 'SADSAJDAJSD',
     context: context,
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
@@ -131,15 +130,6 @@ Future<void> showAlertDialog(BuildContext context,
                                     listen: false)
                                 .selectedMuscle);
                             Navigator.pop(context);
-
-                            Provider.of<sharedPrefs>(context, listen: false)
-                                .clearlist('${day.toLowerCase()}_activities');
-                            Provider.of<sharedPrefs>(context, listen: false)
-                                .saveWeightsToSharedPref(
-                                    '${day.toLowerCase()}_activities',
-                                    Provider.of<SelectedMuscle>(context,
-                                            listen: false)
-                                        .selectedMuscle);
 
                             Navigator.push(
                                 context,

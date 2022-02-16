@@ -19,7 +19,7 @@ class sharedPrefs with ChangeNotifier {
   getSavedWeightsFromSharedPref(
     String list_name,
   ) {
-    return _sharedPreferences?.get(list_name);
+    return _sharedPreferences?.getStringList(list_name);
   }
 
   getSavedListLenght(String list_name) {

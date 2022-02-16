@@ -77,3 +77,12 @@ List<String> back_activities = [];
 List<String> calfs_activities = [];
 List<String> upper_legs_activities = [];
 List<String> cardio_activities = [];
+
+List<String> selectedMuscle = [];
+List<String> monday_activities = [];
+List<String> tuesday_activities = [];
+List<String> wednesday_activities = [];
+List<String> thursday_activities = [];
+List<String> friday_activities = [];
+List<String> saturday_activities = [];
+List<String> sunday_activities = [];
