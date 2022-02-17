@@ -68,15 +68,87 @@ List<String> chest_activities = [
   'Pec Deck',
   'Wide-Grip Dips',
 ];
-
-List<String> shoulder_activities = [];
-List<String> biceps_activities = [];
-List<String> triceps_activities = [];
-List<String> abs_activities = [];
-List<String> back_activities = [];
-List<String> calfs_activities = [];
-List<String> upper_legs_activities = [];
-List<String> cardio_activities = [];
+List<String> shoulder_activities = [
+  'Barbell Standing Press',
+  'Seated Dumbbell Press',
+  'Arnold Press',
+  'Lateral Raise',
+  'Half-kneeling Archer Row',
+  'Bent-over Reverse Fly',
+  'Upright Row',
+  'Front Raises',
+  '3-Way Shoulder Raise',
+  'Shrugs'
+];
+List<String> biceps_activities = [
+  'Barbell Curl',
+  'EZ-Bar Preacher Curl',
+  'Hammer Curl',
+  'Incline Dumbbell Curl',
+  'Facing-Away Cable Curl',
+  'Cable Curl',
+  'Concentration Curl',
+  'Cable Concentration Curl',
+  'High Cable Curl',
+  'Cable Hammer Curl',
+  'Dual Cable Preacher Curl',
+];
+List<String> triceps_activities = [
+  'Triangle Push-up',
+  'Kickbacks',
+  'Dips',
+  'Overhead Triceps Extensions',
+  'Rope Pushdowns',
+  'Bar Pushdowns',
+  'Lying Barbell Triceps Extensions',
+  'Closed-grip Bench Press'
+];
+List<String> abs_activities = [
+  'Reverse Crunch',
+  'High To Low Cable Woodchoppers',
+  'Weighted Crunches',
+  'Serratus Jabs',
+];
+List<String> back_activities = [
+  'Lat pull-down',
+  'Seated row',
+  'Bent-over row',
+  'Inverted row',
+  'Pull-up',
+  'Chin-up',
+  'TRX row',
+  'I-Y-T raises'
+];
+List<String> calfs_activities = [
+  'Donkey raises',
+  'Standing one-leg raises',
+  'Standing two-leg raises',
+  'Seated raises'
+];
+List<String> upper_legs_activities = [
+  'Barbell Back Squat',
+  'Barbell Front Squat',
+  'Deadlift',
+  'Split Squat',
+  'Hack Squat',
+  'Lunge',
+  'Leg Press',
+  'Romanian Deadlift',
+  'Leg Curl'
+];
+List<String> cardio_activities = [
+  'Jump rope',
+  'Jumping jacks',
+  'Burpees',
+  'Running',
+  'Squat jumps',
+  'Elliptical',
+  'Stair climber',
+  'Exercise bike',
+  'Treadmill',
+  'Rowing machine',
+  'Swimming'
+];
 
 List<String> selectedMuscle = [];
 List<String> monday_activities = [];
@@ -86,3 +158,14 @@ List<String> thursday_activities = [];
 List<String> friday_activities = [];
 List<String> saturday_activities = [];
 List<String> sunday_activities = [];
+
+List<String> selected_chest_activities = [];
+
+List<String> selected_shoulder_activities = [];
+List<String> selected_biceps_activities = [];
+List<String> selected_triceps_activities = [];
+List<String> selected_abs_activities = [];
+List<String> selected_back_activities = [];
+List<String> selected_calfs_activities = [];
+List<String> selected_upper_legs_activities = [];
+List<String> selected_cardio_activities = [];

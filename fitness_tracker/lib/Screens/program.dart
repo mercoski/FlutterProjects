@@ -1,6 +1,7 @@
 import 'package:fitness_tracker/Models/move_data.dart';
 import 'package:fitness_tracker/Models/selected_muscle.dart';
 import 'package:fitness_tracker/Models/selected_page.dart';
+import 'package:fitness_tracker/Screens/activities.dart';
 import 'package:fitness_tracker/Utils/AdaptiveScreenSize.dart';
 import 'package:fitness_tracker/Utils/AdaptiveTextSize.dart';
 import 'package:fitness_tracker/Utils/sharedPref.dart';
@@ -13,9 +14,6 @@ class ProgramPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(Provider.of<sharedPrefs>(context, listen: false)
-        .getSavedWeightsFromSharedPref('thursday_activities'));
-
     //Temizlemek için çalıştır
     //Provider.of<sharedPrefs>(context, listen: false).clearlist();
     String month_1 = ('0' + DateTime.now().month.toString());
@@ -25,7 +23,7 @@ class ProgramPage extends StatelessWidget {
     String day = day_1.substring(day_1.length - 2);
     //-------------------------------------------------------//
     int weekday = DateTime.now().weekday;
-    print(weekday);
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -76,7 +74,6 @@ class ProgramPage extends StatelessWidget {
           : SingleChildScrollView(
               child: Center(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     //Boşluk 20 birim
@@ -206,6 +203,14 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
+
+                    Container(
+                      height: const AdaptiveScreenSize()
+                          .getadaptiveScreenSizeHeight(context, 20),
+                    ),
+
+                    //Chest Activities
+                    Activities(activity_list: 'chest_activities'),
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Shoulders')) ||
                             (weekday == 2 &&
@@ -242,6 +247,7 @@ class ProgramPage extends StatelessWidget {
                                 .getadaptiveScreenSizeHeight(context, 20),
                           )
                         : Container(),
+
                     //Shoulders
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Shoulders')) ||
                             (weekday == 2 &&
@@ -334,6 +340,13 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
+                    Container(
+                      height: const AdaptiveScreenSize()
+                          .getadaptiveScreenSizeHeight(context, 20),
+                    ),
+
+                    //Chest Activities
+                    Activities(activity_list: 'shoulders_activities'),
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Biceps')) ||
                             (weekday == 2 &&
@@ -370,6 +383,7 @@ class ProgramPage extends StatelessWidget {
                                 .getadaptiveScreenSizeHeight(context, 20),
                           )
                         : Container(),
+
                     //Biceps
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Biceps')) ||
                             (weekday == 2 &&
@@ -461,6 +475,13 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
+                    Container(
+                      height: const AdaptiveScreenSize()
+                          .getadaptiveScreenSizeHeight(context, 20),
+                    ),
+
+                    //Chest Activities
+                    Activities(activity_list: 'biceps_activities'),
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Triceps')) ||
                             (weekday == 2 &&
@@ -497,6 +518,7 @@ class ProgramPage extends StatelessWidget {
                                 .getadaptiveScreenSizeHeight(context, 20),
                           )
                         : Container(),
+
                     //Triceps
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Triceps')) ||
                             (weekday == 2 &&
@@ -588,7 +610,15 @@ class ProgramPage extends StatelessWidget {
                               ),
                             ),
                           )
-                        : Container(), //Boşluk 20 birim
+                        : Container(),
+                    Container(
+                      height: const AdaptiveScreenSize()
+                          .getadaptiveScreenSizeHeight(context, 20),
+                    ),
+
+                    //Chest Activities
+                    Activities(
+                        activity_list: 'triceps_activities'), //Boşluk 20 birim
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Abs')) ||
                             (weekday == 2 &&
@@ -625,6 +655,7 @@ class ProgramPage extends StatelessWidget {
                                 .getadaptiveScreenSizeHeight(context, 20),
                           )
                         : Container(),
+
                     //Abs
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Abs')) ||
                             (weekday == 2 &&
@@ -716,6 +747,13 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
+                    Container(
+                      height: const AdaptiveScreenSize()
+                          .getadaptiveScreenSizeHeight(context, 20),
+                    ),
+
+                    //Chest Activities
+                    Activities(activity_list: 'abs_activities'),
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Back')) ||
                             (weekday == 2 &&
@@ -752,6 +790,7 @@ class ProgramPage extends StatelessWidget {
                                 .getadaptiveScreenSizeHeight(context, 20),
                           )
                         : Container(),
+
                     //Back
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Back')) ||
                             (weekday == 2 &&
@@ -843,6 +882,13 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
+                    Container(
+                      height: const AdaptiveScreenSize()
+                          .getadaptiveScreenSizeHeight(context, 20),
+                    ),
+
+                    //Chest Activities
+                    Activities(activity_list: 'back_activities'),
 
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Calfs')) ||
@@ -880,6 +926,7 @@ class ProgramPage extends StatelessWidget {
                                 .getadaptiveScreenSizeHeight(context, 20),
                           )
                         : Container(),
+
                     //Calfs
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Calfs')) ||
                             (weekday == 2 &&
@@ -971,6 +1018,13 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
+                    Container(
+                      height: const AdaptiveScreenSize()
+                          .getadaptiveScreenSizeHeight(context, 20),
+                    ),
+
+                    //Chest Activities
+                    Activities(activity_list: 'calfs_activities'),
 
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Upper Legs')) ||
@@ -1008,6 +1062,7 @@ class ProgramPage extends StatelessWidget {
                                 .getadaptiveScreenSizeHeight(context, 20),
                           )
                         : Container(),
+
                     //Upper Legs
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Upper Legs')) ||
                             (weekday == 2 &&
@@ -1041,10 +1096,6 @@ class ProgramPage extends StatelessWidget {
                                     .contains('Upper Legs'))
                         ? GestureDetector(
                             onTap: () {
-                              print(Provider.of<sharedPrefs>(context,
-                                      listen: false)
-                                  .getSavedWeightsFromSharedPref(
-                                      'wednesday_activities'));
                               Provider.of<sharedPrefs>(context, listen: false)
                                   .saveWeightsToSharedPref(
                                       'upper_legs_weights', ['60']);
@@ -1104,6 +1155,13 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
+                    Container(
+                      height: const AdaptiveScreenSize()
+                          .getadaptiveScreenSizeHeight(context, 20),
+                    ),
+
+                    //Chest Activities
+                    Activities(activity_list: 'upper_legs_activities'),
 
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Cardio')) ||
@@ -1141,6 +1199,7 @@ class ProgramPage extends StatelessWidget {
                                 .getadaptiveScreenSizeHeight(context, 20),
                           )
                         : Container(),
+
                     //Cardio
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Cardio')) ||
                             (weekday == 2 &&
@@ -1232,6 +1291,13 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
+                    Container(
+                      height: const AdaptiveScreenSize()
+                          .getadaptiveScreenSizeHeight(context, 20),
+                    ),
+
+                    //Chest Activities
+                    Activities(activity_list: 'cardio_activities'),
                     //Boşluk 20 birim
                     Container(
                       height: const AdaptiveScreenSize()

@@ -1,6 +1,7 @@
 import 'package:fitness_tracker/Models/move_data.dart';
 import 'package:fitness_tracker/Models/selected_muscle.dart';
-import 'package:fitness_tracker/Screens/pop_up_dialog.dart';
+import 'package:fitness_tracker/Screens/activity_selection_page.dart';
+import 'package:fitness_tracker/Screens/muscle_selection_page.dart';
 
 import 'package:fitness_tracker/Utils/AdaptiveScreenSize.dart';
 import 'package:fitness_tracker/Utils/AdaptiveTextSize.dart';
@@ -42,7 +43,7 @@ class _DayActionsWidgetState extends State<DayActionsWidget> {
                       ),
                       onPressed: () {
                         Navigator.pop(context);
-                        showAlertDialog(context,
+                        muscleSelectionPage(context,
                             title_text: 'Select the Muscle Group',
                             activity_list: widget.activity_list,
                             day: widget.day);
@@ -84,30 +85,74 @@ class _DayActionsWidgetState extends State<DayActionsWidget> {
                               ),
                               child: widget.activity_list[0] == 'Rest Day'
                                   ? Container()
-                                  : Container(
-                                      height: const AdaptiveScreenSize()
-                                          .getadaptiveScreenSizeHeight(
-                                              context, 50),
-                                      width: const AdaptiveScreenSize()
-                                          .getadaptiveScreenSizeWidth(
-                                              context, 150),
-                                      child: Card(
-                                        color: Theme.of(context).primaryColor,
-                                        elevation: 5,
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20)),
-                                        child: Center(
-                                          child: Text(
-                                            widget.activity_list[index],
-                                            style: TextStyle(
-                                              fontFamily: 'Recoleta',
-                                              fontSize: const AdaptiveTextSize()
-                                                  .getadaptiveTextSize(
-                                                      context, 15),
-                                              fontWeight: FontWeight.w600,
-                                              color: Theme.of(context)
-                                                  .scaffoldBackgroundColor,
+                                  : GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder:
+                                                    (context) =>
+                                                        ActivitySelectionPage(
+                                                          activity_list: widget
+                                                                          .activity_list[
+                                                                      index] ==
+                                                                  'Chest'
+                                                              ? chest_activities
+                                                              : widget.activity_list[
+                                                                          index] ==
+                                                                      'Shoulders'
+                                                                  ? shoulder_activities
+                                                                  : widget.activity_list[
+                                                                              index] ==
+                                                                          'Biceps'
+                                                                      ? biceps_activities
+                                                                      : widget.activity_list[index] ==
+                                                                              'Triceps'
+                                                                          ? triceps_activities
+                                                                          : widget.activity_list[index] == 'Abs'
+                                                                              ? abs_activities
+                                                                              : widget.activity_list[index] == 'Back'
+                                                                                  ? back_activities
+                                                                                  : widget.activity_list[index] == 'Back'
+                                                                                      ? back_activities
+                                                                                      : widget.activity_list[index] == 'Calfs'
+                                                                                          ? calfs_activities
+                                                                                          : widget.activity_list[index] == 'Upper Legs'
+                                                                                              ? upper_legs_activities
+                                                                                              : widget.activity_list[index] == 'Cardio'
+                                                                                                  ? cardio_activities
+                                                                                                  : [],
+                                                          body_part: widget
+                                                                  .activity_list[
+                                                              index],
+                                                        )));
+                                      },
+                                      child: Container(
+                                        height: const AdaptiveScreenSize()
+                                            .getadaptiveScreenSizeHeight(
+                                                context, 50),
+                                        width: const AdaptiveScreenSize()
+                                            .getadaptiveScreenSizeWidth(
+                                                context, 150),
+                                        child: Card(
+                                          color: Theme.of(context).primaryColor,
+                                          elevation: 5,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: Center(
+                                            child: Text(
+                                              widget.activity_list[index],
+                                              style: TextStyle(
+                                                fontFamily: 'Recoleta',
+                                                fontSize:
+                                                    const AdaptiveTextSize()
+                                                        .getadaptiveTextSize(
+                                                            context, 15),
+                                                fontWeight: FontWeight.w600,
+                                                color: Theme.of(context)
+                                                    .scaffoldBackgroundColor,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -126,7 +171,7 @@ class _DayActionsWidgetState extends State<DayActionsWidget> {
                         ),
                         onPressed: () {
                           Navigator.pop(context);
-                          showAlertDialog(context,
+                          muscleSelectionPage(context,
                               title_text: 'Select the Muscle Group',
                               activity_list: widget.activity_list,
                               day: widget.day);

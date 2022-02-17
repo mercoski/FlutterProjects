@@ -1,8 +1,10 @@
+import 'package:fitness_tracker/Screens/activities.dart';
 import 'package:fitness_tracker/Screens/create_plan_page.dart';
 import 'package:fitness_tracker/Screens/program.dart';
 import 'package:fitness_tracker/Screens/stats_page.dart';
 import 'package:fitness_tracker/Utils/AdaptiveScreenSize.dart';
 import 'package:fitness_tracker/Utils/AdaptiveTextSize.dart';
+import 'package:fitness_tracker/Utils/sharedPref.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,6 +29,8 @@ class HomePage extends StatelessWidget {
                 print('asdjkakd');
               },
               onTap: () {
+                print(
+                    'Database :${Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('chest_activities')}');
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => ProgramPage()));
               },
@@ -122,7 +126,10 @@ class HomePage extends StatelessWidget {
             const Spacer(),
             //Current Stats
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                print(
+                    'Database :${Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('chest_activities')}');
+              },
               child: SizedBox(
                 height: const AdaptiveScreenSize()
                     .getadaptiveScreenSizeHeight(context, 100),

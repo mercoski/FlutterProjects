@@ -118,6 +118,13 @@ class CreatePlanPage extends StatelessWidget {
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
+                      monday_activities.clear();
+                      tuesday_activities.clear();
+                      wednesday_activities.clear();
+                      thursday_activities.clear();
+                      friday_activities.clear();
+                      saturday_activities.clear();
+                      sunday_activities.clear();
                       Navigator.pop(context);
                     },
                     child: Container(
@@ -179,6 +186,34 @@ class CreatePlanPage extends StatelessWidget {
                       friday_activities.clear();
                       saturday_activities.clear();
                       sunday_activities.clear();
+
+                      Provider.of<sharedPrefs>(context, listen: false)
+                          .saveWeightsToSharedPref(
+                              'chest_activities', selected_chest_activities);
+                      Provider.of<sharedPrefs>(context, listen: false)
+                          .saveWeightsToSharedPref('shoulders_activities',
+                              selected_shoulder_activities);
+                      Provider.of<sharedPrefs>(context, listen: false)
+                          .saveWeightsToSharedPref(
+                              'biceps_activities', selected_biceps_activities);
+                      Provider.of<sharedPrefs>(context, listen: false)
+                          .saveWeightsToSharedPref('triceps_activities',
+                              selected_triceps_activities);
+                      Provider.of<sharedPrefs>(context, listen: false)
+                          .saveWeightsToSharedPref(
+                              'abs_activities', selected_abs_activities);
+                      Provider.of<sharedPrefs>(context, listen: false)
+                          .saveWeightsToSharedPref(
+                              'back_activities', selected_back_activities);
+                      Provider.of<sharedPrefs>(context, listen: false)
+                          .saveWeightsToSharedPref(
+                              'calfs_activities', selected_calfs_activities);
+                      Provider.of<sharedPrefs>(context, listen: false)
+                          .saveWeightsToSharedPref('upper_legs_activities',
+                              selected_upper_legs_activities);
+                      Provider.of<sharedPrefs>(context, listen: false)
+                          .saveWeightsToSharedPref(
+                              'cardio_activities', selected_cardio_activities);
                       Navigator.pop(context);
                     },
                     child: Container(
