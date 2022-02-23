@@ -1,5 +1,6 @@
 import 'package:fitness_tracker/Screens/activities.dart';
 import 'package:fitness_tracker/Screens/create_plan_page.dart';
+import 'package:fitness_tracker/Screens/current_stats_page.dart';
 import 'package:fitness_tracker/Screens/program.dart';
 import 'package:fitness_tracker/Screens/stats_page.dart';
 import 'package:fitness_tracker/Utils/AdaptiveScreenSize.dart';
@@ -127,8 +128,10 @@ class HomePage extends StatelessWidget {
             //Current Stats
             GestureDetector(
               onTap: () {
-                print(
-                    'Database :${Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('chest_activities')}');
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CurrentStatsPage()));
               },
               child: SizedBox(
                 height: const AdaptiveScreenSize()
@@ -154,35 +157,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ),
-            //Boşluk
-            const Spacer(),
-            //Calorie Take
-            GestureDetector(
-              onTap: () {},
-              child: SizedBox(
-                height: const AdaptiveScreenSize()
-                    .getadaptiveScreenSizeHeight(context, 100),
-                width: const AdaptiveScreenSize()
-                    .getadaptiveScreenSizeWidth(context, 300),
-                child: Card(
-                  color: Theme.of(context).primaryColor,
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Center(
-                      child: Text(
-                    'Calorie Take',
-                    style: TextStyle(
-                      fontFamily: 'Recoleta',
-                      fontSize: const AdaptiveTextSize()
-                          .getadaptiveTextSize(context, 30),
-                      fontWeight: FontWeight.w600,
-                      color: Theme.of(context).scaffoldBackgroundColor,
-                    ),
-                  )),
-                ),
-              ),
-            ),
+
             //Boşluk
             const Spacer(),
           ],

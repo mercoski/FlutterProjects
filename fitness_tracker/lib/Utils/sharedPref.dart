@@ -16,6 +16,16 @@ class sharedPrefs with ChangeNotifier {
     _sharedPreferences?.setStringList(list_name, data);
   }
 
+  void saveMeasuresToSharedPref(String database, int measure) {
+    _sharedPreferences?.setInt(database, measure);
+  }
+
+  getSavedMeasuresFromSharedPref(
+    String database,
+  ) {
+    return _sharedPreferences?.getInt(database);
+  }
+
   getSavedWeightsFromSharedPref(
     String list_name,
   ) {
@@ -64,5 +74,37 @@ class sharedPrefs with ChangeNotifier {
     getSavedListLenght('sunday_activities') == null
         ? saveWeightsToSharedPref('sunday_activities', ['Rest Day'])
         : getSavedWeightsFromSharedPref('sunday_activities');
+
+    getSavedMeasuresFromSharedPref('height') ??
+        saveMeasuresToSharedPref('height', 170);
+
+    getSavedMeasuresFromSharedPref('weight') ??
+        saveMeasuresToSharedPref('weight', 70);
+
+    getSavedMeasuresFromSharedPref('waist') ??
+        saveMeasuresToSharedPref('waist', 80);
+
+    getSavedMeasuresFromSharedPref('neck') ??
+        saveMeasuresToSharedPref('neck', 40);
+
+    getSavedMeasuresFromSharedPref('arms') ??
+        saveMeasuresToSharedPref('arms', 30);
+
+    getSavedMeasuresFromSharedPref('chest') ??
+        saveMeasuresToSharedPref('chest', 100);
+
+    getSavedMeasuresFromSharedPref('shoulders') ??
+        saveMeasuresToSharedPref('shoulders', 110);
+
+    getSavedMeasuresFromSharedPref('forearms') ??
+        saveMeasuresToSharedPref('forearms', 30);
+
+    getSavedMeasuresFromSharedPref('hips') ??
+        saveMeasuresToSharedPref('hips', 90);
+
+    getSavedMeasuresFromSharedPref('upper_legs') ??
+        saveMeasuresToSharedPref('upper_legs', 50);
+    getSavedMeasuresFromSharedPref('calfs') ??
+        saveMeasuresToSharedPref('calfs', 30);
   }
 }
