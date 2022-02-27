@@ -17,7 +17,6 @@ import 'package:travel_app/widgets/homepage_topwidget.dart';
 
 class UserProfile extends StatelessWidget {
   UserProfile({Key? key, required this.user}) : super(key: key);
-  int EventIndex = 0;
   final UserClass? user;
   @override
   Widget build(BuildContext context) {
@@ -61,16 +60,17 @@ class UserProfile extends StatelessWidget {
                 ),
                 SizedBox(
                   height: AdaptiveScreenSize()
-                      .getadaptiveScreenSizeHeight(context, 110),
+                      .getadaptiveScreenSizeHeight(context, 130),
                   width: AdaptiveScreenSize()
                       .getadaptiveScreenSizeWidth(context, 333),
                   child: HomePageTopWidget(
                     selected: 'Itinéraires',
+                    user: user,
                   ),
                 ),
                 Container(
                   height: AdaptiveScreenSize()
-                      .getadaptiveScreenSizeHeight(context, 25),
+                      .getadaptiveScreenSizeHeight(context, 10),
                 ),
                 Container(
                   height: AdaptiveScreenSize()
@@ -102,12 +102,17 @@ class UserProfile extends StatelessWidget {
                           width: AdaptiveScreenSize()
                               .getadaptiveScreenSizeWidth(context, 20),
                         ),
-                        EventCards(),
+                        EventCards(
+                          event_id: '1',
+                          assetImage: AssetImage('assets/signin.jpg'),
+                        ),
                         Container(
                           width: AdaptiveScreenSize()
                               .getadaptiveScreenSizeWidth(context, 20),
                         ),
-                        EventCards(),
+                        EventCards(
+                            event_id: '2',
+                            assetImage: AssetImage('assets/Splace.jpg')),
                         Container(
                           width: AdaptiveScreenSize()
                               .getadaptiveScreenSizeWidth(context, 20),

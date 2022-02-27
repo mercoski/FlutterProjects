@@ -6,6 +6,7 @@ import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/utils/adaptivescreensize.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
 import 'package:travel_app/widgets/buttomnavbar.dart';
+import 'package:travel_app/widgets/mapbottomcomingscreen.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({Key? key, required this.user}) : super(key: key);
@@ -54,96 +55,8 @@ class _MapScreenState extends State<MapScreen> {
               markers: {event1},
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                SizedBox(
-                  width: AdaptiveScreenSize()
-                      .getadaptiveScreenSizeWidth(context, 172),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Spacer(),
-                      (legend_selected == true && pin_selected == false)
-                          ? Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: SizedBox(
-                                height: AdaptiveScreenSize()
-                                    .getadaptiveScreenSizeHeight(context, 234),
-                                width: AdaptiveScreenSize()
-                                    .getadaptiveScreenSizeWidth(context, 148),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Image.asset(
-                                    'assets/legend.png',
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                              ),
-                            )
-                          : (legend_selected == true && pin_selected == true)
-                              ? Card(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: SizedBox(
-                                    height: AdaptiveScreenSize()
-                                        .getadaptiveScreenSizeHeight(
-                                            context, 355),
-                                    width: AdaptiveScreenSize()
-                                        .getadaptiveScreenSizeWidth(
-                                            context, 172),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Image.asset(
-                                        'assets/legendspot.png',
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : Container(),
-                      Container(
-                        height: AdaptiveScreenSize()
-                            .getadaptiveScreenSizeHeight(context, 10),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            legend_selected = !legend_selected;
-                          });
-                        },
-                        child: Card(
-                          color: legend_selected
-                              ? Color(0xff413C3C)
-                              : Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          elevation: 0,
-                          child: SizedBox(
-                            height: AdaptiveScreenSize()
-                                .getadaptiveScreenSizeHeight(context, 38),
-                            width: AdaptiveScreenSize()
-                                .getadaptiveScreenSizeWidth(context, 100),
-                            child: Center(
-                                child: Text(
-                              'Légende',
-                              style: TextStyle(
-                                  fontFamily: 'Recoleta',
-                                  fontSize: AdaptiveTextSize()
-                                      .getadaptiveTextSize(context, 18),
-                                  fontWeight: FontWeight.w300,
-                                  color: legend_selected
-                                      ? Colors.white
-                                      : Color(0xff413C3C)),
-                            )),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 SizedBox(
                   width: AdaptiveScreenSize()
                       .getadaptiveScreenSizeWidth(context, 180),
@@ -174,14 +87,21 @@ class _MapScreenState extends State<MapScreen> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          setState(() {
-                            settings_selected = !settings_selected;
-                          });
+                          showModalBottomSheet(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            backgroundColor: Colors.white,
+                            isScrollControlled: true,
+                            isDismissible: false,
+                            context: context,
+                            builder: (builder) {
+                              return MapBottomComingScreen();
+                            },
+                          );
                         },
                         child: Card(
-                          color: settings_selected
-                              ? Color(0xff674B3F)
-                              : Colors.white,
+                          color: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(25),
                           ),
@@ -193,111 +113,10 @@ class _MapScreenState extends State<MapScreen> {
                                 .getadaptiveScreenSizeWidth(context, 50),
                             child: Icon(
                               Icons.settings_outlined,
-                              color: settings_selected ? Colors.white : null,
                             ),
                           ),
                         ),
                       ),
-                      settings_selected
-                          ? Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Container(
-                                  height: AdaptiveScreenSize()
-                                      .getadaptiveScreenSizeHeight(context, 12),
-                                ),
-                                Card(
-                                  color: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18),
-                                  ),
-                                  elevation: 0,
-                                  child: Container(
-                                    height: AdaptiveScreenSize()
-                                        .getadaptiveScreenSizeHeight(
-                                            context, 36),
-                                    width: AdaptiveScreenSize()
-                                        .getadaptiveScreenSizeWidth(
-                                            context, 153),
-                                    child: Center(
-                                        child: Text(
-                                      'En pleine nature',
-                                      style: TextStyle(
-                                          fontFamily: 'Recoleta',
-                                          fontSize: AdaptiveTextSize()
-                                              .getadaptiveTextSize(context, 14),
-                                          fontWeight: FontWeight.normal,
-                                          color: settings_selected
-                                              ? Color(0xff413C3C)
-                                              : Colors.white),
-                                    )),
-                                  ),
-                                ),
-                                Container(
-                                  height: AdaptiveScreenSize()
-                                      .getadaptiveScreenSizeHeight(context, 12),
-                                ),
-                                Card(
-                                  color: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18),
-                                  ),
-                                  elevation: 0,
-                                  child: Container(
-                                    height: AdaptiveScreenSize()
-                                        .getadaptiveScreenSizeHeight(
-                                            context, 36),
-                                    width: AdaptiveScreenSize()
-                                        .getadaptiveScreenSizeWidth(
-                                            context, 180),
-                                    child: Center(
-                                        child: Text(
-                                      'Aire de camping-car',
-                                      style: TextStyle(
-                                          fontFamily: 'Recoleta',
-                                          fontSize: AdaptiveTextSize()
-                                              .getadaptiveTextSize(context, 14),
-                                          fontWeight: FontWeight.normal,
-                                          color: settings_selected
-                                              ? Color(0xff413C3C)
-                                              : Colors.white),
-                                    )),
-                                  ),
-                                ),
-                                Container(
-                                  height: AdaptiveScreenSize()
-                                      .getadaptiveScreenSizeHeight(context, 12),
-                                ),
-                                Card(
-                                  color: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18),
-                                  ),
-                                  elevation: 0,
-                                  child: Container(
-                                    height: AdaptiveScreenSize()
-                                        .getadaptiveScreenSizeHeight(
-                                            context, 36),
-                                    width: AdaptiveScreenSize()
-                                        .getadaptiveScreenSizeWidth(
-                                            context, 108),
-                                    child: Center(
-                                        child: Text(
-                                      'Camping',
-                                      style: TextStyle(
-                                          fontFamily: 'Recoleta',
-                                          fontSize: AdaptiveTextSize()
-                                              .getadaptiveTextSize(context, 14),
-                                          fontWeight: FontWeight.normal,
-                                          color: settings_selected
-                                              ? Color(0xff413C3C)
-                                              : Colors.white),
-                                    )),
-                                  ),
-                                ),
-                              ],
-                            )
-                          : Spacer(),
                       Spacer(),
                       Card(
                         color: Colors.white,
@@ -364,36 +183,6 @@ class _MapScreenState extends State<MapScreen> {
                       Container(
                         height: AdaptiveScreenSize()
                             .getadaptiveScreenSizeHeight(context, 12),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            pin_selected = !pin_selected;
-                          });
-                        },
-                        child: Card(
-                          color:
-                              pin_selected ? Color(0xff3C575E) : Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          elevation: 0,
-                          child: SizedBox(
-                            height: AdaptiveScreenSize()
-                                .getadaptiveScreenSizeHeight(context, 50),
-                            width: AdaptiveScreenSize()
-                                .getadaptiveScreenSizeWidth(context, 50),
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: pin_selected
-                                  ? Icon(Icons.settings)
-                                  : Image.asset(
-                                      'assets/pin.png',
-                                      fit: BoxFit.cover,
-                                    ),
-                            ),
-                          ),
-                        ),
                       ),
                     ],
                   ),

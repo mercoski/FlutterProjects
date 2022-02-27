@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/utils/adaptivescreensize.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
+import 'package:travel_app/widgets/favoriteButtonWidget.dart';
 
 class EventCards extends StatelessWidget {
-  const EventCards({Key? key}) : super(key: key);
-
+  EventCards({Key? key, required this.event_id, required this.assetImage})
+      : super(key: key);
+  String event_id;
+  AssetImage assetImage;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,15 +21,34 @@ class EventCards extends StatelessWidget {
           children: [
             Expanded(
               flex: 147,
-              child: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/signin.jpg'),
-                      fit: BoxFit.cover),
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(20),
-                      topLeft: Radius.circular(20)),
-                ),
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      image:
+                          DecorationImage(image: assetImage, fit: BoxFit.cover),
+                      borderRadius: const BorderRadius.only(
+                          topRight: Radius.circular(20),
+                          topLeft: Radius.circular(20)),
+                    ),
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 165),
+                      ),
+                      FavoriteButton(
+                        eventId: event_id,
+                      ),
+                      Container(
+                        width: AdaptiveScreenSize()
+                            .getadaptiveScreenSizeWidth(context, 10),
+                      ),
+                    ],
+                  )
+                ],
               ),
             ),
             Expanded(
@@ -61,21 +83,83 @@ class EventCards extends StatelessWidget {
                               color: Color(0xff413C3C),
                             ),
                           ),
-                          Text(
-                            'Auvergne',
-                            style: GoogleFonts.poppins(
-                                fontSize: AdaptiveTextSize()
-                                    .getadaptiveTextSize(context, 14),
-                                color: Color(0xff413C3C),
-                                fontWeight: FontWeight.w500),
+                          Row(
+                            children: [
+                              Container(
+                                width: AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeWidth(context, 14),
+                                height: AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeHeight(context, 14),
+                                child: Image.asset(
+                                  'assets/locationpin.png',
+                                  fit: BoxFit.scaleDown,
+                                ),
+                              ),
+                              Container(
+                                width: AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeWidth(context, 5),
+                              ),
+                              Text(
+                                'Auvergne',
+                                style: GoogleFonts.poppins(
+                                    fontSize: AdaptiveTextSize()
+                                        .getadaptiveTextSize(context, 14),
+                                    color: Color(0xff413C3C),
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
                           ),
-                          Text(
-                            '3 spots / 36 km',
-                            style: GoogleFonts.poppins(
-                              fontSize: AdaptiveTextSize()
-                                  .getadaptiveTextSize(context, 12),
-                              color: Color(0xff7D7D7D),
-                            ),
+                          Row(
+                            children: [
+                              Container(
+                                width: AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeWidth(context, 14),
+                                height: AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeHeight(context, 14),
+                                child: Image.asset(
+                                  'assets/locationpin.png',
+                                  fit: BoxFit.scaleDown,
+                                ),
+                              ),
+                              Container(
+                                width: AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeWidth(context, 5),
+                              ),
+                              Text(
+                                '3 spots',
+                                style: GoogleFonts.poppins(
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 12),
+                                  color: Color(0xff7D7D7D),
+                                ),
+                              ),
+                              Container(
+                                width: AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeWidth(context, 30),
+                              ),
+                              Container(
+                                width: AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeWidth(context, 14),
+                                height: AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeHeight(context, 14),
+                                child: Image.asset(
+                                  'assets/locationpin.png',
+                                  fit: BoxFit.scaleDown,
+                                ),
+                              ),
+                              Container(
+                                width: AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeWidth(context, 5),
+                              ),
+                              Text(
+                                '36 km',
+                                style: GoogleFonts.poppins(
+                                  fontSize: AdaptiveTextSize()
+                                      .getadaptiveTextSize(context, 12),
+                                  color: Color(0xff7D7D7D),
+                                ),
+                              ),
+                            ],
                           )
                         ],
                       ),

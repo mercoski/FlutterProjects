@@ -22,7 +22,7 @@ class ProfilPage extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         bottomNavigationBar: BottomNavBar(
-          index: 2,
+          index: 4,
           user: user,
         ),
         body: Center(

@@ -180,7 +180,7 @@ class ProgramPage extends StatelessWidget {
                               height: const AdaptiveScreenSize()
                                   .getadaptiveScreenSizeHeight(context, 100),
                               width: const AdaptiveScreenSize()
-                                  .getadaptiveScreenSizeWidth(context, 300),
+                                  .getadaptiveScreenSizeWidth(context, 375),
                               child: Card(
                                 color: Theme.of(context).primaryColor,
                                 elevation: 5,
@@ -204,13 +204,15 @@ class ProgramPage extends StatelessWidget {
                           )
                         : Container(),
 
-                    Container(
-                      height: const AdaptiveScreenSize()
-                          .getadaptiveScreenSizeHeight(context, 20),
-                    ),
+                    Container(),
 
                     //Chest Activities
-                    Activities(activity_list: 'chest_activities'),
+                    Activities(
+                      activity_list: 'chest_activities',
+                      repeat: null,
+                      sets: null,
+                      weight: null,
+                    ),
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Shoulders')) ||
                             (weekday == 2 &&
@@ -317,7 +319,7 @@ class ProgramPage extends StatelessWidget {
                               height: const AdaptiveScreenSize()
                                   .getadaptiveScreenSizeHeight(context, 100),
                               width: const AdaptiveScreenSize()
-                                  .getadaptiveScreenSizeWidth(context, 300),
+                                  .getadaptiveScreenSizeWidth(context, 375),
                               child: Card(
                                 color: Theme.of(context).primaryColor,
                                 elevation: 5,
@@ -340,13 +342,15 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
-                    Container(
-                      height: const AdaptiveScreenSize()
-                          .getadaptiveScreenSizeHeight(context, 20),
-                    ),
+                    Container(),
 
                     //Chest Activities
-                    Activities(activity_list: 'shoulders_activities'),
+                    Activities(
+                      activity_list: 'shoulders_activities',
+                      repeat: null,
+                      sets: null,
+                      weight: null,
+                    ),
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Biceps')) ||
                             (weekday == 2 &&
@@ -452,7 +456,7 @@ class ProgramPage extends StatelessWidget {
                               height: const AdaptiveScreenSize()
                                   .getadaptiveScreenSizeHeight(context, 100),
                               width: const AdaptiveScreenSize()
-                                  .getadaptiveScreenSizeWidth(context, 300),
+                                  .getadaptiveScreenSizeWidth(context, 375),
                               child: Card(
                                 color: Theme.of(context).primaryColor,
                                 elevation: 5,
@@ -475,13 +479,15 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
-                    Container(
-                      height: const AdaptiveScreenSize()
-                          .getadaptiveScreenSizeHeight(context, 20),
-                    ),
+                    Container(),
 
                     //Chest Activities
-                    Activities(activity_list: 'biceps_activities'),
+                    Activities(
+                      activity_list: 'biceps_activities',
+                      repeat: null,
+                      sets: null,
+                      weight: null,
+                    ),
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Triceps')) ||
                             (weekday == 2 &&
@@ -588,7 +594,7 @@ class ProgramPage extends StatelessWidget {
                               height: const AdaptiveScreenSize()
                                   .getadaptiveScreenSizeHeight(context, 100),
                               width: const AdaptiveScreenSize()
-                                  .getadaptiveScreenSizeWidth(context, 300),
+                                  .getadaptiveScreenSizeWidth(context, 375),
                               child: Card(
                                 color: Theme.of(context).primaryColor,
                                 elevation: 5,
@@ -611,14 +617,15 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
-                    Container(
-                      height: const AdaptiveScreenSize()
-                          .getadaptiveScreenSizeHeight(context, 20),
-                    ),
+                    Container(),
 
                     //Chest Activities
                     Activities(
-                        activity_list: 'triceps_activities'), //Boşluk 20 birim
+                      activity_list: 'triceps_activities',
+                      repeat: null,
+                      sets: null,
+                      weight: null,
+                    ), //Boşluk 20 birim
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Abs')) ||
                             (weekday == 2 &&
@@ -724,7 +731,7 @@ class ProgramPage extends StatelessWidget {
                               height: const AdaptiveScreenSize()
                                   .getadaptiveScreenSizeHeight(context, 100),
                               width: const AdaptiveScreenSize()
-                                  .getadaptiveScreenSizeWidth(context, 300),
+                                  .getadaptiveScreenSizeWidth(context, 375),
                               child: Card(
                                 color: Theme.of(context).primaryColor,
                                 elevation: 5,
@@ -747,13 +754,15 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
-                    Container(
-                      height: const AdaptiveScreenSize()
-                          .getadaptiveScreenSizeHeight(context, 20),
-                    ),
+                    Container(),
 
                     //Chest Activities
-                    Activities(activity_list: 'abs_activities'),
+                    Activities(
+                      activity_list: 'abs_activities',
+                      repeat: null,
+                      sets: null,
+                      weight: null,
+                    ),
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Back')) ||
                             (weekday == 2 &&
@@ -859,7 +868,7 @@ class ProgramPage extends StatelessWidget {
                               height: const AdaptiveScreenSize()
                                   .getadaptiveScreenSizeHeight(context, 100),
                               width: const AdaptiveScreenSize()
-                                  .getadaptiveScreenSizeWidth(context, 300),
+                                  .getadaptiveScreenSizeWidth(context, 375),
                               child: Card(
                                 color: Theme.of(context).primaryColor,
                                 elevation: 5,
@@ -882,13 +891,15 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
-                    Container(
-                      height: const AdaptiveScreenSize()
-                          .getadaptiveScreenSizeHeight(context, 20),
-                    ),
+                    Container(),
 
                     //Chest Activities
-                    Activities(activity_list: 'back_activities'),
+                    Activities(
+                      activity_list: 'back_activities',
+                      repeat: null,
+                      sets: null,
+                      weight: null,
+                    ),
 
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Calfs')) ||
@@ -995,7 +1006,7 @@ class ProgramPage extends StatelessWidget {
                               height: const AdaptiveScreenSize()
                                   .getadaptiveScreenSizeHeight(context, 100),
                               width: const AdaptiveScreenSize()
-                                  .getadaptiveScreenSizeWidth(context, 300),
+                                  .getadaptiveScreenSizeWidth(context, 375),
                               child: Card(
                                 color: Theme.of(context).primaryColor,
                                 elevation: 5,
@@ -1018,13 +1029,15 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
-                    Container(
-                      height: const AdaptiveScreenSize()
-                          .getadaptiveScreenSizeHeight(context, 20),
-                    ),
+                    Container(),
 
                     //Chest Activities
-                    Activities(activity_list: 'calfs_activities'),
+                    Activities(
+                      activity_list: 'calfs_activities',
+                      repeat: null,
+                      sets: null,
+                      weight: null,
+                    ),
 
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Upper Legs')) ||
@@ -1132,7 +1145,7 @@ class ProgramPage extends StatelessWidget {
                               height: const AdaptiveScreenSize()
                                   .getadaptiveScreenSizeHeight(context, 100),
                               width: const AdaptiveScreenSize()
-                                  .getadaptiveScreenSizeWidth(context, 300),
+                                  .getadaptiveScreenSizeWidth(context, 375),
                               child: Card(
                                 color: Theme.of(context).primaryColor,
                                 elevation: 5,
@@ -1155,13 +1168,15 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
-                    Container(
-                      height: const AdaptiveScreenSize()
-                          .getadaptiveScreenSizeHeight(context, 20),
-                    ),
+                    Container(),
 
-                    //Chest Activities
-                    Activities(activity_list: 'upper_legs_activities'),
+                    //Upper Legs Activities
+                    Activities(
+                      activity_list: 'upper_legs_activities',
+                      repeat: null,
+                      sets: null,
+                      weight: null,
+                    ),
 
                     //Boşluk 20 birim
                     (weekday == 1 && Provider.of<sharedPrefs>(context, listen: false).getSavedWeightsFromSharedPref('monday_activities').contains('Cardio')) ||
@@ -1268,7 +1283,7 @@ class ProgramPage extends StatelessWidget {
                               height: const AdaptiveScreenSize()
                                   .getadaptiveScreenSizeHeight(context, 100),
                               width: const AdaptiveScreenSize()
-                                  .getadaptiveScreenSizeWidth(context, 300),
+                                  .getadaptiveScreenSizeWidth(context, 375),
                               child: Card(
                                 color: Theme.of(context).primaryColor,
                                 elevation: 5,
@@ -1291,13 +1306,15 @@ class ProgramPage extends StatelessWidget {
                             ),
                           )
                         : Container(),
-                    Container(
-                      height: const AdaptiveScreenSize()
-                          .getadaptiveScreenSizeHeight(context, 20),
-                    ),
+                    Container(),
 
                     //Chest Activities
-                    Activities(activity_list: 'cardio_activities'),
+                    Activities(
+                      activity_list: 'cardio_activities',
+                      repeat: null,
+                      sets: null,
+                      weight: null,
+                    ),
                     //Boşluk 20 birim
                     Container(
                       height: const AdaptiveScreenSize()

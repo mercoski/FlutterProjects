@@ -18,7 +18,7 @@ void main() async {
     ChangeNotifierProvider<sharedPrefs>(
       create: (BuildContext context) => sharedPrefs(),
     ),
-  ], child: MyApp()));
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           textTheme: const TextTheme(
               subtitle1: TextStyle(color: Colors.black),
               headline3: TextStyle(color: Colors.black))),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
