@@ -6,6 +6,7 @@ import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/utils/adaptivescreensize.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
 import 'package:travel_app/widgets/buttomnavbar.dart';
+import 'package:travel_app/widgets/favorisspotsevents.dart';
 import 'package:travel_app/widgets/mapbottomcomingscreen.dart';
 
 class MapScreen extends StatefulWidget {
@@ -21,6 +22,8 @@ class _MapScreenState extends State<MapScreen> {
   bool satallite_selected = false;
   bool settings_selected = false;
   bool pin_selected = false;
+  bool location_selected = false;
+  ScrollController _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,13 @@ class _MapScreenState extends State<MapScreen> {
     GoogleMapController? googleMapController;
     Marker event1 = Marker(
         markerId: const MarkerId('Event-1'),
-        infoWindow: const InfoWindow(
+        onTap: () {
+          setState(() {
+            location_selected = !location_selected;
+            //_scrollController.animateTo(_scrollController.position.maxScrollExtent, duration: Duration(microseconds: 300), curve: Curves.easeOut);
+          });
+        },
+        infoWindow: InfoWindow(
           title: 'Event-1',
           snippet: 'İstanbul',
         ),
@@ -180,15 +189,95 @@ class _MapScreenState extends State<MapScreen> {
                           ),
                         ),
                       ),
-                      Container(
-                        height: AdaptiveScreenSize()
-                            .getadaptiveScreenSizeHeight(context, 12),
-                      ),
+                      location_selected == false
+                          ? Container(
+                              height: AdaptiveScreenSize()
+                                  .getadaptiveScreenSizeHeight(context, 12),
+                            )
+                          : Container(
+                              height: const AdaptiveScreenSize()
+                                  .getadaptiveScreenSizeWidth(context, 120),
+                            ),
                     ],
                   ),
                 ),
               ],
             ),
+            location_selected
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                          height: const AdaptiveScreenSize()
+                              .getadaptiveScreenSizeWidth(context, 105),
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            controller: _scrollController,
+                            children: [
+                              Container(
+                                width: const AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeWidth(context, 20),
+                              ),
+                              FavorisSpotsEventCards(
+                                event_id: '1',
+                                bigIcon: const Icon(
+                                  Icons.location_city,
+                                  size: 42,
+                                ),
+                                smallIcon: const Icon(
+                                  Icons.settings,
+                                  size: 16,
+                                ),
+                                text_title: 'Nuit calme au site de la Croix',
+                                text_body:
+                                    'Lorem ipsum dolor sit amet, consectetur urna adipiscing elit. Sed do eiusmod tempor eget commodo viverra maecenas accumsan lacus vel facilisis posuere.',
+                              ),
+                              Container(
+                                width: const AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeWidth(context, 20),
+                              ),
+                              FavorisSpotsEventCards(
+                                event_id: '2',
+                                bigIcon: const Icon(
+                                  Icons.location_city,
+                                  size: 42,
+                                ),
+                                smallIcon: const Icon(
+                                  Icons.settings,
+                                  size: 16,
+                                ),
+                                text_title: 'Camping Dordogne',
+                                text_body:
+                                    'Lorem ipsum dolor sit amet, consectetur urna adipiscing elit. Sed do eiusmod tempor eget commodo viverra maecenas accumsan lacus vel facilisis posuere.',
+                              ),
+                              Container(
+                                width: const AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeWidth(context, 20),
+                              ),
+                              FavorisSpotsEventCards(
+                                event_id: '2',
+                                bigIcon: const Icon(
+                                  Icons.location_city,
+                                  size: 42,
+                                ),
+                                smallIcon: const Icon(
+                                  Icons.settings,
+                                  size: 16,
+                                ),
+                                text_title:
+                                    'Aire de Camping-Car de Saint- Just-sur-Viaur',
+                                text_body:
+                                    'Lorem ipsum dolor sit amet, consectetur urna adipiscing elit. Sed do eiusmod tempor eget commodo viverra maecenas accumsan lacus vel facilisis posuere.',
+                              ),
+                              Container(
+                                width: const AdaptiveScreenSize()
+                                    .getadaptiveScreenSizeWidth(context, 20),
+                              ),
+                            ],
+                          )),
+                    ],
+                  )
+                : Container(),
           ],
         ),
         bottomNavigationBar: BottomNavBar(

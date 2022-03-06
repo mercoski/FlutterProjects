@@ -5,9 +5,10 @@ import 'package:travel_app/models/data.dart';
 import 'package:travel_app/utils/adaptivescreensize.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
 import 'package:travel_app/widgets/favoriseventcards.dart';
+import 'package:travel_app/widgets/favorisspotsevents.dart';
 
-class FavorisItinaresBottom extends StatelessWidget {
-  const FavorisItinaresBottom({
+class FavorisSpotsBottom extends StatelessWidget {
+  const FavorisSpotsBottom({
     Key? key,
   }) : super(key: key);
 
@@ -188,31 +189,56 @@ class FavorisItinaresBottom extends StatelessWidget {
                   height: const AdaptiveScreenSize()
                       .getadaptiveScreenSizeHeight(context, 20),
                 ),
-                FavorisEventCards(
+                FavorisSpotsEventCards(
                   event_id: '1',
-                  assetImage: const AssetImage('assets/signin.jpg'),
+                  bigIcon: const Icon(
+                    Icons.location_city,
+                    size: 42,
+                  ),
+                  smallIcon: const Icon(
+                    Icons.settings,
+                    size: 16,
+                  ),
+                  text_title: 'Nuit calme au site de la Croix',
+                  text_body:
+                      'Lorem ipsum dolor sit amet, consectetur urna adipiscing elit. Sed do eiusmod tempor eget commodo viverra maecenas accumsan lacus vel facilisis posuere.',
                 ),
                 Container(
                   height: const AdaptiveScreenSize()
                       .getadaptiveScreenSizeHeight(context, 20),
                 ),
-                FavorisEventCards(
-                    event_id: '2',
-                    assetImage: const AssetImage('assets/Splace.jpg')),
+                FavorisSpotsEventCards(
+                  event_id: '2',
+                  bigIcon: const Icon(
+                    Icons.location_city,
+                    size: 42,
+                  ),
+                  smallIcon: const Icon(
+                    Icons.settings,
+                    size: 16,
+                  ),
+                  text_title: 'Camping Dordogne',
+                  text_body:
+                      'Lorem ipsum dolor sit amet, consectetur urna adipiscing elit. Sed do eiusmod tempor eget commodo viverra maecenas accumsan lacus vel facilisis posuere.',
+                ),
                 Container(
                   height: const AdaptiveScreenSize()
                       .getadaptiveScreenSizeHeight(context, 20),
                 ),
-                FavorisEventCards(
-                    event_id: '2',
-                    assetImage: const AssetImage('assets/Splace.jpg')),
-                Container(
-                  height: const AdaptiveScreenSize()
-                      .getadaptiveScreenSizeHeight(context, 20),
+                FavorisSpotsEventCards(
+                  event_id: '2',
+                  bigIcon: const Icon(
+                    Icons.location_city,
+                    size: 42,
+                  ),
+                  smallIcon: const Icon(
+                    Icons.settings,
+                    size: 16,
+                  ),
+                  text_title: 'Aire de Camping-Car de Saint- Just-sur-Viaur',
+                  text_body:
+                      'Lorem ipsum dolor sit amet, consectetur urna adipiscing elit. Sed do eiusmod tempor eget commodo viverra maecenas accumsan lacus vel facilisis posuere.',
                 ),
-                FavorisEventCards(
-                    event_id: '2',
-                    assetImage: const AssetImage('assets/Splace.jpg')),
                 Container(
                   height: const AdaptiveScreenSize()
                       .getadaptiveScreenSizeHeight(context, 20),

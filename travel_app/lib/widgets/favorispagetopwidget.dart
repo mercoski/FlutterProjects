@@ -6,6 +6,7 @@ import 'package:travel_app/pages/map.dart';
 import 'package:travel_app/utils/adaptivescreensize.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
 import 'package:travel_app/widgets/favorisitinatesbottomwidget.dart';
+import 'package:travel_app/widgets/favorisspotsbottomwidget.dart';
 import 'package:travel_app/widgets/homepagebuttons.dart';
 
 class FavorisPageTopWidget extends StatefulWidget {
@@ -96,9 +97,11 @@ class _FavorisPageTopWidgetState extends State<FavorisPageTopWidget> {
               ),
               widget.selected == 'Itinéraires'
                   ? FavorisItinaresBottom()
-                  : Container(
-                      height: AdaptiveScreenSize()
-                          .getadaptiveScreenSizeHeight(context, 620))
+                  : widget.selected == 'Spots'
+                      ? FavorisSpotsBottom()
+                      : Container(
+                          height: AdaptiveScreenSize()
+                              .getadaptiveScreenSizeHeight(context, 620))
             ],
           ),
         ),

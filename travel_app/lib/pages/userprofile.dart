@@ -7,6 +7,7 @@ import 'package:travel_app/UserClass/bottomnav.dart';
 import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/functions/loginfunction.dart';
 import 'package:travel_app/main.dart';
+import 'package:travel_app/pages/notificationspage.dart';
 import 'package:travel_app/utils/adaptivescreensize.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
 import 'package:travel_app/widgets/InputField.dart';
@@ -40,7 +41,15 @@ class UserProfile extends StatelessWidget {
           ),
           actions: [
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => NotificationPage(
+                                user: user,
+                              )));
+                },
                 icon: const Icon(
                   Icons.notifications,
                   color: Color(0xff413C3C),
