@@ -11,6 +11,12 @@ bool douche_button_clicked = false;
 bool toilettes_button_clicked = false;
 bool laverie_button_clicked = false;
 bool services_button_clicked = false;
+bool tous_button_clicked = true;
+bool avenir_button_clicked = false;
+bool encours_button_clicked = false;
+bool termine_button_clicked = false;
+
+String selectedVoyageButton = 'tous';
 
 List<String> LocationsData = [
   'Alsace',
