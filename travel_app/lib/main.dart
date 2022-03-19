@@ -13,6 +13,7 @@ import 'package:travel_app/pages/map.dart';
 import 'package:travel_app/pages/profil/profilpage.dart';
 import 'package:travel_app/pages/signuppage.dart';
 import 'package:travel_app/pages/userprofile.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   await init();

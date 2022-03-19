@@ -3,10 +3,8 @@ import 'package:travel_app/utils/adaptivescreensize.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
 
 class preparervoyagewidget extends StatelessWidget {
-  Function onTap;
   String text;
-  preparervoyagewidget({Key? key, required this.onTap, required this.text})
-      : super(key: key);
+  preparervoyagewidget({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +32,11 @@ class preparervoyagewidget extends StatelessWidget {
             textAlign: TextAlign.left,
           ),
           Spacer(),
-          IconButton(
-              onPressed: () {
-                onTap;
-              },
-              iconSize: 25,
-              icon: const Icon(
-                Icons.add,
-                color: Colors.white,
-              )),
+          const Icon(
+            Icons.add,
+            color: Colors.white,
+            size: 25,
+          ),
           Container(
               width:
                   AdaptiveScreenSize().getadaptiveScreenSizeWidth(context, 20)),

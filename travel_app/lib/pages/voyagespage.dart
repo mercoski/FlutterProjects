@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:travel_app/UserClass/bottomnav.dart';
 import 'package:travel_app/UserClass/userClass.dart';
 import 'package:travel_app/models/data.dart';
+import 'package:travel_app/pages/choisiruninitarepage.dart';
+import 'package:travel_app/pages/preparervoyagepage.dart';
 import 'package:travel_app/utils/adaptivescreensize.dart';
 import 'package:travel_app/utils/adaptivetext.dart';
 import 'package:travel_app/widgets/buttomnavbar.dart';
@@ -53,17 +55,35 @@ class _VoyagesPageState extends State<VoyagesPage> {
               height:
                   AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 20),
             ),
-            preparervoyagewidget(
-              onTap: () {},
-              text: 'Préparer un nouveau voyage',
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PreparerVoyagePage(
+                              user: widget.user,
+                            )));
+              },
+              child: preparervoyagewidget(
+                text: 'Préparer un nouveau voyage',
+              ),
             ),
             Container(
               height:
                   AdaptiveScreenSize().getadaptiveScreenSizeHeight(context, 20),
             ),
-            preparervoyagewidget(
-              onTap: () {},
-              text: 'Choisir un itinéraire personnalisable',
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ChoisirunitinerairePage(
+                              user: widget.user,
+                            )));
+              },
+              child: preparervoyagewidget(
+                text: 'Choisir un itinéraire personnalisable',
+              ),
             ),
             Container(
               height:
@@ -237,5 +257,14 @@ class _VoyagesPageState extends State<VoyagesPage> {
         ),
       ),
     );
+  }
+
+  navigatePrepaerPage() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => PreparerVoyagePage(
+                  user: widget.user,
+                )));
   }
 }
