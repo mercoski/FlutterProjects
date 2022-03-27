@@ -30,15 +30,15 @@ Future<void> signinFunction(
     );
   } on FirebaseAuthException catch (e) {
     if (e.code == 'weak-password') {
-      print('The password provided is too weak.');
       showAlertDialog(context,
-          title_text: 'Weak Password',
-          body_text: 'The password provided is too weak.');
+          title_text: 'Le mot de passe est faible',
+          body_text_1: 'Veuillez réinitialiser votre mot de',
+          body_text_2: 'passe pour vous connecter.');
     } else if (e.code == 'email-already-in-use') {
-      print('The account already exists for that email.');
       showAlertDialog(context,
-          title_text: 'Mail is already in use',
-          body_text: 'The account already exists for that email.');
+          title_text: 'Cet e-mail est déjà utilisé',
+          body_text_1: 'Connectez-vous ou choisissez une',
+          body_text_2: 'nouvelle adresse e-mail.');
     }
   }
 }

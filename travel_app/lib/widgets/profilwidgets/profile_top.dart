@@ -100,7 +100,10 @@ class _profile_topState extends State<profile_top> {
                                 .getadaptiveScreenSizeHeight(context, 115),
                             fit: BoxFit.cover,
                           )
-                        : Image.network('${widget.user?.user_image}'),
+                        : widget.user?.user_image == null
+                            ? Icon(Icons.account_box_outlined,
+                                size: 35, color: Colors.black)
+                            : Image.network('${widget.user?.user_image}'),
                   ),
                 ),
               ),

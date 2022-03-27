@@ -22,18 +22,19 @@ Future<void> loginFunction(
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         showAlertDialog(context,
-            title_text: 'Wrong Email or Password',
-            body_text:
-                'The mail or password you entered is wrong please check and enter again ');
+            title_text: 'Le mot de passe est invalide',
+            body_text_1: 'Veuillez réinitialiser votre mot de',
+            body_text_2: 'passe pour vous connecter.');
       } else if (e.code == 'wrong-password') {
         showAlertDialog(context,
-            title_text: 'Wrong Email or Password',
-            body_text:
-                'The mail or password you entered is wrong please check and enter again ');
+            title_text: 'Le mot de passe est invalide',
+            body_text_1: 'Veuillez réinitialiser votre mot de',
+            body_text_2: 'passe pour vous connecter.');
       } else {
         showAlertDialog(context,
-            title_text: 'Enter valid Email',
-            body_text: 'The mail you entered is not valid');
+            title_text: 'Le mot de passe est invalide',
+            body_text_1: 'Veuillez réinitialiser votre mot de',
+            body_text_2: 'passe pour vous connecter.');
       }
     }
   } else if (method == 'google') {
@@ -78,14 +79,14 @@ Future<void> loginFunction(
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         showAlertDialog(context,
-            title_text: 'Wrong Email or Password',
-            body_text:
-                'The mail or password you entered is wrong please check and enter again ');
+            title_text: 'Le mot de passe est invalide',
+            body_text_1: 'Veuillez réinitialiser votre mot de',
+            body_text_2: 'passe pour vous connecter.');
       } else if (e.code == 'wrong-password') {
         showAlertDialog(context,
-            title_text: 'Wrong Email or Password',
-            body_text:
-                'The mail or password you entered is wrong please check and enter again ');
+            title_text: 'Le mot de passe est invalide',
+            body_text_1: 'Veuillez réinitialiser votre mot de',
+            body_text_2: 'passe pour vous connecter.');
       }
     }
   }
