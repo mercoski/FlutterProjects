@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'FiTracker',
       theme: ThemeData(
           primaryColor: Colors.black,
           scaffoldBackgroundColor: Colors.white,

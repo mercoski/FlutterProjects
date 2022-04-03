@@ -44,7 +44,7 @@ class _ActivitiesState extends State<Activities> {
           Provider.of<sharedPrefs>(context, listen: false)
                   .getSavedListLenght(widget.activity_list) *
               const AdaptiveScreenSize()
-                  .getadaptiveScreenSizeHeight(context, 85)),
+                  .getadaptiveScreenSizeHeight(context, 90)),
       width:
           const AdaptiveScreenSize().getadaptiveScreenSizeWidth(context, 375),
       child: ListView.builder(
